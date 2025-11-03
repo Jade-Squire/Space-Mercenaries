@@ -30,5 +30,10 @@
     "NAME": "Hammer Strike",
     "DESCRIPTION": "Deal !D!*X damage and gain 1 Regen.",
     "UPGRADE_DESCRIPTION": "Deal !D!*(X+1) damage and gain 2 Regen."
+  },
+
+  "${modID}:CatapultLift": {
+    "NAME": "Catapult Lift",
+    "DESCRIPTION": "Gain !B! Block and reduce the cost of a random card in your hand by 1 this turn."
   }
 }

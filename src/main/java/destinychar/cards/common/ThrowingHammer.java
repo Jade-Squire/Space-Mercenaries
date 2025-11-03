@@ -27,6 +27,7 @@ public class ThrowingHammer extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 3;
     private static final int UPG_DAMAGE = 0;
+    private static final int SCORCH_STACKS = 1;
 
     public ThrowingHammer() {
         super(ID, info);
@@ -36,7 +37,7 @@ public class ThrowingHammer extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new Scorch(m, 4)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, SCORCH_STACKS)));
         addToBot(new CheckScorchAction(m, p));
         if(upgraded) {
             addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));

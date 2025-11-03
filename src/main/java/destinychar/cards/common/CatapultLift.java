@@ -20,8 +20,11 @@ public class CatapultLift extends BaseCard {
             2
     );
 
+    public static int BLOCK = 12;
+
     public CatapultLift() {
         super(ID, info);
+        setBlock(BLOCK);
         setCostUpgrade(1);
     }
 
@@ -49,6 +52,6 @@ public class CatapultLift extends BaseCard {
         }
         randIndex = (int)Math.floor(Math.random() * possibleCards.size());
         selectedCard = possibleCards.get(randIndex);
-        selectedCard.setCostForTurn(-1);
+        selectedCard.setCostForTurn(selectedCard.costForTurn - 1);
     }
 }
