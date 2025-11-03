@@ -1,0 +1,34 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description. NL Second line.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+
+  "${modID}:ThrowingHammer": {
+    "NAME": "Throwing Hammer",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 2 Regen. NL Apply 1 ${modID}:Scorch. NL Put this card on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 2 Regen and 1 Strength. NL Apply 1 Scorch. NL Put this card back into your hand."
+  },
+
+  "${modID}:HammerStrike": {
+    "NAME": "Hammer Strike",
+    "DESCRIPTION": "Deal !D!*X damage and gain 1 Regen.",
+    "UPGRADE_DESCRIPTION": "Deal !D!*(X+1) damage and gain 2 Regen."
+  }
+}
