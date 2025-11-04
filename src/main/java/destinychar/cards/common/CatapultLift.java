@@ -33,7 +33,7 @@ public class CatapultLift extends BaseCard {
         int randIndex;
         AbstractCard selectedCard;
 
-        addToBot(new GainBlockAction(p, 12));
+        addToBot(new GainBlockAction(p, block));
         ArrayList<AbstractCard> possibleCards = new ArrayList<>();
         for(AbstractCard c : p.hand.group) {
             if(c != this && c.costForTurn > 0) {

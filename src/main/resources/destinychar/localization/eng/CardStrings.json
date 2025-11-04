@@ -35,5 +35,11 @@
   "${modID}:CatapultLift": {
     "NAME": "Catapult Lift",
     "DESCRIPTION": "Gain !B! Block and reduce the cost of a random card in your hand by 1 this turn."
+  },
+
+  "${modID}:StrafeLift": {
+    "NAME": "Strafe Lift",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card, then discard 1 card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards, then discard 1 card."
   }
 }

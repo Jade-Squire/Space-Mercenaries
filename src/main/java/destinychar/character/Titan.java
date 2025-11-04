@@ -11,7 +11,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.green.BulletTime;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,15 +25,17 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import destinychar.cards.basic.Defend;
+import destinychar.cards.basic.Strike;
 import destinychar.cards.common.CatapultLift;
 import destinychar.cards.common.HammerStrike;
+import destinychar.cards.common.StrafeLift;
 import destinychar.cards.common.ThrowingHammer;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static destinychar.DestinyCharMod.characterPath;
-import static destinychar.DestinyCharMod.makeID;
+import static destinychar.DestinyCharMod.*;
 
 public class Titan extends CustomPlayer {
     //Stats
@@ -150,7 +151,13 @@ public class Titan extends CustomPlayer {
         retVal.add(ThrowingHammer.ID);
         retVal.add(HammerStrike.ID);
         retVal.add(CatapultLift.ID);
-        retVal.add(BulletTime.ID);
+        retVal.add(StrafeLift.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
 
         return retVal;
     }
