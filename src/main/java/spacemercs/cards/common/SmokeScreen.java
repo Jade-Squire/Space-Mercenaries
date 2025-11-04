@@ -9,8 +9,6 @@ import spacemercs.cards.actions.SmokeScreenAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
-import java.util.ArrayList;
-
 public class SmokeScreen extends BaseCard {
     public static final String ID = makeID(SmokeScreen.class.getSimpleName());
     private static final CardStats info = new CardStats(

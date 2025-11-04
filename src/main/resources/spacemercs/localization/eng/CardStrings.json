@@ -47,5 +47,11 @@
     "NAME": "Jetpack",
     "DESCRIPTION": "Gain 1 Intangible. Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain 1 Intangible."
+  },
+
+  "${modID}:IncendiaryGrenade": {
+    "NAME": "Incendiary Grenade",
+    "DESCRIPTION": "Apply 2 ${modID}:Kindle.",
+    "UPGRADE_DESCRIPTION": "Apply 2 ${modID}:Kindle. NL Gain 2 ${modID}:Cure."
   }
 }
