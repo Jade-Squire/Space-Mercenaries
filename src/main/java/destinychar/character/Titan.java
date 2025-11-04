@@ -27,10 +27,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import destinychar.cards.basic.Defend;
 import destinychar.cards.basic.Strike;
-import destinychar.cards.common.CatapultLift;
-import destinychar.cards.common.HammerStrike;
-import destinychar.cards.common.StrafeLift;
-import destinychar.cards.common.ThrowingHammer;
+import destinychar.cards.common.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -152,7 +149,7 @@ public class Titan extends CustomPlayer {
         retVal.add(HammerStrike.ID);
         retVal.add(CatapultLift.ID);
         retVal.add(StrafeLift.ID);
-        retVal.add(Strike.ID);
+        retVal.add(HighLift.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Defend.ID);

@@ -41,5 +41,11 @@
     "NAME": "Strafe Lift",
     "DESCRIPTION": "Gain !B! Block. NL Draw !M! card, then discard 1 card.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards, then discard 1 card."
+  },
+
+  "${modID}:HighLift": {
+    "NAME": "High Lift",
+    "DESCRIPTION": "Gain 1 Intangible. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible."
   }
 }
