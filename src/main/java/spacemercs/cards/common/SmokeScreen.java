@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
+import spacemercs.cards.actions.SmokeScreenAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
@@ -28,31 +29,9 @@ public class SmokeScreen extends BaseCard {
         setCostUpgrade(1);
     }
 
-    ///  CHANGE FUNCTIONALITY TO BE NEXT CARD COST REDUCED ///
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int randIndex;
-        AbstractCard selectedCard;
-
         addToBot(new GainBlockAction(p, block));
-        ArrayList<AbstractCard> possibleCards = new ArrayList<>();
-        for(AbstractCard c : p.hand.group) {
-            if(c != this && c.costForTurn > 0) {
-                possibleCards.add(c);
-            }
-        }
-        if(possibleCards.isEmpty()) {
-            if(p.hand.group.isEmpty()) {
-                return;
-            }
-            for(AbstractCard c : p.hand.group) {
-                if(c != this) {
-                    possibleCards.add(c);
-                }
-            }
-        }
-        randIndex = (int)Math.floor(Math.random() * possibleCards.size());
-        selectedCard = possibleCards.get(randIndex);
-        selectedCard.setCostForTurn(selectedCard.costForTurn - 1);
+        addToBot(new SmokeScreenAction(p, p));
     }
 }

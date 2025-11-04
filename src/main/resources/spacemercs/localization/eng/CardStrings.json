@@ -34,7 +34,7 @@
 
   "${modID}:SmokeScreen": {
     "NAME": "Smoke Screen",
-    "DESCRIPTION": "Gain !B! Block and reduce the cost of a random card in your hand by 1 this turn."
+    "DESCRIPTION": "Gain !B! Block and reduce the cost of the next card you play by 1."
   },
 
   "${modID}:TacticalStrafe": {

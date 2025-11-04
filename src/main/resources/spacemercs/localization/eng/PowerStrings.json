@@ -16,5 +16,11 @@
     "DESCRIPTIONS": [
       "Heal HP equal to your stacks of #yCure at the end of your turn. Taking damage causes you to lose half of your #yCure stacks unless you were at full health at the end of your turn."
     ]
+  },
+  "${modID}:SmokeScreenPower": {
+    "NAME": "Smoke Screen",
+    "DESCRIPTIONS": [
+      "The cost of the next card you play is reduced by #b1."
+    ]
   }
 }
