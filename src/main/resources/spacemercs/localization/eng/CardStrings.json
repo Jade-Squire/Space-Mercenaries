@@ -1,0 +1,51 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description. NL Second line.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+
+  "${modID}:ThrowingHammer": {
+    "NAME": "Throwing Hammer",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 2 ${modID}:Cure. NL Apply 1 ${modID}:Kindle. NL Put this card on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 2 ${modID}:Cure. NL Gain 1 Strength. NL Apply 1 ${modID}:Kindle. NL Return this to hand."
+  },
+
+  "${modID}:HammerStrike": {
+    "NAME": "Hammer Strike",
+    "DESCRIPTION": "Deal !D!*X damage and gain 1 ${modID}:Cure.",
+    "UPGRADE_DESCRIPTION": "Deal !D!*(X+1) damage and gain 2 ${modID}:Cure."
+  },
+
+  "${modID}:SmokeScreen": {
+    "NAME": "Smoke Screen",
+    "DESCRIPTION": "Gain !B! Block and reduce the cost of a random card in your hand by 1 this turn."
+  },
+
+  "${modID}:TacticalStrafe": {
+    "NAME": "Tactical Strafe",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card, then discard 1 card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards, then discard 1 card."
+  },
+
+  "${modID}:Jetpack": {
+    "NAME": "Jetpack",
+    "DESCRIPTION": "Gain 1 Intangible. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible."
+  }
+}
