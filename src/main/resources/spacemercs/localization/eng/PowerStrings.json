@@ -5,10 +5,16 @@
       "You are Very Cool and Strong."
     ]
   },
-  "${modID}:Scorch": {
-    "NAME": "Scorch",
+  "${modID}:Kindle": {
+    "NAME": "Kindle",
     "DESCRIPTIONS": [
-      "At #b10 stacks, #yIgnite the enemy dealing #b30 damage to it and #b15 to all others."
+      "At #b10 stacks, #yErupt the enemy dealing #b30 damage to it and #b15 to ALL others."
+    ]
+  },
+  "${modID}:Cure": {
+    "NAME": "Cure",
+    "DESCRIPTIONS": [
+      "Heal HP equal to your stacks of #yCure at the end of your turn. Taking damage causes you to lose half of your #yCure stacks unless you were at full health at the end of your turn."
     ]
   }
 }

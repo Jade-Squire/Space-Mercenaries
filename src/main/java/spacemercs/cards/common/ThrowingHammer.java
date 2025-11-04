@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.actions.CheckKindleAction;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.powers.Cure;
 import spacemercs.powers.Kindle;
 import spacemercs.util.CardStats;
 
@@ -27,7 +28,9 @@ public class ThrowingHammer extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 3;
     private static final int UPG_DAMAGE = 0;
-    private static final int SCORCH_STACKS = 1;
+    private static final int KINDLE_STACKS = 1;
+    private static final int CURE_STACKS = 2;
+    private static final int STRENGTH_STACKS = 1;
 
     public ThrowingHammer() {
         super(ID, info);
@@ -37,11 +40,12 @@ public class ThrowingHammer extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new Kindle(m, SCORCH_STACKS)));
-        addToBot(new CheckKindleAction(m, p));
         if(upgraded) {
-            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
+            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH_STACKS)));
         }
+        addToBot(new ApplyPowerAction(p, p, new Cure(p, CURE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Kindle(m, KINDLE_STACKS)));
+        addToBot(new CheckKindleAction(m, p));
     }
 
     @Override

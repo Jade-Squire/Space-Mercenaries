@@ -28,8 +28,8 @@
 
   "${modID}:HammerStrike": {
     "NAME": "Hammer Strike",
-    "DESCRIPTION": "Deal !D!*X damage and gain 1 ${modID}:Cure.",
-    "UPGRADE_DESCRIPTION": "Deal !D!*(X+1) damage and gain 2 ${modID}:Cure."
+    "DESCRIPTION": "Deal !D!*X damage and gain X ${modID}:Cure.",
+    "UPGRADE_DESCRIPTION": "Deal !D!*(X+1) damage and gain 2*(X+1) ${modID}:Cure."
   },
 
   "${modID}:SmokeScreen": {

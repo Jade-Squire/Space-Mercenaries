@@ -28,6 +28,7 @@ public class SmokeScreen extends BaseCard {
         setCostUpgrade(1);
     }
 
+    ///  CHANGE FUNCTIONALITY TO BE NEXT CARD COST REDUCED ///
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int randIndex;
