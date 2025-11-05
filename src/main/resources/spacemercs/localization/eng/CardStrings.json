@@ -68,5 +68,40 @@
     "NAME": "Ashes to Ashes",
     "DESCRIPTION": "When you play a card containing \"Grenade\", return it to your hand.",
     "UPGRADE_DESCRIPTION": "Innate. NL When you play a card containing \"Grenade\", return it to your hand."
+  },
+
+  "${modID}:SolarRampart": {
+    "NAME": "Solar Rampart",
+    "DESCRIPTION": "If the last card played this combat was a skill, gain !B! Block and !M! ${modID}:Cure."
+  },
+
+  "${modID}:FierySplendor": {
+    "NAME": "Fiery Splendor",
+    "DESCRIPTION": "Double your ${modID}:Cure. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Double your ${modID}:Cure. NL Double ALL ${modID}:Kindle. NL Exhaust."
+  },
+
+  "${modID}:Cauterize": {
+    "NAME": "Cauterize",
+    "DESCRIPTION": "Apply 2*X ${modID}:Kindle.",
+    "UPGRADE_DESCRIPTION": "Apply 2*X ${modID}:Kindle. NL Gain 2*X ${modID}:Cure."
+  },
+
+  "${modID}:BringTheHeat": {
+    "NAME": "Bring the Heat",
+    "DESCRIPTION": "Deal damage equal to your ${modID}:Cure to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to double your ${modID}:Cure to ALL enemies."
+  },
+
+  "${modID}:BurningFists": {
+    "NAME": "Burning Fists",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Apply ${modID}:Kindle equal to your ${modID}:Cure.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply ${modID}:Kindle equal to your ${modID}:Cure."
+  },
+
+  "${modID}:PercussiveFlames": {
+    "NAME": "Percussive Flames",
+    "DESCRIPTION": "When you apply ${modID}:Kindle, apply 1 more. NL Add !M! Burns to your hand.",
+    "UPGRADE_DESCRIPTION": "When you apply ${modID}:Kindle, apply 1 more. NL Add !M! Burn to your hand."
   }
 }

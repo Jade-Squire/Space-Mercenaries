@@ -35,5 +35,12 @@
     "DESCRIPTIONS": [
       "When you play a card containing \"Grenade\", return it to your hand."
     ]
+  },
+  "${modID}:PercussiveFlamesPower": {
+    "NAME": "Percussive Flames",
+    "DESCRIPTIONS": [
+      "When you apply #yKindle, apply ",
+      " more."
+    ]
   }
 }

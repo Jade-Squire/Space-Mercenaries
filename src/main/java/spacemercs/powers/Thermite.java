@@ -26,8 +26,9 @@ public class Thermite extends BasePower{
     }
 
     public void atStartOfTurn() {
+        flash();
         for(AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(e, owner, new Kindle(e, amount), amount));
+            addToBot(new ApplyPowerAction(e, owner, new Kindle(e, amount)));
             addToBot(new CheckForEruption(e, owner));
         }
     }

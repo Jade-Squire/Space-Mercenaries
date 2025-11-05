@@ -39,6 +39,8 @@ public class CheckForEruption extends AbstractGameAction {
                     }
                     this.firstFrame = false;
                 }
+            } else {
+                this.isDone = true;
             }
         }
         this.tickDuration();

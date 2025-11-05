@@ -2,6 +2,7 @@ package spacemercs.powers;
 
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
@@ -18,6 +19,9 @@ public class Kindle extends BasePower{
 
     public Kindle(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+        if (AbstractDungeon.player.hasPower(PercussiveFlamesPower.POWER_ID)) {
+            this.amount += AbstractDungeon.player.getPower(PercussiveFlamesPower.POWER_ID).amount;
+        }
     }
 
     public void updateDescription() {

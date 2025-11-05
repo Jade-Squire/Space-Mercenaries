@@ -25,12 +25,9 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import spacemercs.cards.basic.Defend;
 import spacemercs.cards.common.*;
-import spacemercs.cards.rare.AshesToAshes;
-import spacemercs.cards.uncommon.FusionGrenade;
-import spacemercs.cards.uncommon.IncendiaryGrenade;
-import spacemercs.cards.uncommon.ThermiteGrenade;
+import spacemercs.cards.rare.*;
+import spacemercs.cards.uncommon.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -46,7 +43,7 @@ public class Cosmopaladin extends CustomPlayer {
     public static final int ORB_SLOTS = 0;
 
     //Strings
-    private static final String ID = makeID("Destiny Character"); //This should match whatever you have in the CharacterStrings.json file
+    private static final String ID = makeID(Cosmopaladin.class.getSimpleName()); //This should match whatever you have in the CharacterStrings.json file
     private static String[] getNames() { return CardCrawlGame.languagePack.getCharacterString(ID).NAMES; }
     private static String[] getText() { return CardCrawlGame.languagePack.getCharacterString(ID).TEXT; }
 
@@ -55,7 +52,7 @@ public class Cosmopaladin extends CustomPlayer {
         //These are used to identify your character, as well as your character's card color.
         //Library color is basically the same as card color, but you need both because that's how the game was made.
         @SpireEnum
-        public static PlayerClass DESTINY_CHARACTER;
+        public static PlayerClass COSMOPALADIN;
         @SpireEnum(name = "CHARACTER_GRAY_COLOR") // These two MUST match. Change it to something unique for your character.
         public static AbstractCard.CardColor CARD_COLOR;
         @SpireEnum(name = "CHARACTER_GRAY_COLOR") @SuppressWarnings("unused")
@@ -126,7 +123,7 @@ public class Cosmopaladin extends CustomPlayer {
     //Actual character class code below this point
 
     public Cosmopaladin() {
-        super(getNames()[0], Meta.DESTINY_CHARACTER,
+        super(getNames()[0], Meta.COSMOPALADIN,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), //Energy Orb
                 new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
 
@@ -148,16 +145,16 @@ public class Cosmopaladin extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(ThrowingHammer.ID);
-        retVal.add(HammerStrike.ID);
-        retVal.add(SmokeScreen.ID);
-        retVal.add(TacticalStrafe.ID);
-        retVal.add(Jetpack.ID);
         retVal.add(IncendiaryGrenade.ID);
         retVal.add(ThermiteGrenade.ID);
         retVal.add(FusionGrenade.ID);
         retVal.add(AshesToAshes.ID);
-        retVal.add(Defend.ID);
+        retVal.add(SolarRampart.ID);
+        retVal.add(FierySplendor.ID);
+        retVal.add(Cauterize.ID);
+        retVal.add(BringTheHeat.ID);
+        retVal.add(BurningFists.ID);
+        retVal.add(PercussiveFlames.ID);
 
         return retVal;
     }
