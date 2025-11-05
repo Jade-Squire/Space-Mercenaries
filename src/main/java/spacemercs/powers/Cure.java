@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
@@ -38,7 +39,9 @@ public class Cure extends BasePower{
 
     @Override
     public void atStartOfTurn() {
-        addToBot(new HealAction(owner, owner, amount));
+        if(!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            addToBot(new HealAction(owner, owner, amount));
+        }
     }
 
     public void updateDescription() {

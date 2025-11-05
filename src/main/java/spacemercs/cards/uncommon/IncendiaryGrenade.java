@@ -19,27 +19,25 @@ public class IncendiaryGrenade extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             AbstractCard.CardTarget.ENEMY,
-            0
+            1
     );
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int KINDLE_STACKS = 2;
-    private static final int CURE_STACKS = 0;
-    private static final int UPG_CURE_STACKS = 2;
+    private static final int KINDLE_STACKS = 3;
+    private static final int UPG_KINDLE_STACKS = 2;
+    private static final int CURE_STACKS = 3;
 
     public IncendiaryGrenade() {
         super(ID, info);
-        setMagic(CURE_STACKS, UPG_CURE_STACKS);
+        setMagic(KINDLE_STACKS, UPG_KINDLE_STACKS);
         tags.add(SpaceMercsCustomTags.GRENADE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new Kindle(m, KINDLE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Kindle(m, magicNumber)));
         addToBot(new CheckForEruption(m, p));
-        if(upgraded) {
-            addToBot(new ApplyPowerAction(p, p, new Cure(p, magicNumber), magicNumber));
-        }
+        addToBot(new ApplyPowerAction(p, p, new Cure(p, CURE_STACKS), CURE_STACKS));
     }
 }

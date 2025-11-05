@@ -51,8 +51,7 @@
 
   "${modID}:IncendiaryGrenade": {
     "NAME": "Incendiary Grenade",
-    "DESCRIPTION": "Apply 2 ${modID}:Kindle.",
-    "UPGRADE_DESCRIPTION": "Apply 2 ${modID}:Kindle. NL Gain 2 ${modID}:Cure."
+    "DESCRIPTION": "Apply !M! ${modID}:Kindle. NL Gain 3 ${modID}:Cure."
   },
 
   "${modID}:ThermiteGrenade": {
