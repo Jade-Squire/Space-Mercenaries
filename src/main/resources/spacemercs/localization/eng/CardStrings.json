@@ -28,8 +28,8 @@
 
   "${modID}:HammerStrike": {
     "NAME": "Hammer Strike",
-    "DESCRIPTION": "Deal !D!*X damage and gain X ${modID}:Cure.",
-    "UPGRADE_DESCRIPTION": "Deal !D!*(X+1) damage and gain 2*(X+1) ${modID}:Cure."
+    "DESCRIPTION": "Deal !D!*X damage. NL Gain X ${modID}:Cure.",
+    "UPGRADE_DESCRIPTION": "Deal !D!*(X+1) damage. NL Gain 2*(X+1) ${modID}:Cure."
   },
 
   "${modID}:SmokeScreen": {
@@ -57,5 +57,16 @@
   "${modID}:ThermiteGrenade": {
     "NAME": "Thermite Grenade",
     "DESCRIPTION": "At the start of your turn, apply !M! ${modID}:Kindle to ALL enemies."
+  },
+
+  "${modID}:FusionGrenade": {
+    "NAME": "Fusion Grenade",
+    "DESCRIPTION": "Deal !D! damage. NL Apply 2 ${modID}:Kindle."
+  },
+
+  "${modID}:AshesToAshes": {
+    "NAME": "Ashes to Ashes",
+    "DESCRIPTION": "When you play a card containing \"Grenade\", return it to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL When you play a card containing \"Grenade\", return it to your hand."
   }
 }

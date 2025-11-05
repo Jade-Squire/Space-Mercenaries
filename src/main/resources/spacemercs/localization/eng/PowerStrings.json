@@ -29,5 +29,11 @@
       "At the start of your turn, apply #b",
       " stacks of #yKindle to ALL enemies"
     ]
+  },
+  "${modID}:AshesToAshesPower": {
+    "NAME": "Ashes to Ashes",
+    "DESCRIPTIONS": [
+      "When you play a card containing \"Grenade\", return it to your hand."
+    ]
   }
 }

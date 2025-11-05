@@ -27,6 +27,8 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import spacemercs.cards.basic.Defend;
 import spacemercs.cards.common.*;
+import spacemercs.cards.rare.AshesToAshes;
+import spacemercs.cards.uncommon.FusionGrenade;
 import spacemercs.cards.uncommon.IncendiaryGrenade;
 import spacemercs.cards.uncommon.ThermiteGrenade;
 
@@ -153,8 +155,8 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(Jetpack.ID);
         retVal.add(IncendiaryGrenade.ID);
         retVal.add(ThermiteGrenade.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
+        retVal.add(FusionGrenade.ID);
+        retVal.add(AshesToAshes.ID);
         retVal.add(Defend.ID);
 
         return retVal;

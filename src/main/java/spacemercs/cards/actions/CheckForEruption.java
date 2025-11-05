@@ -22,8 +22,6 @@ public class CheckForEruption extends AbstractGameAction {
         this.setValues(target, owner);
     }
 
-
-    /// CHANGE THIS TO CALL DAMAGEACTION ON ALL ENEMIES INSTEAD SO I CAN CUSTOM APPLY DAMAGE EFFECTS (STRENGTH SHOULD NOT BE APPLIED) ///
     @Override
     public void update() {
         if(target.hasPower(Kindle.POWER_ID)) {
