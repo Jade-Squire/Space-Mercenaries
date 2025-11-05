@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.actions.CheckKindleAction;
+import spacemercs.cards.actions.CheckForEruption;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.powers.Kindle;
@@ -45,7 +45,7 @@ public class ThrowingHammer extends BaseCard {
         }
         addToBot(new ApplyPowerAction(p, p, new Cure(p, CURE_STACKS)));
         addToBot(new ApplyPowerAction(m, p, new Kindle(m, KINDLE_STACKS)));
-        addToBot(new CheckKindleAction(m, p));
+        addToBot(new CheckForEruption(m, p));
     }
 
     @Override

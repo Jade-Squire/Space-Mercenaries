@@ -22,5 +22,12 @@
     "DESCRIPTIONS": [
       "The cost of the next card you play is reduced by #b1."
     ]
+  },
+  "${modID}:Thermite": {
+    "NAME": "Thermite",
+    "DESCRIPTIONS": [
+      "At the start of your turn, apply #b",
+      " stacks of #yKindle to ALL enemies"
+    ]
   }
 }

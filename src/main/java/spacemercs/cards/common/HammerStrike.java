@@ -45,10 +45,12 @@ public class HammerStrike extends BaseCard {
             effect += 2;
         }
         addToBot(new DamageAction(m, new DamageInfo(p, effect * damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        if(upgraded) {
-            addToBot(new ApplyPowerAction(p, p, new Cure(p, effect * 2)));
-        } else {
-            addToBot(new ApplyPowerAction(p, p, new Cure(p, effect)));
+        if(effect > 0) {
+            if (upgraded) {
+                addToBot(new ApplyPowerAction(p, p, new Cure(p, effect * 2)));
+            } else {
+                addToBot(new ApplyPowerAction(p, p, new Cure(p, effect)));
+            }
         }
 
         p.energy.use(EnergyPanel.totalCount);

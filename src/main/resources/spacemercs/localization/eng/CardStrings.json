@@ -53,5 +53,10 @@
     "NAME": "Incendiary Grenade",
     "DESCRIPTION": "Apply 2 ${modID}:Kindle.",
     "UPGRADE_DESCRIPTION": "Apply 2 ${modID}:Kindle. NL Gain 2 ${modID}:Cure."
+  },
+
+  "${modID}:ThermiteGrenade": {
+    "NAME": "Thermite Grenade",
+    "DESCRIPTION": "At the start of your turn, apply !M! ${modID}:Kindle to ALL enemies."
   }
 }

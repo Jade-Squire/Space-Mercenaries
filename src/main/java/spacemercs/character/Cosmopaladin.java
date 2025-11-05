@@ -26,9 +26,9 @@ import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import spacemercs.cards.basic.Defend;
-import spacemercs.cards.basic.Strike;
 import spacemercs.cards.common.*;
 import spacemercs.cards.uncommon.IncendiaryGrenade;
+import spacemercs.cards.uncommon.ThermiteGrenade;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -152,7 +152,7 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(TacticalStrafe.ID);
         retVal.add(Jetpack.ID);
         retVal.add(IncendiaryGrenade.ID);
-        retVal.add(Strike.ID);
+        retVal.add(ThermiteGrenade.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
