@@ -29,7 +29,6 @@ public class Cure extends BasePower{
         OVERRODE_CAN_LOSE = true;
     }
 
-    @Override
     public void atEndOfTurn(boolean isPlayer) {
         if(isPlayer){
             if(!OVERRODE_CAN_LOSE) {
@@ -39,14 +38,12 @@ public class Cure extends BasePower{
         }
     }
 
-    @Override
     public void wasHPLost(DamageInfo info, int damageAmount) {
         if(CAN_LOSE_STACKS) {
             addToTop(new ReducePowerAction(owner, owner, this, (int)Math.ceil(amount / 2.0)));
         }
     }
 
-    @Override
     public void atStartOfTurn() {
         if(!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             addToBot(new HealAction(owner, owner, amount));

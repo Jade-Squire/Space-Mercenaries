@@ -168,6 +168,7 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(ForgeMaster.ID);
         retVal.add(SunfireFurnace.ID);
         retVal.add(PhoenixRising.ID);
+        retVal.add(BurningTreads.ID);
 
         return retVal;
     }

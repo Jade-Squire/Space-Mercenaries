@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.actions.CheckForEruption;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.powers.Kindle;
@@ -37,7 +36,6 @@ public class IncendiaryGrenade extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new Kindle(m, magicNumber)));
-        addToBot(new CheckForEruption(m, p));
         addToBot(new ApplyPowerAction(p, p, new Cure(p, CURE_STACKS), CURE_STACKS));
     }
 }

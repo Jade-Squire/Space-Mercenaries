@@ -20,9 +20,7 @@ public class AshesToAshesPower extends BasePower {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
-    @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        super.onAfterCardPlayed(usedCard);
         if(usedCard.hasTag(SpaceMercsCustomTags.GRENADE)) {
             usedCard.returnToHand = true;
         }

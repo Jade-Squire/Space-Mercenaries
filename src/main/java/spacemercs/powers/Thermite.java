@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import spacemercs.cards.actions.CheckForEruption;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
@@ -29,7 +28,6 @@ public class Thermite extends BasePower{
         flash();
         for(AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
             addToBot(new ApplyPowerAction(e, owner, new Kindle(e, amount)));
-            addToBot(new CheckForEruption(e, owner));
         }
     }
 }

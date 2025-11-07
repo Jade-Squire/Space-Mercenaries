@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import spacemercs.cards.actions.CheckForEruption;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
@@ -34,5 +35,15 @@ public class Kindle extends BasePower{
         } else {
             lastStack = owner.getPower(POWER_ID).amount;
         }
+    }
+
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+        addToBot(new CheckForEruption(owner, owner));
+    }
+
+    public void onInitialApplication() {
+        addToBot(new CheckForEruption(owner, owner));
     }
 }

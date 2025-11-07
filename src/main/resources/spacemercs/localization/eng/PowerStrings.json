@@ -42,5 +42,12 @@
       "When you apply #yKindle, apply ",
       " more."
     ]
+  },
+  "${modID}:BurningTreadsPower": {
+    "NAME": "Burning Treads",
+    "DESCRIPTIONS": [
+      "Whenever you play a card this turn, apply #b",
+      " #yKindle to this enemy."
+    ]
   }
 }

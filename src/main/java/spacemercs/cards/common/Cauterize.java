@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.actions.CheckForEruption;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.powers.Kindle;
@@ -35,7 +34,6 @@ public class Cauterize extends BaseCard {
         }
         if(effect > 0) {
             addToBot(new ApplyPowerAction(m, p, new Kindle(m, 2 * effect)));
-            addToBot(new CheckForEruption(m, p));
             if(upgraded) {
                 addToBot(new ApplyPowerAction(p, p, new Cure(p, 2 * effect)));
             }

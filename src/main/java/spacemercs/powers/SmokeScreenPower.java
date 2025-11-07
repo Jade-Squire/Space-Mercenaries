@@ -20,9 +20,7 @@ public class SmokeScreenPower extends BasePower{
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
-    @Override
     public void onPlayCard(AbstractCard card, AbstractMonster monster) {
-        super.onPlayCard(card, monster);
         card.isCostModified = false;
         ArrayList<AbstractCard> hand = AbstractDungeon.player.hand.group;
 
@@ -36,16 +34,13 @@ public class SmokeScreenPower extends BasePower{
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
-    @Override
     public void onCardDraw(AbstractCard card) {
-        super.onCardDraw(card);
         if(card.costForTurn > 0) {
             card.costForTurn -= 1;
             card.isCostModified = true;
         }
     }
 
-    @Override
     public void atEndOfTurn(boolean isPlayer) {
         if(isPlayer) {
             ArrayList<AbstractCard> hand = AbstractDungeon.player.hand.group;

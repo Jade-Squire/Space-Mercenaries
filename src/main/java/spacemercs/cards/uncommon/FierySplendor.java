@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.actions.CheckForEruption;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.powers.Kindle;
@@ -35,7 +34,6 @@ public class FierySplendor extends BaseCard {
             for (AbstractMonster e : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if(e.hasPower(Kindle.POWER_ID)) {
                     addToBot(new ApplyPowerAction(e, p, new Kindle(e, e.getPower(Kindle.POWER_ID).amount)));
-                    addToBot(new CheckForEruption(e, p));
                 }
             }
         }

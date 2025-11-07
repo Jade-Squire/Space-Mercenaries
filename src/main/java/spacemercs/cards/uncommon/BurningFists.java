@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.actions.CheckForEruption;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.powers.Kindle;
@@ -36,7 +35,6 @@ public class BurningFists extends BaseCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if(p.hasPower(Cure.POWER_ID)) {
             addToBot(new ApplyPowerAction(m, p, new Kindle(m, p.getPower(Cure.POWER_ID).amount)));
-            addToBot(new CheckForEruption(m, p));
         }
     }
 }
