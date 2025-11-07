@@ -25,6 +25,8 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import spacemercs.cards.basic.Defend;
+import spacemercs.cards.basic.Strike;
 import spacemercs.cards.common.*;
 import spacemercs.cards.rare.*;
 import spacemercs.cards.uncommon.*;
@@ -145,6 +147,13 @@ public class Cosmopaladin extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(ThrowingHammer.ID);
+        retVal.add(HammerStrike.ID);
+        retVal.add(SmokeScreen.ID);
+        retVal.add(TacticalStrafe.ID);
+        retVal.add(Jetpack.ID);
         retVal.add(IncendiaryGrenade.ID);
         retVal.add(ThermiteGrenade.ID);
         retVal.add(FusionGrenade.ID);
@@ -155,6 +164,10 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(BringTheHeat.ID);
         retVal.add(BurningFists.ID);
         retVal.add(PercussiveFlames.ID);
+        retVal.add(Consecrate.ID);
+        retVal.add(ForgeMaster.ID);
+        retVal.add(SunfireFurnace.ID);
+        retVal.add(PhoenixRising.ID);
 
         return retVal;
     }

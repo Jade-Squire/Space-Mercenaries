@@ -38,9 +38,11 @@
   {
     "PROPER_NAME": "Erupt",
     "NAMES": [
-      "erupt"
+      "erupt",
+      "eruption",
+      "eruptions"
     ],
-    "DESCRIPTION": "Deal 30 damage to #yErupted enemy and #b15 to ALL others."
+    "DESCRIPTION": "Deal 30 damage to #yErupted enemy and 15 to ALL others."
   },
   {
     "PROPER_NAME": "Cure",

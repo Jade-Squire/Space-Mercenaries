@@ -14,6 +14,7 @@ public class Cure extends BasePower{
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     private static boolean CAN_LOSE_STACKS = true;
+    private static boolean OVERRODE_CAN_LOSE = false;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
     //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
     //For a power to actually decrease/go away on its own they do it themselves.
@@ -23,10 +24,18 @@ public class Cure extends BasePower{
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
+    public void overrideCanLoseStacks(boolean canLoseStacks) {
+        CAN_LOSE_STACKS = canLoseStacks;
+        OVERRODE_CAN_LOSE = true;
+    }
+
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if(isPlayer){
-            CAN_LOSE_STACKS = owner.currentHealth < owner.maxHealth;
+            if(!OVERRODE_CAN_LOSE) {
+                CAN_LOSE_STACKS = owner.currentHealth < owner.maxHealth;
+            }
+            OVERRODE_CAN_LOSE = false;
         }
     }
 

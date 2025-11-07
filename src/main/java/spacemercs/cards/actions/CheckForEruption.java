@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import spacemercs.powers.ForgeMasterPower;
 import spacemercs.powers.Kindle;
 
 import java.util.Objects;
@@ -17,6 +18,7 @@ public class CheckForEruption extends AbstractGameAction {
 
     private static final int DAMAGE_ON_ERUPT = 30;
     private static final int DAMAGE_OTHERS_ON_ERUPT = 15;
+    private static final int DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER = 30;
 
     public CheckForEruption(AbstractCreature target, AbstractCreature owner) {
         this.setValues(target, owner);
@@ -53,7 +55,11 @@ public class CheckForEruption extends AbstractGameAction {
                             info = new DamageInfo(AbstractDungeon.player, DAMAGE_ON_ERUPT, DamageInfo.DamageType.NORMAL);
 
                         } else {
-                            info = new DamageInfo(AbstractDungeon.player, DAMAGE_OTHERS_ON_ERUPT, DamageInfo.DamageType.NORMAL);
+                            if(AbstractDungeon.player.hasPower(ForgeMasterPower.POWER_ID)) {
+                                info = new DamageInfo(AbstractDungeon.player, DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER, DamageInfo.DamageType.NORMAL);
+                            } else {
+                                info = new DamageInfo(AbstractDungeon.player, DAMAGE_OTHERS_ON_ERUPT, DamageInfo.DamageType.NORMAL);
+                            }
                         }
                         e.tint.color = Color.RED.cpy();
                         e.tint.changeColor(Color.WHITE.cpy());

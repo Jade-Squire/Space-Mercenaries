@@ -103,5 +103,25 @@
     "NAME": "Percussive Flames",
     "DESCRIPTION": "When you apply ${modID}:Kindle, apply 1 more. NL Add !M! Burns to your hand.",
     "UPGRADE_DESCRIPTION": "When you apply ${modID}:Kindle, apply 1 more. NL Add !M! Burn to your hand."
+  },
+
+  "${modID}:Consecrate": {
+    "NAME": "Consecrate",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. Heal HP equal to unblocked damage."
+  },
+
+  "${modID}:ForgeMaster": {
+    "NAME": "Forge Master",
+    "DESCRIPTION": "${modID}:Eruptions you cause deal 30 damage to other enemies instead of 15."
+  },
+
+  "${modID}:SunfireFurnace": {
+    "NAME": "Sunfire Furnace",
+    "DESCRIPTION": "Gain !M! ${modID}:Cure. You cannot lose ${modID}:Cure until your next turn."
+  },
+
+  "${modID}:PhoenixRising": {
+    "NAME": "Phoenix Rising",
+    "DESCRIPTION": "Gain !B! ${modID}:Cure. NL Permanently increase this card's ${modID}:Cure by 1. NL Exhaust."
   }
 }
