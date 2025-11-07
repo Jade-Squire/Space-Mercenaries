@@ -128,5 +128,10 @@
   "${modID}:BurningTreads": {
     "NAME": "Burning Treads",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Kindle. NL Whenever you play a card this turn, the enemy gains 1 ${modID}:Kindle."
+  },
+
+  "${modID}:Firewalker": {
+    "NAME": "Firewalker",
+    "DESCRIPTION": "Ethereal. NL Apply !M! ${modID}:Kindle to ALL enemies. NL Gain 1 Artifact."
   }
 }

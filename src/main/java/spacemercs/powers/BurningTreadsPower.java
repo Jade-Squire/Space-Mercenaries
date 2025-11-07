@@ -12,7 +12,7 @@ import static spacemercs.SpaceMercsMod.makeID;
 
 public class BurningTreadsPower extends BasePower {
     public static final String POWER_ID = makeID(BurningTreadsPower.class.getSimpleName());
-    private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
+    private static final AbstractPower.PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
     private static final int KINDLE_STACKS = 1;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
