@@ -4,12 +4,12 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import spacemercs.cards.actions.CheckForEruption;
+import spacemercs.cards.actions.CheckForIgnition;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class Kindle extends BasePower{
-    public static final String POWER_ID = makeID(Kindle.class.getSimpleName());
+public class Scorch extends BasePower{
+    public static final String POWER_ID = makeID(Scorch.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
     private int lastStack = -1;
@@ -18,7 +18,7 @@ public class Kindle extends BasePower{
     //For a power to actually decrease/go away on its own they do it themselves.
     //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
-    public Kindle(AbstractCreature owner, int amount) {
+    public Scorch(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
         if (AbstractDungeon.player.hasPower(PercussiveFlamesPower.POWER_ID)) {
             this.amount += AbstractDungeon.player.getPower(PercussiveFlamesPower.POWER_ID).amount;
@@ -31,7 +31,7 @@ public class Kindle extends BasePower{
 
     public void atStartOfTurn() {
         if(lastStack == owner.getPower(POWER_ID).amount) {
-            addToBot(new RemoveSpecificPowerAction(owner, owner, Kindle.POWER_ID));
+            addToBot(new RemoveSpecificPowerAction(owner, owner, Scorch.POWER_ID));
         } else {
             lastStack = owner.getPower(POWER_ID).amount;
         }
@@ -40,10 +40,10 @@ public class Kindle extends BasePower{
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
-        addToBot(new CheckForEruption(owner, owner));
+        addToBot(new CheckForIgnition(owner, owner));
     }
 
     public void onInitialApplication() {
-        addToBot(new CheckForEruption(owner, owner));
+        addToBot(new CheckForIgnition(owner, owner));
     }
 }

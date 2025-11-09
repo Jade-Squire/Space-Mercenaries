@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
-import spacemercs.powers.Kindle;
+import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
 public class FusionGrenade extends BaseCard {
@@ -38,6 +38,6 @@ public class FusionGrenade extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new Kindle(m, KINDLE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, KINDLE_STACKS)));
     }
 }

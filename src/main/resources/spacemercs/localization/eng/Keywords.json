@@ -29,20 +29,21 @@
     "COLOR": "fc83da"
   },
   {
-    "PROPER_NAME": "Kindle",
+    "PROPER_NAME": "Scorch",
     "NAMES": [
-      "kindle"
+      "scorch"
     ],
-    "DESCRIPTION": "When #b10 stacks are reached, #yErupt the enemy dealing #b30 damage to #yErupted enemy and #b15 to ALL others. If the enemy gains no #yKindle this turn, ALL #yKindle is removed."
+    "DESCRIPTION": "When #b10 stacks are reached, #yIgnite the enemy dealing #b30 damage to #yIgnite enemy and #b15 to ALL others. If the enemy gains no #yScorch this turn, ALL #yScorch is removed."
   },
   {
-    "PROPER_NAME": "Erupt",
+    "PROPER_NAME": "Ignition",
     "NAMES": [
-      "erupt",
-      "eruption",
-      "eruptions"
+      "ignite",
+      "ignition",
+      "ignitions",
+      "ignited"
     ],
-    "DESCRIPTION": "Deal 30 damage to #yErupted enemy and 15 to ALL others."
+    "DESCRIPTION": "Deal 30 damage to #yIgnited enemy and 15 to ALL others."
   },
   {
     "PROPER_NAME": "Cure",

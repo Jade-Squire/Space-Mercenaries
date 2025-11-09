@@ -9,25 +9,25 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import spacemercs.powers.ForgeMasterPower;
-import spacemercs.powers.Kindle;
+import spacemercs.powers.Scorch;
 
 import java.util.Objects;
 
-public class CheckForEruption extends AbstractGameAction {
+public class CheckForIgnition extends AbstractGameAction {
     private boolean firstFrame = true;
 
     private static final int DAMAGE_ON_ERUPT = 30;
     private static final int DAMAGE_OTHERS_ON_ERUPT = 15;
     private static final int DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER = 30;
 
-    public CheckForEruption(AbstractCreature target, AbstractCreature owner) {
+    public CheckForIgnition(AbstractCreature target, AbstractCreature owner) {
         this.setValues(target, owner);
     }
 
     @Override
     public void update() {
-        if(target.hasPower(Kindle.POWER_ID)) {
-            if (target.getPower(Kindle.POWER_ID).amount >= 10) {
+        if(target.hasPower(Scorch.POWER_ID)) {
+            if (target.getPower(Scorch.POWER_ID).amount >= 10) {
                 if (this.firstFrame) {
                     boolean playedMusic = false;
 
@@ -47,18 +47,18 @@ public class CheckForEruption extends AbstractGameAction {
         }
         this.tickDuration();
         if(isDone) {
-            if(target.hasPower(Kindle.POWER_ID)) {
-                if (target.getPower(Kindle.POWER_ID).amount >= 10) {
+            if(target.hasPower(Scorch.POWER_ID)) {
+                if (target.getPower(Scorch.POWER_ID).amount >= 10) {
                     for (AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         DamageInfo info;
                         if (Objects.equals(e, target)) {
-                            info = new DamageInfo(AbstractDungeon.player, DAMAGE_ON_ERUPT, DamageInfo.DamageType.NORMAL);
+                            info = new DamageInfo(target, DAMAGE_ON_ERUPT, DamageInfo.DamageType.NORMAL);
 
                         } else {
                             if(AbstractDungeon.player.hasPower(ForgeMasterPower.POWER_ID)) {
-                                info = new DamageInfo(AbstractDungeon.player, DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER, DamageInfo.DamageType.NORMAL);
+                                info = new DamageInfo(target, DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER, DamageInfo.DamageType.NORMAL);
                             } else {
-                                info = new DamageInfo(AbstractDungeon.player, DAMAGE_OTHERS_ON_ERUPT, DamageInfo.DamageType.NORMAL);
+                                info = new DamageInfo(target, DAMAGE_OTHERS_ON_ERUPT, DamageInfo.DamageType.NORMAL);
                             }
                         }
                         e.tint.color = Color.RED.cpy();
@@ -67,7 +67,7 @@ public class CheckForEruption extends AbstractGameAction {
                         e.damage(info);
                         this.addToTop(new WaitAction(0.1F));
                     }
-                    addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Kindle.POWER_ID)));
+                    addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));
                 }
             }
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {

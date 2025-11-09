@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
-import spacemercs.powers.Kindle;
+import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
 public class ThrowingHammer extends BaseCard {
@@ -43,7 +43,7 @@ public class ThrowingHammer extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH_STACKS)));
         }
         addToBot(new ApplyPowerAction(p, p, new Cure(p, CURE_STACKS)));
-        addToBot(new ApplyPowerAction(m, p, new Kindle(m, KINDLE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, KINDLE_STACKS)));
     }
 
     @Override

@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.BurningTreadsPower;
-import spacemercs.powers.Kindle;
+import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
 public class BurningTreads extends BaseCard {
@@ -34,7 +34,7 @@ public class BurningTreads extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new Kindle(m, KINDLE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, KINDLE_STACKS)));
         addToBot(new ApplyPowerAction(m, p, new BurningTreadsPower(m, 1)));
     }
 }

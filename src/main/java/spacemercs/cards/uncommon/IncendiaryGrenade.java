@@ -8,7 +8,7 @@ import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
-import spacemercs.powers.Kindle;
+import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
 public class IncendiaryGrenade extends BaseCard {
@@ -35,7 +35,7 @@ public class IncendiaryGrenade extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new Kindle(m, magicNumber)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new Cure(p, CURE_STACKS), CURE_STACKS));
     }
 }

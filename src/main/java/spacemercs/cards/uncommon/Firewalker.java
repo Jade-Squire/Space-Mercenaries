@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
-import spacemercs.powers.Kindle;
+import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
 public class Firewalker extends BaseCard {
@@ -33,7 +33,7 @@ public class Firewalker extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(AbstractMonster e : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(e, p, new Kindle(e, magicNumber)));
+            addToBot(new ApplyPowerAction(e, p, new Scorch(e, magicNumber)));
         }
         addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, ARTIFACT_STACKS)));
     }

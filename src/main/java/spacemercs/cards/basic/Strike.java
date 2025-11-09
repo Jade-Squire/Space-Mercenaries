@@ -35,5 +35,9 @@ public class Strike extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        //addToBot(new ApplyPowerAction(m, p, new Frozen(m, 1), 1));
+        //addToBot(new FreezeAction(m, p, 1));
+        //addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, 1)));
+        //addToBot(new StunMonsterAction(m, p, 1));
     }
 }

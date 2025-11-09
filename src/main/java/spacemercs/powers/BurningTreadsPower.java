@@ -26,7 +26,7 @@ public class BurningTreadsPower extends BasePower {
 
     public void onPlayCard(AbstractCard card, AbstractMonster monster) {
         if(owner.hasPower(POWER_ID)) {
-            addToBot(new ApplyPowerAction(owner, AbstractDungeon.player, new Kindle(owner, KINDLE_STACKS * amount)));
+            addToBot(new ApplyPowerAction(owner, AbstractDungeon.player, new Scorch(owner, KINDLE_STACKS * amount)));
         }
     }
 

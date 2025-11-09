@@ -148,28 +148,15 @@ public class Cosmopaladin extends CustomPlayer {
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
         retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
         retVal.add(Defend.ID);
-        retVal.add(ThrowingHammer.ID);
-        retVal.add(HammerStrike.ID);
-        retVal.add(SmokeScreen.ID);
-        retVal.add(TacticalStrafe.ID);
-        retVal.add(Jetpack.ID);
-        retVal.add(IncendiaryGrenade.ID);
-        retVal.add(ThermiteGrenade.ID);
-        retVal.add(FusionGrenade.ID);
-        retVal.add(AshesToAshes.ID);
-        retVal.add(SolarRampart.ID);
-        retVal.add(FierySplendor.ID);
-        retVal.add(Cauterize.ID);
-        retVal.add(BringTheHeat.ID);
-        retVal.add(BurningFists.ID);
-        retVal.add(PercussiveFlames.ID);
-        retVal.add(Consecrate.ID);
-        retVal.add(ForgeMaster.ID);
-        retVal.add(SunfireFurnace.ID);
-        retVal.add(PhoenixRising.ID);
-        retVal.add(BurningTreads.ID);
-        retVal.add(Firewalker.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        //retVal.add(RememberedVow.ID);
+        //retVal.add(BrokenOath.ID);
 
         return retVal;
     }

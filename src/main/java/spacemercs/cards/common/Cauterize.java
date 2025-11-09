@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
-import spacemercs.powers.Kindle;
+import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
 public class Cauterize extends BaseCard {
@@ -33,7 +33,7 @@ public class Cauterize extends BaseCard {
             effect += 2;
         }
         if(effect > 0) {
-            addToBot(new ApplyPowerAction(m, p, new Kindle(m, 2 * effect)));
+            addToBot(new ApplyPowerAction(m, p, new Scorch(m, 2 * effect)));
             if(upgraded) {
                 addToBot(new ApplyPowerAction(p, p, new Cure(p, 2 * effect)));
             }

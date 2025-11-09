@@ -22,8 +22,8 @@
 
   "${modID}:ThrowingHammer": {
     "NAME": "Throwing Hammer",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 2 ${modID}:Cure. NL Apply 1 ${modID}:Kindle. NL Put this card on top of your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 2 ${modID}:Cure. NL Gain 1 Strength. NL Apply 1 ${modID}:Kindle. NL Return this to hand."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 2 ${modID}:Cure. NL Apply 1 ${modID}:Scorch. NL Put this card on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 2 ${modID}:Cure. NL Gain 1 Strength. NL Apply 1 ${modID}:Scorch. NL Return this to hand."
   },
 
   "${modID}:HammerStrike": {
@@ -51,17 +51,17 @@
 
   "${modID}:IncendiaryGrenade": {
     "NAME": "Incendiary Grenade",
-    "DESCRIPTION": "Apply !M! ${modID}:Kindle. NL Gain 3 ${modID}:Cure."
+    "DESCRIPTION": "Apply !M! ${modID}:Scorch. NL Gain 3 ${modID}:Cure."
   },
 
   "${modID}:ThermiteGrenade": {
     "NAME": "Thermite Grenade",
-    "DESCRIPTION": "At the start of your turn, apply !M! ${modID}:Kindle to ALL enemies."
+    "DESCRIPTION": "At the start of your turn, apply !M! ${modID}:Scorch to ALL enemies."
   },
 
   "${modID}:FusionGrenade": {
     "NAME": "Fusion Grenade",
-    "DESCRIPTION": "Deal !D! damage. NL Apply 2 ${modID}:Kindle."
+    "DESCRIPTION": "Deal !D! damage. NL Apply 2 ${modID}:Scorch."
   },
 
   "${modID}:AshesToAshes": {
@@ -78,13 +78,13 @@
   "${modID}:FierySplendor": {
     "NAME": "Fiery Splendor",
     "DESCRIPTION": "Double your ${modID}:Cure. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Double your ${modID}:Cure. NL Double ALL ${modID}:Kindle. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Double your ${modID}:Cure. NL Double ALL ${modID}:Scorch. NL Exhaust."
   },
 
   "${modID}:Cauterize": {
     "NAME": "Cauterize",
-    "DESCRIPTION": "Apply 2*X ${modID}:Kindle.",
-    "UPGRADE_DESCRIPTION": "Apply 2*X ${modID}:Kindle. NL Gain 2*X ${modID}:Cure."
+    "DESCRIPTION": "Apply 2*X ${modID}:Scorch.",
+    "UPGRADE_DESCRIPTION": "Apply 2*X ${modID}:Scorch. NL Gain 2*X ${modID}:Cure."
   },
 
   "${modID}:BringTheHeat": {
@@ -95,14 +95,14 @@
 
   "${modID}:BurningFists": {
     "NAME": "Burning Fists",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Apply ${modID}:Kindle equal to your ${modID}:Cure.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply ${modID}:Kindle equal to your ${modID}:Cure."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Apply ${modID}:Scorch equal to your ${modID}:Cure.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply ${modID}:Scorch equal to your ${modID}:Cure."
   },
 
   "${modID}:PercussiveFlames": {
     "NAME": "Percussive Flames",
-    "DESCRIPTION": "When you apply ${modID}:Kindle, apply 1 more. NL Add !M! Burns to your hand.",
-    "UPGRADE_DESCRIPTION": "When you apply ${modID}:Kindle, apply 1 more. NL Add !M! Burn to your hand."
+    "DESCRIPTION": "When you apply ${modID}:Scorch, apply 1 more. NL Add !M! Burns to your hand.",
+    "UPGRADE_DESCRIPTION": "When you apply ${modID}:Scorch, apply 1 more. NL Add !M! Burn to your hand."
   },
 
   "${modID}:Consecrate": {
@@ -112,7 +112,7 @@
 
   "${modID}:ForgeMaster": {
     "NAME": "Forge Master",
-    "DESCRIPTION": "${modID}:Eruptions you cause deal 30 damage to other enemies instead of 15."
+    "DESCRIPTION": "${modID}:Ignitions you cause deal 30 damage to other enemies instead of 15."
   },
 
   "${modID}:SunfireFurnace": {
@@ -127,11 +127,11 @@
 
   "${modID}:BurningTreads": {
     "NAME": "Burning Treads",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Kindle. NL Whenever you play a card this turn, the enemy gains 1 ${modID}:Kindle."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Scorch. NL Whenever you play a card this turn, the enemy gains 1 ${modID}:Scorch."
   },
 
   "${modID}:Firewalker": {
     "NAME": "Firewalker",
-    "DESCRIPTION": "Ethereal. NL Apply !M! ${modID}:Kindle to ALL enemies. NL Gain 1 Artifact."
+    "DESCRIPTION": "Ethereal. NL Apply !M! ${modID}:Scorch to ALL enemies. NL Gain 1 Artifact."
   }
 }

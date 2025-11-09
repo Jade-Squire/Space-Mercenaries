@@ -5,10 +5,10 @@
       "You are Very Cool and Strong."
     ]
   },
-  "${modID}:Kindle": {
-    "NAME": "Kindle",
+  "${modID}:Scorch": {
+    "NAME": "Scorch",
     "DESCRIPTIONS": [
-      "At #b10 stacks, #yErupt the enemy dealing #b30 damage to it and #b15 to ALL others."
+      "At #b10 stacks, #yIgnite the enemy dealing #b30 damage to it and #b15 to ALL others."
     ]
   },
   "${modID}:Cure": {
@@ -27,7 +27,7 @@
     "NAME": "Thermite",
     "DESCRIPTIONS": [
       "At the start of your turn, apply #b",
-      " stacks of #yKindle to ALL enemies"
+      " stacks of #yScorch to ALL enemies"
     ]
   },
   "${modID}:AshesToAshesPower": {
@@ -39,7 +39,7 @@
   "${modID}:PercussiveFlamesPower": {
     "NAME": "Percussive Flames",
     "DESCRIPTIONS": [
-      "When you apply #yKindle, apply ",
+      "When you apply #yScorch, apply ",
       " more."
     ]
   },
@@ -47,7 +47,16 @@
     "NAME": "Burning Treads",
     "DESCRIPTIONS": [
       "Whenever you play a card this turn, apply #b",
-      " #yKindle to this enemy."
+      " #yScorch to this enemy."
+    ]
+  },
+  "${modID}:Frozen": {
+    "NAME": "Frozen",
+    "DESCRIPTIONS": [
+      "This enemy is #yFrozen and will skip its next turn. ",
+      "This enemy is #yFrozen and will skip its next #b",
+      " turns. ",
+      "If it is dealt health damage by an attack before then, it #yShatters, dealing #b20 damage and applying #b3 #yWeak."
     ]
   }
 }
