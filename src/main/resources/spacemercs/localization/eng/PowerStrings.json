@@ -56,7 +56,19 @@
       "This enemy is #yFrozen and will skip its next turn. ",
       "This enemy is #yFrozen and will skip its next #b",
       " turns. ",
-      "If it is dealt health damage by an attack before then, it #yShatters, dealing #b20 damage and applying #b3 #yWeak."
+      "If it is dealt health damage by an attack before then, it #yShatters, removing #ySlow and dealing #b20 damage and applying #b3 #yWeak."
+    ]
+  },
+  "${modID}:Slow": {
+    "NAME": "Slow",
+    "DESCRIPTIONS": [
+      "Doubles stacks at the end of the enemy's turn. Does nothing until the enemy has #b20 stacks of #ySlow, #yFreezing them for their next turn, skipping it."
+    ]
+  },
+  "${modID}:FrostArmor": {
+    "NAME": "Frost Armor",
+    "DESCRIPTIONS": [
+      "Gain #yBlock at the end of your turn equal to the amount of #ySlow on ALL enemies."
     ]
   }
 }

@@ -25,11 +25,8 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import spacemercs.cards.basic.Defend;
-import spacemercs.cards.basic.Strike;
-import spacemercs.cards.common.*;
-import spacemercs.cards.rare.*;
-import spacemercs.cards.uncommon.*;
+import spacemercs.cards.basic.*;
+import spacemercs.cards.common.ThrowingHammer;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -155,8 +152,8 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        //retVal.add(RememberedVow.ID);
-        //retVal.add(BrokenOath.ID);
+        retVal.add(RememberedVow.ID);
+        retVal.add(BrokenOath.ID);
 
         return retVal;
     }

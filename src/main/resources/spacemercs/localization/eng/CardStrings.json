@@ -133,5 +133,21 @@
   "${modID}:Firewalker": {
     "NAME": "Firewalker",
     "DESCRIPTION": "Ethereal. NL Apply !M! ${modID}:Scorch to ALL enemies. NL Gain 1 Artifact."
+  },
+
+  "${modID}:Frostburn": {
+    "NAME": "Frostburn",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Scorch. NL Apply !M! ${modID}:Slow. NL Gain ${modID}:Frost_Armor."
+  },
+
+  "${modID}:RememberedVow": {
+    "NAME": "Remembered Vow",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Randomly increase one of these by !M! permanently. NL Costs 1 less if *Broken *Oath is not in your deck. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Increase both of these by !M! permanently. NL Costs 1 less if *Broken *Oath is not in your deck. NL Exhaust."
+  },
+
+  "${modID}:BrokenOath": {
+    "NAME": "Broken Oath",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Costs 1 less if *Remembered *Vow is not in your deck."
   }
 }

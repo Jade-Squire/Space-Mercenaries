@@ -24,11 +24,13 @@ public class BurningTreads extends BaseCard {
 
     private static final int DAMAGE = 3;
     private static final int KINDLE_STACKS = 1;
+    private static final int UPG_COST = 0;
 
     public BurningTreads() {
         super(ID, info);
         setDamage(DAMAGE);
         setMagic(KINDLE_STACKS);
+        setCostUpgrade(UPG_COST);
     }
 
     @Override

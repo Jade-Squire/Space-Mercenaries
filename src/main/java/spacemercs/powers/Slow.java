@@ -1,7 +1,9 @@
 package spacemercs.powers;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import spacemercs.cards.actions.CheckForFreeze;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
@@ -16,6 +18,24 @@ public class Slow extends BasePower {
 
     public Slow(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+    }
+
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+        addToBot(new CheckForFreeze(owner, owner));
+    }
+
+    public void atEndOfTurn(boolean isPlayer) {
+        if(!isPlayer) {
+            if(owner.hasPower(POWER_ID)) {
+                addToBot(new ApplyPowerAction(owner, owner, new Slow(owner, this.amount)));
+            }
+        }
+    }
+
+    public void onInitialApplication() {
+        addToBot(new CheckForFreeze(owner, owner));
     }
 
     public void updateDescription() {
