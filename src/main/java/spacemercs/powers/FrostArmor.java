@@ -36,9 +36,15 @@ public class FrostArmor extends BasePower {
                 if(blockToGain > 0) {
                     addToBot(new GainBlockAction(owner, blockToGain));
                 }
-                addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             }
         }
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
+        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+
     }
 
     public void updateDescription() {

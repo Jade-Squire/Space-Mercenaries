@@ -6,32 +6,30 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
-import spacemercs.powers.Thermite;
+import spacemercs.powers.VoidwallPower;
 import spacemercs.util.CardStats;
 
-public class ThermiteGrenade extends BaseCard {
-    public static final String ID = makeID(ThermiteGrenade.class.getSimpleName());
+public class VoidwallGrenade extends BaseCard {
+    public static final String ID = makeID(VoidwallGrenade.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.POWER,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            3
     );
 
-    //These will be used in the constructor. Technically you can just use the values directly,
-    //but constants at the top of the file are easy to adjust.
-    private static final int SCORCH_STACKS = 1;
-    private static final int UPG_SCORCH_STACKS = 1;
+    private static final int SUPPRESS_STACKS = 1;
+    private static final int UPG_SUPPRESS_STACKS = 1;
 
-    public ThermiteGrenade() {
+    public VoidwallGrenade() {
         super(ID, info);
-        setMagic(SCORCH_STACKS, UPG_SCORCH_STACKS);
+        setMagic(SUPPRESS_STACKS, UPG_SUPPRESS_STACKS);
         tags.add(SpaceMercsCustomTags.GRENADE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new Thermite(p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new VoidwallPower(p, magicNumber)));
     }
 }

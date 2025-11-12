@@ -26,7 +26,6 @@ public class SunfireFurnace extends BaseCard {
     public SunfireFurnace() {
         super(ID, info);
 
-        this.isMultiDamage = true;
         setMagic(CURE_STACKS, UPG_CURE_STACKS);
     }
 

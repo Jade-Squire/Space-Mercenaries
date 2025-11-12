@@ -23,13 +23,13 @@ public class IncendiaryGrenade extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int KINDLE_STACKS = 3;
-    private static final int UPG_KINDLE_STACKS = 2;
+    private static final int SCORCH_STACKS = 3;
+    private static final int UPG_SCORCH_STACKS = 2;
     private static final int CURE_STACKS = 3;
 
     public IncendiaryGrenade() {
         super(ID, info);
-        setMagic(KINDLE_STACKS, UPG_KINDLE_STACKS);
+        setMagic(SCORCH_STACKS, UPG_SCORCH_STACKS);
         tags.add(SpaceMercsCustomTags.GRENADE);
     }
 

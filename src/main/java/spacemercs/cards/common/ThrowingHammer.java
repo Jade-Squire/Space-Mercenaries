@@ -1,10 +1,13 @@
 package spacemercs.cards.common;
 
+import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import spacemercs.cards.BaseCard;
@@ -27,7 +30,7 @@ public class ThrowingHammer extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 3;
     private static final int UPG_DAMAGE = 0;
-    private static final int KINDLE_STACKS = 1;
+    private static final int SCORCH_STACKS = 1;
     private static final int CURE_STACKS = 2;
     private static final int STRENGTH_STACKS = 1;
 
@@ -43,7 +46,24 @@ public class ThrowingHammer extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH_STACKS)));
         }
         addToBot(new ApplyPowerAction(p, p, new Cure(p, CURE_STACKS)));
-        addToBot(new ApplyPowerAction(m, p, new Scorch(m, KINDLE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, SCORCH_STACKS)));
+        if(!upgraded) {
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    isDone = true;
+
+                    for (AbstractGameAction action : AbstractDungeon.actionManager.actions) {
+                        if (action instanceof UseCardAction) {
+                            if (ReflectionHacks.getPrivate(action, UseCardAction.class, "targetCard") == ThrowingHammer.this) {
+                                ((UseCardAction) action).reboundCard = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override
@@ -52,4 +72,6 @@ public class ThrowingHammer extends BaseCard {
 
         this.returnToHand = true;
     }
+
+
 }

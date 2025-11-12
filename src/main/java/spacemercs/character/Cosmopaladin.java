@@ -9,27 +9,21 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import spacemercs.cards.basic.*;
-import spacemercs.cards.common.ThrowingHammer;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import static spacemercs.SpaceMercsMod.*;
 
@@ -153,6 +147,8 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(RememberedVow.ID);
+        retVal.add(RememberedVow.ID);
+        retVal.add(BrokenOath.ID);
         retVal.add(BrokenOath.ID);
 
         return retVal;
@@ -166,50 +162,6 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(FrozenEye.ID);
 
         return retVal;
-    }
-
-    @Override
-    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
-        if (c.type == AbstractCard.CardType.ATTACK) {
-            this.useFastAttackAnimation();
-        }
-
-        c.calculateCardDamage(monster);
-        if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
-            c.energyOnUse = EnergyPanel.totalCount;
-        }
-
-        if (c.cost == -1 && c.isInAutoplay) {
-            c.freeToPlayOnce = true;
-        }
-
-        c.use(this, monster);
-        UseCardAction action = new UseCardAction(c, monster);
-
-        // Make throwing hammer rebounds to draw if unupgraded
-        // Probably not the best way of going about this, maybe I'll find a better way later
-        if (Objects.equals(c.cardID, makeID(ThrowingHammer.class.getSimpleName()))) {
-            if(!c.upgraded) {
-                action.reboundCard = true;
-            }
-        }
-        AbstractDungeon.actionManager.addToBottom(action);
-        if (!c.dontTriggerOnUseCard) {
-            this.hand.triggerOnOtherCardPlayed(c);
-        }
-
-        this.hand.removeCard(c);
-        this.cardInUse = c;
-        c.target_x = (float)(Settings.WIDTH / 2);
-        c.target_y = (float)(Settings.HEIGHT / 2);
-        if (c.costForTurn > 0 && !c.freeToPlay() && !c.isInAutoplay && (!this.hasPower("Corruption") || c.type != AbstractCard.CardType.SKILL)) {
-            this.energy.use(c.costForTurn);
-        }
-
-        if (!this.hand.canUseAnyCard() && !this.endTurnQueued) {
-            AbstractDungeon.overlayMenu.endTurnButton.isGlowing = true;
-        }
-
     }
 
     @Override

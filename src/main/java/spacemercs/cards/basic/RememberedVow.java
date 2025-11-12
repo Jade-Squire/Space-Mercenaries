@@ -15,7 +15,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
 /*  This one's a weird one.
-    The misc value is a 32-bit integer where the first 15 bits are the damage and the last 16 bits are the block. the sign bit is for if the cost should be upgraded
+    The misc value's sign is the cost reduction. then the next 15 bits are damage, skip 1, then last bits are block
  */
 
 public class RememberedVow extends BaseCard implements OnObtainCard {
@@ -31,6 +31,8 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
     private static final int BASE_DAMAGE = 1;
     private static final int BASE_BLOCK = 1;
     private static final int INCREASE_AMOUNT = 1;
+
+    private static final int BLOCK_MASK = 32767;
 
     public RememberedVow() {
         this(true);
@@ -58,9 +60,7 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
 
     private int getBlock() {
         int retVal = Math.abs(this.misc);
-        retVal = retVal << 16;
-        retVal = retVal >> 16;
-        return retVal;
+        return retVal & BLOCK_MASK;
     }
 
     private int getDamage() {

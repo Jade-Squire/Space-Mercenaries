@@ -23,6 +23,7 @@ public class BringTheHeat extends BaseCard {
 
     public BringTheHeat() {
         super(ID, info);
+        this.isMultiDamage = true;
     }
 
     @Override

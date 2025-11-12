@@ -149,5 +149,25 @@
   "${modID}:BrokenOath": {
     "NAME": "Broken Oath",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Costs 1 less if *Remembered *Vow is not in your deck."
+  },
+
+  "${modID}:HungeringFlame": {
+    "NAME": "Hungering Flame",
+    "DESCRIPTION": "Ethereal. NL Equalize your Block and ${modID}:Cure. NL End your turn."
+  },
+
+  "${modID}:Gnaw": {
+    "NAME": "Gnaw",
+    "DESCRIPTION": "Deal !D! damage for each energy you have."
+  },
+
+  "${modID}:StarvingGrenade": {
+    "NAME": "Starving Grenade",
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Hunger 2. NL Take !M! damage for each energy you have."
+  },
+
+  "${modID}:VoidwallGrenade": {
+    "NAME": "Voidwall Grenade",
+    "DESCRIPTION": "Whenever an enemy hits your Block, apply !M! ${modID}:Suppress to them."
   }
 }

@@ -25,7 +25,7 @@ public class FusionGrenade extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int KINDLE_STACKS = 2;
+    private static final int SCORCH_STACKS = 2;
     private static final int DAMAGE = 5;
     private static final int UPG_DAMAGE = 3;
 
@@ -38,6 +38,6 @@ public class FusionGrenade extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new Scorch(m, KINDLE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, SCORCH_STACKS)));
     }
 }

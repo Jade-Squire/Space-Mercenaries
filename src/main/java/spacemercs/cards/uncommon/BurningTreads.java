@@ -23,20 +23,20 @@ public class BurningTreads extends BaseCard {
     );
 
     private static final int DAMAGE = 3;
-    private static final int KINDLE_STACKS = 1;
+    private static final int SCORCH_STACKS = 1;
     private static final int UPG_COST = 0;
 
     public BurningTreads() {
         super(ID, info);
         setDamage(DAMAGE);
-        setMagic(KINDLE_STACKS);
+        setMagic(SCORCH_STACKS);
         setCostUpgrade(UPG_COST);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new Scorch(m, KINDLE_STACKS)));
+        addToBot(new ApplyPowerAction(m, p, new Scorch(m, SCORCH_STACKS)));
         addToBot(new ApplyPowerAction(m, p, new BurningTreadsPower(m, 1)));
     }
 }
