@@ -9,6 +9,7 @@ import spacemercs.cards.actions.SmokeScreenAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class SmokeScreen extends BaseCard {
     public static final String ID = makeID(SmokeScreen.class.getSimpleName());
     private static final CardStats info = new CardStats(

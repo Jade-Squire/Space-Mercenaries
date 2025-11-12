@@ -10,6 +10,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class Firewalker extends BaseCard {
     public static final String ID = makeID(Firewalker.class.getSimpleName());
     private static final CardStats info = new CardStats(

@@ -8,6 +8,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.ForgeMasterPower;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class ForgeMaster extends BaseCard {
     public static final String ID = makeID(ForgeMaster.class.getSimpleName());
     private static final CardStats info = new CardStats(

@@ -11,6 +11,7 @@ import spacemercs.powers.Cure;
 import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class IncendiaryGrenade extends BaseCard {
     public static final String ID = makeID(IncendiaryGrenade.class.getSimpleName());
     private static final CardStats info = new CardStats(

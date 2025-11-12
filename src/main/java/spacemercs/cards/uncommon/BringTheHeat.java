@@ -11,6 +11,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class BringTheHeat extends BaseCard {
     public static final String ID = makeID(BringTheHeat.class.getSimpleName());
     private static final CardStats info = new CardStats(

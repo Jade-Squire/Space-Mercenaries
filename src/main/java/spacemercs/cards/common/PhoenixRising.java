@@ -10,6 +10,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class PhoenixRising extends BaseCard {
     public static final String ID = makeID(PhoenixRising.class.getSimpleName());
     private static final CardStats info = new CardStats(

@@ -13,6 +13,7 @@ import spacemercs.cards.actions.GainHungerAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class StarvingGrenade extends BaseCard {
     public static final String ID = makeID(StarvingGrenade.class.getSimpleName());
     private static final CardStats info = new CardStats(

@@ -10,6 +10,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.PercussiveFlamesPower;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class PercussiveFlames extends BaseCard {
     public static final String ID = makeID(PercussiveFlames.class.getSimpleName());
     private static final CardStats info = new CardStats(

@@ -9,6 +9,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.VoidwallPower;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class VoidwallGrenade extends BaseCard {
     public static final String ID = makeID(VoidwallGrenade.class.getSimpleName());
     private static final CardStats info = new CardStats(

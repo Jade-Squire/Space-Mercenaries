@@ -10,6 +10,7 @@ import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class TacticalStrafe extends BaseCard {
     public static final String ID = makeID(TacticalStrafe.class.getSimpleName());
     private static final CardStats info = new CardStats(

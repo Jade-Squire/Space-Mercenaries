@@ -12,6 +12,7 @@ import spacemercs.powers.Cure;
 import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class BurningFists extends BaseCard {
     public static final String ID = makeID(BurningFists.class.getSimpleName());
     private static final CardStats info = new CardStats(

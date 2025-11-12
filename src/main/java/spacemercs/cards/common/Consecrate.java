@@ -9,6 +9,7 @@ import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class Consecrate extends BaseCard {
     public static final String ID = makeID(Consecrate.class.getSimpleName());
     private static final CardStats info = new CardStats(

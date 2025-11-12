@@ -10,6 +10,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Cure;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class SunfireFurnace extends BaseCard {
     public static final String ID = makeID(SunfireFurnace.class.getSimpleName());
     private static final CardStats info = new CardStats(

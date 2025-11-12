@@ -12,6 +12,7 @@ import spacemercs.powers.BurningTreadsPower;
 import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class BurningTreads extends BaseCard {
     public static final String ID = makeID(BurningTreads.class.getSimpleName());
     private static final CardStats info = new CardStats(

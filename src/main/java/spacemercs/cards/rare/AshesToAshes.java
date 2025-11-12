@@ -8,6 +8,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.AshesToAshesPower;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class AshesToAshes extends BaseCard {
     public static final String ID = makeID(AshesToAshes.class.getSimpleName());
     private static final CardStats info = new CardStats(

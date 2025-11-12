@@ -9,6 +9,7 @@ import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class Jetpack extends BaseCard {
     public static final String ID = makeID(Jetpack.class.getSimpleName());
     private static final CardStats info = new CardStats(

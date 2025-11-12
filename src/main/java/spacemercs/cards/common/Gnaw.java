@@ -8,6 +8,7 @@ import spacemercs.cards.actions.GnawAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class Gnaw extends BaseCard {
     public static final String ID = makeID(Gnaw.class.getSimpleName());
     private static final CardStats info = new CardStats(

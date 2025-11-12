@@ -9,6 +9,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.Thermite;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class ThermiteGrenade extends BaseCard {
     public static final String ID = makeID(ThermiteGrenade.class.getSimpleName());
     private static final CardStats info = new CardStats(

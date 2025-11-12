@@ -13,6 +13,7 @@ import spacemercs.powers.Scorch;
 import spacemercs.powers.Slow;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class Frostburn extends BaseCard {
     public static final String ID = makeID(Frostburn.class.getSimpleName());
     private static final CardStats info = new CardStats(

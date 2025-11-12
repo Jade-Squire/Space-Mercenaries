@@ -16,6 +16,7 @@ import spacemercs.powers.Cure;
 import spacemercs.powers.Scorch;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class ThrowingHammer extends BaseCard {
     public static final String ID = makeID(ThrowingHammer.class.getSimpleName());
     private static final CardStats info = new CardStats(

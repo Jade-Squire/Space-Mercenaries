@@ -9,6 +9,7 @@ import spacemercs.cards.actions.HungeringFlameAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
+@SuppressWarnings("unused")
 public class HungeringFlame extends BaseCard {
     public static final String ID = makeID(HungeringFlame.class.getSimpleName());
     private static final CardStats info = new CardStats(
