@@ -22,7 +22,7 @@ public class HungerPower extends BasePower {
     }
 
     public void onCreateCard(AbstractCard card) {
-        if(card.cardID.equals(VoidCard.ID)) {
+        if(card != null && card.cardID.equals(VoidCard.ID)) {
             updateStacks();
         }
     }

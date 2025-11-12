@@ -169,5 +169,26 @@
   "${modID}:VoidwallGrenade": {
     "NAME": "Voidwall Grenade",
     "DESCRIPTION": "Whenever an enemy hits your Block, apply !M! ${modID}:Suppress to them."
+  },
+
+  "${modID}:SuppressionGrenade": {
+    "NAME": "Suppression Grenade",
+    "DESCRIPTION": "Apply 1 ${modID}:Suppress for each energy you have.",
+    "UPGRADE_DESCRIPTION": "Apply 1 ${modID}:Suppress for each energy you have. NL Play this twice."
+  },
+
+  "${modID}:PurgingMaw": {
+    "NAME": "Purging Maw",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and yourself. NL ${modID}:Hunger !M! for each hit."
+  },
+
+  "${modID}:OrbitalShield": {
+    "NAME": "Orbital Shield",
+    "DESCRIPTION": "Deal !D! to a random enemy 3 times. NL Gain Block equal to unblocked damage."
+  },
+
+  "${modID}:DreadedVisage": {
+    "NAME": "Dreaded Visage",
+    "DESCRIPTION": "Apply !M! ${modID}:Suppress to ALL enemies. NL Gain !B! Block for each Status card in your draw pile."
   }
 }

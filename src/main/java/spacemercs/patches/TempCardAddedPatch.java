@@ -11,6 +11,7 @@ import spacemercs.powers.HungerPower;
 public class TempCardAddedPatch {
 
     @SpirePatch2(clz = ShowCardAndAddToDrawPileEffect.class, method=SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, float.class, float.class, boolean.class, boolean.class, boolean.class})
+    @SpirePatch2(clz = ShowCardAndAddToDrawPileEffect.class, method=SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, boolean.class, boolean.class})
     public static class TempCardAddedToDraw {
         public static void Postfix(AbstractGameEffect __instance, AbstractCard srcCard) {
             if(AbstractDungeon.player.hasPower(HungerPower.POWER_ID)) {
