@@ -71,7 +71,7 @@
       "Gain #yBlock at the end of your turn equal to the amount of #ySlow on ALL enemies. Lose #yFrost #yArmor at the start of your turn."
     ]
   },
-  "${modID}:Suppress": {
+  "${modID}:SuppressPower": {
     "NAME": "Suppress",
     "DESCRIPTIONS": [
       "Whenever this enemy is dealt damage, apply 1 #yWeak or 1 #yVulnerable based on which is lower, then they lose 1 #ySuppress."
@@ -82,6 +82,13 @@
     "DESCRIPTIONS": [
       "You have ",
       " #yVoids in your draw pile."
+    ]
+  },
+  "${modID}:VoidwallPower": {
+    "NAME": "Voidwall",
+    "DESCRIPTIONS": [
+      "Whenever an enemy hits your #yBlock, apply ",
+      " #ySuppress to them."
     ]
   }
 }
