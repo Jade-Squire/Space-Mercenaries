@@ -16,6 +16,7 @@ public class RememberedVowAction extends AbstractGameAction {
         this.uuid = targetUUID;
     }
 
+    @Override
     public void update() {
         boolean upgradeDamage = true;
         for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
@@ -29,7 +30,7 @@ public class RememberedVowAction extends AbstractGameAction {
                         c.misc -= (this.amount << 16);
                     }
                 } else {
-                    upgradeDamage = (Math.random() >= 0.5);
+                    upgradeDamage = (AbstractDungeon.cardRng.random() >= 0.5);
                     if(upgradeDamage) {
                         if(c.misc >= 0) {
                             c.misc += (amount << 16);

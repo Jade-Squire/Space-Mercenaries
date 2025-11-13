@@ -90,5 +90,24 @@
       "Whenever an enemy hits your #yBlock, apply ",
       " #ySuppress to them."
     ]
+  },
+  "${modID}:VengeancePowerPlayer": {
+    "NAME": "Vengeance",
+    "DESCRIPTIONS": [
+      "Whenever you take health damage, apply ",
+      " #ySuppress to them. When they die, #yHunger equal to its max health."
+    ]
+  },
+  "${modID}:VengeancePowerEnemy": {
+    "NAME": "Vengeance",
+    "DESCRIPTIONS": [
+      "When this dies, #yHunger equal to its max health."
+    ]
+  },
+  "${modID}:DesolateWillPower": {
+    "NAME": "Desolate Will",
+    "DESCRIPTIONS": [
+      "Whenever you draw an #yUnplayable card, draw a card."
+    ]
   }
 }

@@ -147,8 +147,6 @@ public class Cosmopaladin extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(RememberedVow.ID);
-        retVal.add(RememberedVow.ID);
-        retVal.add(BrokenOath.ID);
         retVal.add(BrokenOath.ID);
 
         return retVal;

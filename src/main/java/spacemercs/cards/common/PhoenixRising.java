@@ -35,15 +35,18 @@ public class PhoenixRising extends BaseCard {
         setExhaust(true);
     }
 
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new PhoenixRisingAction(this.uuid, this.magicNumber));
         this.addToBot(new ApplyPowerAction(p, p, new Cure(p, this.misc)));
     }
 
+    @Override
     public void onLoadedMisc() {
         applyPowers();
     }
 
+    @Override
     public void applyPowers() {
         this.baseBlock = this.misc;
         super.applyPowers();

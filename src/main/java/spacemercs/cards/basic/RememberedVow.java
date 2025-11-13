@@ -11,13 +11,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.actions.RememberedVowAction;
+import spacemercs.cards.rare.UnwaveringStarBase;
+import spacemercs.cards.rare.UnwaveringStarVow;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
+
+import java.util.ArrayList;
 
 /*  This one's a weird one.
     The misc value's sign is the cost reduction. then the next 15 bits are damage, skip 1, then last bits are block
  */
-
+@SuppressWarnings("unused")
 public class RememberedVow extends BaseCard implements OnObtainCard {
     public static final String ID = makeID(RememberedVow.class.getSimpleName());
     private static final CardStats info = new CardStats(
@@ -69,6 +73,7 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
         return retVal;
     }
 
+    @Override
     public void onLoadedMisc() {
         if(this.misc <= 0) {
             updateCost(-1);
@@ -76,6 +81,7 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
         applyPowers();
     }
 
+    @Override
     public void applyPowers() {
         this.baseDamage = getDamage();
         this.baseBlock = getBlock();
@@ -86,6 +92,7 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
     @Override
     public void onRemoveFromMasterDeck() {
         boolean shouldLowerCost = true;
+        ArrayList<AbstractCard> cardsToSwap = new ArrayList<>();
         // Check for other instances of Broken Oath
         for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c.cardID.equals(ID)) {
@@ -101,6 +108,13 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
                         c.misc *= -1;
                         c.updateCost(-1);
                     }
+                } else if(c.cardID.equals(UnwaveringStarBase.ID)) {
+                    cardsToSwap.add(c);
+                }
+            }
+            if(!cardsToSwap.isEmpty()) {
+                for(AbstractCard c : cardsToSwap) {
+                    ((UnwaveringStarBase) c).replaceSelf(new UnwaveringStarVow());
                 }
             }
         }
@@ -108,6 +122,7 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
 
     @Override
     public void onObtainCard() {
+        ArrayList<AbstractCard> cardsToSwap = new ArrayList<>();
         for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if(c.cardID.equals(BrokenOath.ID)) {
                 if(c.misc <= 0) {
@@ -115,6 +130,13 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
                     c.updateCost(1);
                     c.isCostModified = false;
                 }
+            } else if (c.cardID.equals(UnwaveringStarVow.ID)) {
+                cardsToSwap.add(c);
+            }
+        }
+        if(!cardsToSwap.isEmpty()) {
+            for(AbstractCard c : cardsToSwap) {
+                ((UnwaveringStarVow)c).replaceSelf(new UnwaveringStarBase());
             }
         }
     }

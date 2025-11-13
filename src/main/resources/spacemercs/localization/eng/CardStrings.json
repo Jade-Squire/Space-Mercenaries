@@ -190,5 +190,38 @@
   "${modID}:DreadedVisage": {
     "NAME": "Dreaded Visage",
     "DESCRIPTION": "Apply !M! ${modID}:Suppress to ALL enemies. NL Gain !B! Block for each Status card in your draw pile."
+  },
+
+  "${modID}:UnwaveringStarBase": {
+    "NAME": "Unwavering Star",
+    "DESCRIPTION": "Unplayable. NL Does nothing until you've chosen a path.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Does nothing until you've chosen a path. NL (Remove either *Remembered *Vow or *Broken *Oath)"
+  },
+
+  "${modID}:UnwaveringStarOath": {
+    "NAME": "Unwavering Star",
+    "DESCRIPTION": "Apply !M! ${modID}:Suppress then deal !D! damage."
+  },
+
+  "${modID}:UnwaveringStarVow": {
+    "NAME": "Unwavering Star",
+    "DESCRIPTION": "${modID}:Hunger !M!. NL Gain !B! Block. NL Randomly increase one of these by 1 permanently. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "${modID}:Hunger !M!. NL Gain !B! Block. NL Increase both of these by 1 permanently. NL Exhaust."
+  },
+
+  "${modID}:Vengeance": {
+    "NAME": "Vengeance",
+    "DESCRIPTION": "Whenever you take health damage, apply !M! ${modID}:Suppress to that enemy. NL When it dies, ${modID}:Hunger equal to its max health."
+  },
+
+  "${modID}:DesolateWill": {
+    "NAME": "Desolate Will",
+    "DESCRIPTION": "Whenever you draw an Unplayable card, draw a card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw an Unplayable card, draw a card."
+  },
+
+  "${modID}:DoomFall": {
+    "NAME": "Doom Fall",
+    "DESCRIPTION": "Deal !D! damage for each Status card in your draw pile."
   }
 }

@@ -14,7 +14,7 @@ import static spacemercs.SpaceMercsMod.makeID;
 
 public class SuppressPower extends BasePower {
     public static final String POWER_ID = makeID(SuppressPower.class.getSimpleName());
-    private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
+    private static final AbstractPower.PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
 
     public SuppressPower(AbstractCreature owner, int amount) {
@@ -32,7 +32,7 @@ public class SuppressPower extends BasePower {
                 vulnStacks = owner.getPower(VulnerablePower.POWER_ID).amount;
             }
             if(weakStacks == vulnStacks) {
-                if(Math.random() >= 0.5) {
+                if(AbstractDungeon.cardRng.random() >= 0.5) {
                     addToTop(new ApplyPowerAction(owner, AbstractDungeon.player, new VulnerablePower(owner, 1, false)));
                 } else {
                     addToTop(new ApplyPowerAction(owner, AbstractDungeon.player, new WeakPower(owner, 1, false)));

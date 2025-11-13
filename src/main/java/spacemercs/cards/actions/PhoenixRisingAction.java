@@ -16,6 +16,7 @@ public class PhoenixRisingAction extends AbstractGameAction {
         this.uuid = targetUUID;
     }
 
+    @Override
     public void update() {
         for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c.uuid.equals(this.uuid)) {
