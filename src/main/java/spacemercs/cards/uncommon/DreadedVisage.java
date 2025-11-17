@@ -1,8 +1,9 @@
 package spacemercs.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -10,6 +11,8 @@ import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.SuppressPower;
 import spacemercs.util.CardStats;
+
+import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 public class DreadedVisage extends BaseCard {
@@ -35,20 +38,26 @@ public class DreadedVisage extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int statuses = 0;
-        for(AbstractMonster e : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(e, p, new SuppressPower(e, magicNumber)));
-        }
+        int voids = 0;
+        ArrayList<AbstractCard> cardsToExhaust = new ArrayList<>();
 
         for(AbstractCard c : AbstractDungeon.player.drawPile.group) {
-            if(c.type == CardType.STATUS) {
-                statuses++;
+            if(c.cardID.equals(VoidCard.ID)) {
+                voids++;
+                cardsToExhaust.add(c);
             }
         }
 
-        if(statuses > 0) {
-            addToBot(new GainBlockAction(p, statuses * block));
+        if(voids > 0) {
+            for(int i = 0; i < voids; i++) {
+                for (AbstractMonster e : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    addToBot(new ApplyPowerAction(e, p, new SuppressPower(e, magicNumber)));
+                }
+            }
         }
 
+        for(AbstractCard c : cardsToExhaust) {
+            addToBot(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
+        }
     }
 }

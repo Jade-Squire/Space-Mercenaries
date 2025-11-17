@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import spacemercs.powers.HungerPower;
 
 public class GainHungerAction extends AbstractGameAction {
@@ -21,9 +20,7 @@ public class GainHungerAction extends AbstractGameAction {
     public void update() {
         addToBot(new GainEnergyAction(amount));
         addToBot(new MakeTempCardInDrawPileAction(new VoidCard(), amount, true, true));
-        if(!AbstractDungeon.player.hasPower(HungerPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(target, target, new HungerPower(target, 0)));
-        }
+        addToBot(new ApplyPowerAction(target, target, new HungerPower(target, amount)));
         this.isDone = true;
     }
 }

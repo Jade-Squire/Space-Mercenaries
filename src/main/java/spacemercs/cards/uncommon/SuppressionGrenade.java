@@ -1,4 +1,4 @@
-package spacemercs.cards.common;
+package spacemercs.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,7 +19,7 @@ public class SuppressionGrenade extends BaseCard {
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.SKILL,
-            AbstractCard.CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
             2
     );

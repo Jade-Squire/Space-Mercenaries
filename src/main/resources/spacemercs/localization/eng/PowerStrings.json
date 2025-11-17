@@ -81,7 +81,8 @@
     "NAME": "Hunger",
     "DESCRIPTIONS": [
       "You have ",
-      " #yVoids in your draw pile."
+      " #yVoids in your draw pile. NL NL Gain ",
+      " energy at the start of your turn."
     ]
   },
   "${modID}:VoidwallPower": {

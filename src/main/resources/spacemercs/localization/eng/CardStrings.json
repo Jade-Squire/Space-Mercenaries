@@ -153,7 +153,7 @@
 
   "${modID}:HungeringFlame": {
     "NAME": "Hungering Flame",
-    "DESCRIPTION": "Ethereal. NL Equalize your Block and ${modID}:Cure. NL End your turn."
+    "DESCRIPTION": "Ethereal. NL Equalize your ${modID}:Hunger and ${modID}:Cure. NL End your turn."
   },
 
   "${modID}:Gnaw": {
@@ -189,7 +189,7 @@
 
   "${modID}:DreadedVisage": {
     "NAME": "Dreaded Visage",
-    "DESCRIPTION": "Apply !M! ${modID}:Suppress to ALL enemies. NL Gain !B! Block for each Status card in your draw pile."
+    "DESCRIPTION": "Apply !M! ${modID}:Suppress to ALL enemies for each Void card in your draw pile. NL Exhaust ALL Voids in your draw pile."
   },
 
   "${modID}:UnwaveringStarBase": {
@@ -222,6 +222,6 @@
 
   "${modID}:DoomFall": {
     "NAME": "Doom Fall",
-    "DESCRIPTION": "Deal !D! damage for each Status card in your draw pile."
+    "DESCRIPTION": "Deal !D! damage for each Void card in your draw pile. NL Exhaust ALL Voids in your draw pile."
   }
 }

@@ -91,7 +91,7 @@
       "hunger",
       "hungers"
     ],
-    "DESCRIPTION": "Gain X [E] and shuffle X #yVoids into your draw pile."
+    "DESCRIPTION": "Gain X [E] this and next turn. Shuffle X #yVoids into your draw pile."
   },
   {
     "PROPER_NAME": "Suppress",
