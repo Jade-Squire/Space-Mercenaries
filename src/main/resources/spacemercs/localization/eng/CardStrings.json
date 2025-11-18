@@ -209,6 +209,11 @@
     "UPGRADE_DESCRIPTION": "${modID}:Hunger !M!. NL Gain !B! Block. NL Increase both of these by 1 permanently. NL Exhaust."
   },
 
+  "${modID}:AnswerTheCall": {
+    "NAME": "Answer the Call",
+    "DESCRIPTION": "stslib:Fleeting. NL Gain ${modID}:Of_the_Void relic."
+  },
+
   "${modID}:Vengeance": {
     "NAME": "Vengeance",
     "DESCRIPTION": "Whenever you take health damage, apply !M! ${modID}:Suppress to that enemy. NL When it dies, ${modID}:Hunger equal to its max health."
@@ -223,5 +228,11 @@
   "${modID}:DoomFall": {
     "NAME": "Doom Fall",
     "DESCRIPTION": "Deal !D! damage for each Void card in your draw pile. NL Exhaust ALL Voids in your draw pile."
+  },
+
+  "${modID}:EmptyEmbrace": {
+    "NAME": "Empty Embrace",
+    "DESCRIPTION": "Void cards lose Ethereal.",
+    "UPGRADE_DESCRIPTION": "Void cards lose Ethereal. NL Deal 1 damage to ALL enemies when you draw a Void card."
   }
 }

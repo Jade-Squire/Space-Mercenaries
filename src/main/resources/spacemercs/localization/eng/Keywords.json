@@ -100,5 +100,13 @@
       "suppressed"
     ],
     "DESCRIPTION": "Whenever the enemy is dealt damage, apply 1 #yWeak or 1 #yVulnerable based on which is lower, then they lose 1 #ySuppress."
+  },
+  {
+    "PROPER_NAME": "Of the Void [${modID}:OfTheVoidIcon]",
+    "NAMES": [
+      "of the void",
+      "of_the_void"
+    ],
+    "DESCRIPTION": "Whenever you draw a #yVoid card, #yHunger 1 and heal 1 hp."
   }
 ]

@@ -80,9 +80,9 @@
   "${modID}:HungerPower": {
     "NAME": "Hunger",
     "DESCRIPTIONS": [
-      "You have ",
-      " #yVoids in your draw pile. NL NL Gain ",
-      " energy at the start of your turn."
+      "You have #b",
+      " #yVoids in your draw pile. NL NL Gain #b",
+      " [E] at the start of your turn."
     ]
   },
   "${modID}:VoidwallPower": {
@@ -109,6 +109,13 @@
     "NAME": "Desolate Will",
     "DESCRIPTIONS": [
       "Whenever you draw an #yUnplayable card, draw a card."
+    ]
+  },
+  "${modID}:EmptyEmbracePower": {
+    "NAME": "Empty Embrace",
+    "DESCRIPTIONS": [
+      "#yVoid cards lose #yEthereal.",
+      " Deal 1 damage to all enemies when you draw a Void card"
     ]
   }
 }

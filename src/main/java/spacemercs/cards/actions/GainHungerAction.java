@@ -10,17 +10,29 @@ import spacemercs.powers.HungerPower;
 
 public class GainHungerAction extends AbstractGameAction {
     private final int amount;
+    private final boolean isFast;
 
     public GainHungerAction(AbstractCreature target, AbstractCreature owner, int amount) {
+        this(target, owner, amount, false);
+    }
+
+    public GainHungerAction(AbstractCreature target, AbstractCreature owner, int amount, boolean isFast) {
         this.setValues(target, owner);
         this.amount = amount;
+        this.isFast = isFast;
     }
 
     @Override
     public void update() {
-        addToBot(new GainEnergyAction(amount));
-        addToBot(new MakeTempCardInDrawPileAction(new VoidCard(), amount, true, true));
-        addToBot(new ApplyPowerAction(target, target, new HungerPower(target, amount)));
+        if(!isFast) {
+            addToBot(new GainEnergyAction(amount));
+            addToBot(new MakeTempCardInDrawPileAction(new VoidCard(), amount, true, true));
+            addToBot(new ApplyPowerAction(target, target, new HungerPower(target, amount)));
+        } else {
+            addToTop(new GainEnergyAction(amount));
+            addToTop(new MakeTempCardInDrawPileAction(new VoidCard(), amount, true, true));
+            addToTop(new ApplyPowerAction(target, target, new HungerPower(target, amount)));
+        }
         this.isDone = true;
     }
 }

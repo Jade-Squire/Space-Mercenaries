@@ -1,36 +1,39 @@
 package spacemercs.cards.rare;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.basic.BrokenOath;
-import spacemercs.cards.basic.RememberedVow;
+import spacemercs.cards.actions.AnswerTheCallAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("unused")
-public class UnwaveringStarBase extends BaseCard implements SpawnModificationCard {
-    public static final String ID = makeID(UnwaveringStarBase.class.getSimpleName());
+public class AnswerTheCall extends BaseCard implements SpawnModificationCard {
+    public static final String ID = makeID(AnswerTheCall.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
-            CardType.ATTACK,
+            CardType.SKILL,
             CardRarity.RARE,
             CardTarget.NONE,
-            -2
+            5
     );
 
-    public UnwaveringStarBase() {
+    private static final int UPG_COST = 0;
+
+    public AnswerTheCall() {
         super(ID, info);
+        setCostUpgrade(UPG_COST);
+        FleetingField.fleeting.set(this, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        addToBot(new AnswerTheCallAction(p, p, this.current_x, this.current_y));
     }
 
     public void replaceSelf(AbstractCard newCard) {
@@ -42,18 +45,5 @@ public class UnwaveringStarBase extends BaseCard implements SpawnModificationCar
     }
 
     @Override
-    public AbstractCard replaceWith(ArrayList<AbstractCard> currentRewardCards) {
-        boolean hasVow = AbstractDungeon.player.masterDeck.findCardById(RememberedVow.ID) != null;
-        boolean hasOath = AbstractDungeon.player.masterDeck.findCardById(BrokenOath.ID) != null;
-
-        if(hasVow && !hasOath) {
-            // give oath version
-            return new UnwaveringStarOath();
-        } else if(!hasVow && hasOath) {
-            // give vow version
-            return new UnwaveringStarVow();
-        } else {
-            return new AnswerTheCall();
-        }
-    }
+    public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) { return false;}
 }

@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
+  },
+  "${modID}:OfTheVoidRelic": {
+    "NAME": "Of the Void",
+    "FLAVOR": "You've answered the call...",
+    "DESCRIPTIONS": [
+      "Whenever you draw a #yVoid card, #y${modID}:Hunger #b1 and heal #b1 hp."
+    ]
   }
 }

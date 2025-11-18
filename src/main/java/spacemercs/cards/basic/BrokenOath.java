@@ -11,8 +11,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import spacemercs.cards.BaseCard;
+import spacemercs.cards.rare.AnswerTheCall;
 import spacemercs.cards.rare.UnwaveringStarBase;
 import spacemercs.cards.rare.UnwaveringStarOath;
+import spacemercs.cards.rare.UnwaveringStarVow;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
@@ -57,6 +59,7 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
     @Override
     public void onRemoveFromMasterDeck() {
         boolean shouldLowerCost = true;
+        boolean foundVow = false;
         ArrayList<AbstractCard> cardsToSwap = new ArrayList<>();
         // Check for other instances of Broken Oath
         for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
@@ -69,17 +72,22 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
         if(shouldLowerCost) {
             for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                 if(c.cardID.equals(RememberedVow.ID)) {
+                    foundVow = true;
                     if(c.misc >= 0) {
                         c.misc *= -1;
                         c.updateCost(-1);
                     }
-                } else if (c.cardID.equals(UnwaveringStarBase.ID)) {
+                } else if (c.cardID.equals(UnwaveringStarBase.ID) || c.cardID.equals(UnwaveringStarVow.ID)) {
                     cardsToSwap.add(c);
                 }
             }
             if(!cardsToSwap.isEmpty()) {
                 for(AbstractCard c : cardsToSwap) {
-                    ((UnwaveringStarBase) c).replaceSelf(new UnwaveringStarOath());
+                    if(foundVow) {
+                        ((UnwaveringStarBase) c).replaceSelf(new UnwaveringStarOath());
+                    } else {
+                        ((UnwaveringStarVow) c).replaceSelf((new AnswerTheCall()));
+                    }
                 }
             }
         }
@@ -95,20 +103,26 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
     @Override
     public void onObtainCard() {
         ArrayList<AbstractCard> cardsToSwap = new ArrayList<>();
+        boolean foundVow = false;
         for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if(c.cardID.equals(RememberedVow.ID)) {
+                foundVow = true;
                 if(c.misc <= 0) {
                     c.misc *= -1;
                     c.updateCost(1);
                     c.isCostModified = false;
                 }
-            } else if (c.cardID.equals(UnwaveringStarOath.ID)) {
+            } else if (c.cardID.equals(UnwaveringStarOath.ID) || c.cardID.equals(AnswerTheCall.ID)) {
                 cardsToSwap.add(c);
             }
         }
         if(!cardsToSwap.isEmpty()) {
             for(AbstractCard c : cardsToSwap) {
-                ((UnwaveringStarOath)c).replaceSelf(new UnwaveringStarBase());
+                if(foundVow) {
+                    ((UnwaveringStarOath) c).replaceSelf(new UnwaveringStarBase());
+                } else {
+                    ((AnswerTheCall) c).replaceSelf(new UnwaveringStarVow());
+                }
             }
         }
     }

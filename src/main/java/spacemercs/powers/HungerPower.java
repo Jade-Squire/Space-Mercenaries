@@ -33,7 +33,7 @@ public class HungerPower extends BasePower implements OnCreateCard {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
-    public void onCreateCard(AbstractCard card) {
+    public void onCreateCardAfterDrawPile(AbstractCard card) {
         if(card != null && card.cardID.equals(VoidCard.ID)) {
             updateStacks();
         }
