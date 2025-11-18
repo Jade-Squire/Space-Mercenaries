@@ -27,8 +27,9 @@ public class EmptyEmbracePower extends BasePower implements OnCreateCard {
     }
 
     @Override
-    public void onCreateCardBeforeDrawPile(AbstractCard c) {
-        if(c.cardID.equals(VoidCard.ID)) {
+    public void onCreateCardBeforeDrawPile(AbstractCard c, AbstractCard src) {
+        if(src.cardID.equals(VoidCard.ID)) {
+            removeEthereal(src);
             removeEthereal(c);
         }
     }
