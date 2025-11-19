@@ -115,7 +115,7 @@
     "NAME": "Empty Embrace",
     "DESCRIPTIONS": [
       "#yVoid cards lose #yEthereal.",
-      " Deal 1 damage to all enemies when you draw a Void card"
+      " Deal #b", " damage to ALL enemies when you draw a Void card."
     ]
   }
 }

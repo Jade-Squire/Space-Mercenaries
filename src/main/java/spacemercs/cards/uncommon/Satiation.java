@@ -1,34 +1,37 @@
 package spacemercs.cards.uncommon;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
+import spacemercs.cards.actions.GainHungerAction;
+import spacemercs.cards.actions.SatiationAction;
 import spacemercs.character.Cosmopaladin;
-import spacemercs.powers.EmptyEmbracePower;
 import spacemercs.util.CardStats;
 
 @SuppressWarnings("unused")
-public class EmptyEmbrace extends BaseCard {
-    public static final String ID = makeID(EmptyEmbrace.class.getSimpleName());
+public class Satiation extends BaseCard {
+    public static final String ID = makeID(Satiation.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
-            CardType.POWER,
+            CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
             3
     );
 
-    private static final int DAMAGE = 0;
-    private static final int UPG_DAMAGE = 1;
+    private static final int BLOCK = 3;
+    private static final int HUNGER = 2;
 
-    public EmptyEmbrace() {
+    public Satiation() {
         super(ID, info);
-        setMagic(DAMAGE,UPG_DAMAGE);
+        setBlock(BLOCK);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new EmptyEmbracePower(p, magicNumber)));
+        if(upgraded) {
+            addToBot(new GainHungerAction(p, p, HUNGER, true));
+        }
+        addToBot(new SatiationAction(p, p, block));
     }
 }

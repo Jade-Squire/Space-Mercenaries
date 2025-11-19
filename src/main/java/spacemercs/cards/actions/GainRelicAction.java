@@ -3,20 +3,22 @@ package spacemercs.cards.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import spacemercs.relics.OfTheVoidRelic;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-public class AnswerTheCallAction extends AbstractGameAction {
+public class GainRelicAction extends AbstractGameAction {
     private final float spawnX;
     private final float spawnY;
-    public AnswerTheCallAction(AbstractCreature target, AbstractCreature owner, float cardX, float cardY) {
+    private final AbstractRelic relic;
+    public GainRelicAction(AbstractCreature target, AbstractCreature owner, float cardX, float cardY, AbstractRelic relic) {
         this.setValues(target, owner);
         spawnX = cardX;
         spawnY = cardY;
+        this.relic = relic;
     }
 
     @Override
     public void update() {
-        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(spawnX, spawnY, new OfTheVoidRelic());
+        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(spawnX, spawnY, relic);
         this.isDone = true;
     }
 }

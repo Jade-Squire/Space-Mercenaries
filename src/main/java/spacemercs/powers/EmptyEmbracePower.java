@@ -1,6 +1,9 @@
 package spacemercs.powers;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,6 +27,9 @@ public class EmptyEmbracePower extends BasePower implements OnCreateCard {
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+        if(amount > 0) {
+            this.description += DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        }
     }
 
     @Override
@@ -65,6 +71,15 @@ public class EmptyEmbracePower extends BasePower implements OnCreateCard {
             if(c.cardID.equals(VoidCard.ID)) {
                 removeEthereal(c);
             }
+        }
+    }
+
+    @Override
+    public void onCardDraw(AbstractCard card) {
+        super.onCardDraw(card);
+        if(card.cardID.equals(VoidCard.ID) && amount > 0) {
+            flash();
+            addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
     }
 }

@@ -1,5 +1,6 @@
 package spacemercs.cards.rare;
 
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -7,12 +8,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.actions.AnswerTheCallAction;
+import spacemercs.cards.actions.GainRelicAction;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.relics.OfTheVoidRelic;
 import spacemercs.util.CardStats;
 
 import java.util.ArrayList;
 
+@NoCompendium
 public class AnswerTheCall extends BaseCard implements SpawnModificationCard {
     public static final String ID = makeID(AnswerTheCall.class.getSimpleName());
     private static final CardStats info = new CardStats(
@@ -33,7 +36,7 @@ public class AnswerTheCall extends BaseCard implements SpawnModificationCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AnswerTheCallAction(p, p, this.current_x, this.current_y));
+        addToBot(new GainRelicAction(p, p, this.current_x, this.current_y, new OfTheVoidRelic()));
     }
 
     public void replaceSelf(AbstractCard newCard) {

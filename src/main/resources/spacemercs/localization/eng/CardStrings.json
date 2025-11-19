@@ -233,6 +233,23 @@
   "${modID}:EmptyEmbrace": {
     "NAME": "Empty Embrace",
     "DESCRIPTION": "Void cards lose Ethereal.",
-    "UPGRADE_DESCRIPTION": "Void cards lose Ethereal. NL Deal 1 damage to ALL enemies when you draw a Void card."
+    "UPGRADE_DESCRIPTION": "Void cards lose Ethereal. NL Deal !M! damage to ALL enemies when you draw a Void card."
+  },
+
+  "${modID}:DarkGift": {
+    "NAME": "Dark Gift",
+    "DESCRIPTION": "Gain a random common relic. NL Lose 3 Max HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain a random relic. NL Lose 3 Max HP. NL Exhaust."
+  },
+
+  "${modID}:SatiationBlockMod": {
+    "NAME": "Satiation Block",
+    "DESCRIPTION": "You don't lose this block at the start of your turn."
+  },
+
+  "${modID}:Satiation": {
+    "NAME": "Satiation",
+    "DESCRIPTION": "Gain !B! Block for each Void in your draw pile. NL Exhaust ALL Voids in your draw pile. NL Block is not removed at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "${modID}:Hunger 2. NL Gain !B! Block for each Void in your draw pile. NL Exhaust ALL Voids in your draw pile. NL Block is not removed at the start of your next turn."
   }
 }
