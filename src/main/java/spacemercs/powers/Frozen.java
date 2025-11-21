@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import spacemercs.cards.uncommon.ColdDarkGentle;
 import spacemercs.util.GeneralUtils;
 import spacemercs.util.TextureLoader;
 
@@ -27,8 +28,6 @@ import static spacemercs.SpaceMercsMod.makeID;
 
 public class Frozen extends AbstractPower {
     public static final String POWER_ID = makeID(Frozen.class.getSimpleName());
-    private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.DEBUFF;
-    private static final boolean TURN_BASED = true;
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
@@ -108,6 +107,12 @@ public class Frozen extends AbstractPower {
                 this.isDone = true;
             }
         });
+
+        for(AbstractCard c : AbstractDungeon.player.hand.group) {
+            if(c.cardID.equals(ColdDarkGentle.ID)) {
+                c.setCostForTurn(0);
+            }
+        }
     }
 
     public void onRemove() {
@@ -123,6 +128,11 @@ public class Frozen extends AbstractPower {
             m.applyPowers();
         }
 
+        for(AbstractCard c : AbstractDungeon.player.hand.group) {
+            if(c.cardID.equals(ColdDarkGentle.ID)) {
+                ((ColdDarkGentle)c).checkCost((AbstractMonster)this.owner);
+            }
+        }
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {

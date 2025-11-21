@@ -15,19 +15,24 @@ import java.util.Objects;
 
 public class CheckForIgnition extends AbstractGameAction {
     private boolean firstFrame = true;
+    private final boolean forced;
 
     private static final int DAMAGE_ON_ERUPT = 30;
     private static final int DAMAGE_OTHERS_ON_ERUPT = 15;
     private static final int DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER = 30;
 
-    public CheckForIgnition(AbstractCreature target, AbstractCreature owner) {
+    public CheckForIgnition(AbstractCreature target, AbstractCreature owner, boolean forcedIgnite) {
         this.setValues(target, owner);
+        this.forced = forcedIgnite;
+    }
+    public CheckForIgnition(AbstractCreature target, AbstractCreature owner) {
+        this(target, owner, false);
     }
 
     @Override
     public void update() {
-        if(target.hasPower(Scorch.POWER_ID)) {
-            if (target.getPower(Scorch.POWER_ID).amount >= 10) {
+        if(this.forced || target.hasPower(Scorch.POWER_ID)) {
+            if (this.forced || target.getPower(Scorch.POWER_ID).amount >= 10) {
                 if (this.firstFrame) {
                     boolean playedMusic = false;
 
@@ -47,8 +52,8 @@ public class CheckForIgnition extends AbstractGameAction {
         }
         this.tickDuration();
         if(isDone) {
-            if(target.hasPower(Scorch.POWER_ID)) {
-                if (target.getPower(Scorch.POWER_ID).amount >= 10) {
+            if(this.forced || target.hasPower(Scorch.POWER_ID)) {
+                if (this.forced || target.getPower(Scorch.POWER_ID).amount >= 10) {
                     for (AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         DamageInfo info;
                         if (Objects.equals(e, target)) {
@@ -67,7 +72,9 @@ public class CheckForIgnition extends AbstractGameAction {
                         e.damage(info);
                         this.addToTop(new WaitAction(0.1F));
                     }
-                    addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));
+                    if(target.hasPower(Scorch.POWER_ID)) {
+                        addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));
+                    }
                 }
             }
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {

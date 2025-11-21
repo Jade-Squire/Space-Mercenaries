@@ -256,5 +256,16 @@
   "${modID}:Starvation": {
     "NAME": "Starvation",
     "DESCRIPTION": "${modID}:Hunger 1 at the start of your turn. Increase this amount by !M! every turn."
+  },
+
+  "${modID}:ColdDarkGentle": {
+    "NAME": "Cold, Dark, Gentle",
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Hunger 10. NL Reduce the cost of this card to 0 if an enemy is frozen."
+  },
+
+  "${modID}:AbyssalFlare": {
+    "NAME": "Abyssal Flare",
+    "DESCRIPTION": "Convert your ${modID}:Cure into Block and ${modID}:Hunger equal to the converted amount.",
+    "UPGRADE_DESCRIPTION": "Convert your ${modID}:Cure into Block and ${modID}:Hunger equal to the converted amount. NL Ignite a random enemy."
   }
 }
