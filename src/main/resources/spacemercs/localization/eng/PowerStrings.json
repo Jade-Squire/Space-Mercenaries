@@ -117,5 +117,11 @@
       "#yVoid cards lose #yEthereal.",
       " Deal #b", " damage to ALL enemies when you draw a Void card."
     ]
+  },
+  "${modID}:StarvationPower": {
+    "NAME": "Starvation",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #yHunger ", "."
+    ]
   }
 }

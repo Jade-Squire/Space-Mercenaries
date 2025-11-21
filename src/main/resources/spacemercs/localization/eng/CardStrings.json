@@ -251,5 +251,10 @@
     "NAME": "Satiation",
     "DESCRIPTION": "Gain !B! Block for each Void in your draw pile. NL Exhaust ALL Voids in your draw pile. NL Block is not removed at the start of your next turn.",
     "UPGRADE_DESCRIPTION": "${modID}:Hunger 2. NL Gain !B! Block for each Void in your draw pile. NL Exhaust ALL Voids in your draw pile. NL Block is not removed at the start of your next turn."
+  },
+
+  "${modID}:Starvation": {
+    "NAME": "Starvation",
+    "DESCRIPTION": "${modID}:Hunger !D! at the start of your turn. Permanently increase this amount by !M!."
   }
 }

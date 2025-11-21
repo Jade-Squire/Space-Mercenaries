@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.HungerPower;
 
 public class GainHungerAction extends AbstractGameAction {
@@ -24,6 +26,9 @@ public class GainHungerAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        if(AbstractDungeon.player instanceof Cosmopaladin) {
+            ((Cosmopaladin)AbstractDungeon.player).gainedHungerForReward(this.amount);
+        }
         if(!isFast) {
             addToBot(new GainEnergyAction(amount));
             addToBot(new MakeTempCardInDrawPileAction(new VoidCard(), amount, true, true));

@@ -3,7 +3,10 @@ package spacemercs.character;
 import basemod.BaseMod;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
+import basemod.abstracts.CustomSavable;
 import basemod.animations.SpriterAnimation;
+import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.StartGameSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -15,6 +18,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -22,12 +26,13 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import spacemercs.cards.basic.*;
+import spacemercs.rewards.HungerReward;
 
 import java.util.ArrayList;
 
 import static spacemercs.SpaceMercsMod.*;
 
-public class Cosmopaladin extends CustomPlayer {
+public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscriber, StartGameSubscriber {
     //Stats
     public static final int ENERGY_PER_TURN = 3;
     public static final int MAX_HP = 70;
@@ -39,6 +44,32 @@ public class Cosmopaladin extends CustomPlayer {
     private static final String ID = makeID(Cosmopaladin.class.getSimpleName()); //This should match whatever you have in the CharacterStrings.json file
     private static String[] getNames() { return CardCrawlGame.languagePack.getCharacterString(ID).NAMES; }
     private static String[] getText() { return CardCrawlGame.languagePack.getCharacterString(ID).TEXT; }
+
+    private int HUNGER_THIS_COMBAT = 0;
+    private static boolean HAS_GOTTEN_HUNGER_REWARD = false;
+
+    @Override
+    public void receivePostInitialize() {
+        BaseMod.addSaveField("HungerRewardGained", new CustomSavable<Boolean>() {
+
+            @Override
+            public Boolean onSave() {
+                return HAS_GOTTEN_HUNGER_REWARD;
+            }
+
+            @Override
+            public void onLoad(Boolean bool) {
+                HAS_GOTTEN_HUNGER_REWARD = bool;
+            }
+        });
+    }
+
+    @Override
+    public void receiveStartGame() {
+        if(!CardCrawlGame.loadingSave) {
+            HAS_GOTTEN_HUNGER_REWARD = false;
+        }
+    }
 
     //This static class is necessary to avoid certain quirks of Java classloading when registering the character.
     public static class Meta {
@@ -131,6 +162,8 @@ public class Cosmopaladin extends CustomPlayer {
         //Location for text bubbles. You can adjust it as necessary later. For most characters, these values are fine.
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
+
+        BaseMod.subscribe(this);
     }
 
     @Override
@@ -167,6 +200,20 @@ public class Cosmopaladin extends CustomPlayer {
         //This card is used for the Gremlin card matching game.
         //It should be a non-strike non-defend starter card, but it doesn't have to be.
         return new Strike_Red();
+    }
+
+    public void gainedHungerForReward(int amount) {
+        this.HUNGER_THIS_COMBAT += amount;
+        if(!HAS_GOTTEN_HUNGER_REWARD && this.HUNGER_THIS_COMBAT > 3) {
+            AbstractDungeon.getCurrRoom().rewards.add(new HungerReward());
+            HAS_GOTTEN_HUNGER_REWARD = true;
+        }
+    }
+
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        HUNGER_THIS_COMBAT = 0;
     }
 
     /*- Below this is methods that you should *probably* adjust, but don't have to. -*/

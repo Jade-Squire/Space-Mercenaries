@@ -4,11 +4,14 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.icons.OfTheVoidIcon;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.relics.BaseRelic;
+import spacemercs.rewards.HungerReward;
+import spacemercs.rewards.HungerRewardType;
 import spacemercs.util.GeneralUtils;
 import spacemercs.util.KeywordInfo;
 import spacemercs.util.Sounds;
@@ -78,6 +81,11 @@ public class SpaceMercsMod implements
         //If you want to set up a config panel, that will be done here.
         //You can find information about this on the BaseMod wiki page "Mod Config and Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+        BaseMod.registerCustomReward(HungerRewardType.HUNGER_REWARD_TYPE, (rewardSave) -> {
+            return new HungerReward();
+        }, (customReward) -> {
+            return new RewardSave(customReward.type.toString(), null);
+        });
     }
 
     /*----------Localization----------*/
