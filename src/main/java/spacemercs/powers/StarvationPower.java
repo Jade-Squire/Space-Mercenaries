@@ -1,5 +1,7 @@
 package spacemercs.powers;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import spacemercs.cards.actions.GainHungerAction;
@@ -15,18 +17,48 @@ public class StarvationPower extends BasePower {
     //For a power to actually decrease/go away on its own they do it themselves.
     //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
-    public StarvationPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+    //amount is the increment
+    //amount2 is the current stack
+
+    public StarvationPower(AbstractCreature owner, int amount, int increaseAmount) {
+        super(POWER_ID, TYPE, TURN_BASED, owner, increaseAmount);
+        this.amount2 = amount;
+        updateDescription();
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + amount2 + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
     }
 
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
         flash();
-        addToBot(new GainHungerAction(this.owner, this.owner, amount, true));
+        addToBot(new GainHungerAction(this.owner, this.owner, amount2, true));
+        amount2 += amount;
+        updateDescription();
+    }
+
+    @Override
+    public void onInitialApplication() {
+        updateDescription();
+    }
+
+    @Override
+    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
+        int tmp = amount;
+        int tmp2 = amount2;
+        amount = amount2;
+        amount2 = 0;
+        super.renderAmount(sb, x, y, c);
+        amount2 = tmp2;
+        amount = tmp;
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+        this.amount2 += 1;
     }
 }

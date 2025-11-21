@@ -121,7 +121,7 @@
   "${modID}:StarvationPower": {
     "NAME": "Starvation",
     "DESCRIPTIONS": [
-      "At the start of your turn, #yHunger ", "."
+      "At the start of your turn, #yHunger ", ", then increase this by #b", "."
     ]
   }
 }

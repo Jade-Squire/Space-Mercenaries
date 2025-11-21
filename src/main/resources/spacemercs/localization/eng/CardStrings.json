@@ -255,6 +255,6 @@
 
   "${modID}:Starvation": {
     "NAME": "Starvation",
-    "DESCRIPTION": "${modID}:Hunger !D! at the start of your turn. Permanently increase this amount by !M!."
+    "DESCRIPTION": "${modID}:Hunger 1 at the start of your turn. Increase this amount by !M! every turn."
   }
 }
