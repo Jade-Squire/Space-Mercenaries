@@ -267,5 +267,21 @@
     "NAME": "Abyssal Flare",
     "DESCRIPTION": "Convert your ${modID}:Cure into Block and ${modID}:Hunger equal to the converted amount.",
     "UPGRADE_DESCRIPTION": "Convert your ${modID}:Cure into Block and ${modID}:Hunger equal to the converted amount. NL Ignite a random enemy."
+  },
+
+  "${modID}:LeechingGrab": {
+    "NAME": "Leeching Grab",
+    "DESCRIPTION": "Remove ALL debuffs from an enemy. NL Deal !D! damage and gain !B! Block for each stack removed."
+  },
+
+  "${modID}:DirePredicament": {
+    "NAME": "Dire Predicament",
+    "DESCRIPTION": "Remove ALL your debuffs. NL Heal !M! HP. NL Gain !B! Block. NL Exhaust ALL cards in your hand and discard pile.",
+    "UPGRADE_DESCRIPTION": "Remove ALL your debuffs. NL Heal !M! HP. NL Gain !B! Block. NL Exhaust ALL cards in your discard pile."
+  },
+
+  "${modID}:KnowledgeShock": {
+    "NAME": "Knowledge Shock",
+    "DESCRIPTION": "Whenever you would discard a card during your turn, instead ${modID}:Hunger 1 and draw a card."
   }
 }

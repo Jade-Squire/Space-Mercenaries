@@ -123,5 +123,11 @@
     "DESCRIPTIONS": [
       "At the start of your turn, #yHunger ", ", then increase this by #b", "."
     ]
+  },
+  "${modID}:KnowledgeShockPower": {
+    "NAME": "Knowledge Shock",
+    "DESCRIPTIONS": [
+      "Whenever you would discard during your turn, instead #yHunger #b", " and draw a card.", " and draw #b", " cards."
+    ]
   }
 }
