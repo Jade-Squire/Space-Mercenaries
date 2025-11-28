@@ -108,5 +108,21 @@
       "of_the_void"
     ],
     "DESCRIPTION": "Whenever you draw a #yVoid card, #yHunger 1 and heal 1 hp."
+  },
+  {
+    "PROPER_NAME": "Jolt",
+    "NAMES": [
+      "jolt",
+      "jolted"
+    ],
+    "DESCRIPTION": "Whenever a #yJolted enemy is damaged, deal equivalent damage up to #yJolt stacks to another random enemy and remove that many stacks."
+  },
+  {
+    "PROPER_NAME": "Amp",
+    "NAMES": [
+      "amp",
+      "amped"
+    ],
+    "DESCRIPTION": "Whenever you play a card, deal X damage to a random enemy and lose #b1 #yAmp. Whenever you take health damage, lose X more HP."
   }
 ]

@@ -283,5 +283,21 @@
   "${modID}:KnowledgeShock": {
     "NAME": "Knowledge Shock",
     "DESCRIPTION": "Whenever an effect would have you discard a card, instead ${modID}:Hunger 1, and draw a card."
+  },
+
+  "${modID}:FlashGrenade": {
+    "NAME": " Flash Grenade",
+    "DESCRIPTION": "Apply !M! ${modID}:Jolt to a random enemy.",
+    "UPGRADE_DESCRIPTION": "Apply !M! ${modID}:Jolt to 2 random enemies."
+  },
+
+  "${modID}:PulseGrenade": {
+    "NAME": " Pulse Grenade",
+    "DESCRIPTION": "At the start of your turn, apply !M! ${modID}:Jolt to ALL enemies."
+  },
+
+  "${modID}:LightningGrenade": {
+    "NAME": " Lightning Grenade",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Amp."
   }
 }

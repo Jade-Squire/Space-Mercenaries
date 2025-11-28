@@ -129,5 +129,23 @@
     "DESCRIPTIONS": [
       "Whenever an effect would have you discard a card, instead #yHunger #b", " and draw a card.", " and draw #b", " cards."
     ]
+  },
+  "${modID}:Jolt": {
+    "NAME": "Jolt",
+    "DESCRIPTIONS": [
+      "Whenever this enemy receives damage, up to #b", " of that damage is dealt to another random enemy and remove that many stacks."
+    ]
+  },
+  "${modID}:PulseGrenadePower": {
+    "NAME": "Pulse Grenade",
+    "DESCRIPTIONS": [
+      "At the start of your turn, apply #b", " #yJolt to ALL enemies."
+    ]
+  },
+  "${modID}:Amp": {
+    "NAME": "Amp",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, deal #b", " damage to a random enemy and lose #b1 #yAmp. Whenever you take health damage, lose #b", " more HP."
+    ]
   }
 }

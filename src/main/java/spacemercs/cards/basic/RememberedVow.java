@@ -60,8 +60,8 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberedVowAction(this.uuid, this.magicNumber));
-        addToBot(new DamageAction(m, new DamageInfo(p, getDamage(), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        addToBot(new GainBlockAction(p, getBlock()));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new GainBlockAction(p, block));
     }
 
     private int getBlock() {
