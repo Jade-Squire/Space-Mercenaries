@@ -1,7 +1,6 @@
 package spacemercs.interfaces;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public interface OnPreDiscard {
-    default boolean onDiscard(AbstractCard c) {return false;}
+    default boolean onDiscard(int count) {return false;}
 }

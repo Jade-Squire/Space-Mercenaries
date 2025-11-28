@@ -1,9 +1,7 @@
 package spacemercs.powers;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import spacemercs.cards.actions.GainHungerAction;
 import spacemercs.interfaces.OnPreDiscard;
@@ -48,13 +46,14 @@ public class KnowledgeShockPower extends BasePower implements OnPreDiscard {
     }
 
     @Override
-    public boolean onDiscard(AbstractCard c) {
+    public boolean onDiscard(int count) {
         if(ENDING_TURN) {
             return false;
         }
-        AbstractDungeon.player.hand.moveToHand(c);
-        addToBot(new GainHungerAction(owner, owner, amount));
-        addToBot(new DrawCardAction(amount));
+        //AbstractDungeon.player.hand.moveToHand(c);
+        addToBot(new GainHungerAction(owner, owner, count * amount));
+        addToBot(new DrawCardAction(count * amount));
+        flash();
         return true;
     }
 }

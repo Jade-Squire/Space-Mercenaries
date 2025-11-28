@@ -282,6 +282,6 @@
 
   "${modID}:KnowledgeShock": {
     "NAME": "Knowledge Shock",
-    "DESCRIPTION": "Whenever you would discard a card during your turn, instead ${modID}:Hunger 1 and draw a card."
+    "DESCRIPTION": "Whenever an effect would have you discard a card, instead ${modID}:Hunger 1, and draw a card."
   }
 }
