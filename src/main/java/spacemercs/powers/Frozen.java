@@ -142,7 +142,7 @@ public class Frozen extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if(damageAmount > 0 && this.attacked) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-            addToBot(new DamageAction(owner, new DamageInfo(owner, SHATTER_DAMAGE, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
+            addToBot(new DamageAction(owner, new DamageInfo(owner, SHATTER_DAMAGE, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SMASH));
             addToBot(new ApplyPowerAction(owner, AbstractDungeon.player, new WeakPower(owner, WEAK_STACKS, false)));
         }
         return damageAmount;

@@ -57,13 +57,13 @@ public class CheckForIgnition extends AbstractGameAction {
                     for (AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         DamageInfo info;
                         if (Objects.equals(e, target)) {
-                            info = new DamageInfo(target, DAMAGE_ON_ERUPT, DamageInfo.DamageType.NORMAL);
+                            info = new DamageInfo(target, DAMAGE_ON_ERUPT, DamageInfo.DamageType.THORNS);
 
                         } else {
                             if(AbstractDungeon.player.hasPower(ForgeMasterPower.POWER_ID)) {
-                                info = new DamageInfo(target, DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER, DamageInfo.DamageType.NORMAL);
+                                info = new DamageInfo(target, DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER, DamageInfo.DamageType.THORNS);
                             } else {
-                                info = new DamageInfo(target, DAMAGE_OTHERS_ON_ERUPT, DamageInfo.DamageType.NORMAL);
+                                info = new DamageInfo(target, DAMAGE_OTHERS_ON_ERUPT, DamageInfo.DamageType.THORNS);
                             }
                         }
                         e.tint.color = Color.RED.cpy();

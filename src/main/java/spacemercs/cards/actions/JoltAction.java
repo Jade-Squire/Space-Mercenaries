@@ -17,9 +17,13 @@ public class JoltAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        if(target == null) {
+            this.isDone = true;
+            return;
+        }
         CardCrawlGame.sound.playA("ORB_LIGHTNING_EVOKE", 0.9F);
         CardCrawlGame.sound.playA("ORB_LIGHTNING_PASSIVE", -0.3F);
-        addToTop(new DamageAction(target, new DamageInfo(source, amount)));
+        addToTop(new DamageAction(target, new DamageInfo(source, amount, DamageInfo.DamageType.THORNS)));
         addToTop(new VFXAction(new LightningEffect(target.hb.cX, target.hb.cY)));
         addToTop(new ReducePowerAction(source, source, Jolt.POWER_ID, amount));
         this.isDone = true;

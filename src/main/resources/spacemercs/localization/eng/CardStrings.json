@@ -299,5 +299,17 @@
   "${modID}:LightningGrenade": {
     "NAME": " Lightning Grenade",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Amp."
+  },
+
+  "${modID}:Overload": {
+    "NAME": " Overload",
+    "DESCRIPTION": "Double an enemy's ${modID}:Jolt. NL Deal !D! damage."
+  },
+
+  "${modID}:SeismicStrike": {
+    "NAME": " Seismic Strike",
+    "DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Refund 1 energy.",
+    "UPGRADE_DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Draw X cards. NL Refund 1 energy.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals ", " damage.)"]
   }
 }
