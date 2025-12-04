@@ -48,18 +48,18 @@ public class SturdyCircuitryPower extends BasePower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
+        int cardCost = (card.cost == -1)? card.energyOnUse : card.costForTurn;
         int refundAmount = 0;
-        if(RefundFields.refund.get(card) > 0) {
-            refundAmount -= RefundFields.refund.get(card);
-        }
-        if(card.costForTurn > 2) {
+
+        if(cardCost > 2) {
             refundAmount += refund2Cost;
         }
-        if(card.costForTurn > 1) {
+        if(cardCost > 1) {
             refundAmount += refund1Cost;
         }
-
-        // not sure this is how it should work...
+        if(refundAmount + RefundFields.refund.get(card) > cardCost) {
+            refundAmount = cardCost - RefundFields.refund.get(card);
+        }
         if(refundAmount > 0) {
             flashWithoutSound();
             addToBot(new RefundAction(card, refundAmount));
