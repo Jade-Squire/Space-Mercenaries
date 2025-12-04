@@ -20,11 +20,16 @@ public class DesolateWillPower extends BasePower {
     public void onCardDraw(AbstractCard card) {
         super.onCardDraw(card);
         if(card.cost == -2) {
-            addToBot(new DrawCardAction(1));
+            addToBot(new DrawCardAction(amount));
         }
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + amount;
+        if(amount > 1) {
+            this.description += DESCRIPTIONS[2];
+        } else {
+            this.description += DESCRIPTIONS[1];
+        }
     }
 }

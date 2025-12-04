@@ -108,7 +108,7 @@
   "${modID}:DesolateWillPower": {
     "NAME": "Desolate Will",
     "DESCRIPTIONS": [
-      "Whenever you draw an #yUnplayable card, draw a card."
+      "Whenever you draw an #yUnplayable card, draw #b", " card.", " cards."
     ]
   },
   "${modID}:EmptyEmbracePower": {
@@ -127,7 +127,7 @@
   "${modID}:KnowledgeShockPower": {
     "NAME": "Knowledge Shock",
     "DESCRIPTIONS": [
-      "Whenever an effect would have you discard a card, instead #yHunger #b", " and draw a card.", " and draw #b", " cards."
+      "Whenever an effect would have you discard a card, instead #yHunger #b", " and draw #b", " card.", " cards."
     ]
   },
   "${modID}:Jolt": {

@@ -221,8 +221,8 @@
 
   "${modID}:DesolateWill": {
     "NAME": "Desolate Will",
-    "DESCRIPTION": "Whenever you draw an Unplayable card, draw a card.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw an Unplayable card, draw a card."
+    "DESCRIPTION": "Whenever you draw an Unplayable card, draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw an Unplayable card, draw 1 card."
   },
 
   "${modID}:DoomFall": {
@@ -282,39 +282,54 @@
 
   "${modID}:KnowledgeShock": {
     "NAME": "Knowledge Shock",
-    "DESCRIPTION": "Whenever an effect would have you discard a card, instead ${modID}:Hunger 1, and draw a card."
+    "DESCRIPTION": "Whenever an effect would have you discard a card, instead ${modID}:Hunger 1, and draw 1 card."
   },
 
   "${modID}:FlashGrenade": {
-    "NAME": " Flash Grenade",
+    "NAME": "Flash Grenade",
     "DESCRIPTION": "Apply !M! ${modID}:Jolt to a random enemy.",
     "UPGRADE_DESCRIPTION": "Apply !M! ${modID}:Jolt to 2 random enemies."
   },
 
   "${modID}:PulseGrenade": {
-    "NAME": " Pulse Grenade",
+    "NAME": "Pulse Grenade",
     "DESCRIPTION": "At the start of your turn, apply !M! ${modID}:Jolt to ALL enemies."
   },
 
   "${modID}:LightningGrenade": {
-    "NAME": " Lightning Grenade",
+    "NAME": "Lightning Grenade",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Amp."
   },
 
   "${modID}:Overload": {
-    "NAME": " Overload",
+    "NAME": "Overload",
     "DESCRIPTION": "Double an enemy's ${modID}:Jolt. NL Deal !D! damage."
   },
 
   "${modID}:SeismicStrike": {
-    "NAME": " Seismic Strike",
+    "NAME": "Seismic Strike",
     "DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Refund 1 [E].",
     "UPGRADE_DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Draw X cards. NL Refund 1 [E].",
     "EXTENDED_DESCRIPTION": [" NL (Deals ", " damage.)"]
   },
 
   "${modID}:SturdyCircuitry": {
-    "NAME": " Sturdy Circuitry",
+    "NAME": "Sturdy Circuitry",
     "DESCRIPTION": "Refund 1 [E] when you play a card that costs more than !M!."
+  },
+
+  "${modID}:Poke": {
+    "NAME": "Poke",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Discard 1 card."
+  },
+
+  "${modID}:Prod": {
+    "NAME": "Prod",
+    "DESCRIPTION": "Apply !M! ${modID}:Jolt. NL Draw 1 card. NL Discard 1 card."
+  },
+
+  "${modID}:Boost": {
+    "NAME": "Boost",
+    "DESCRIPTION": "Gain !M! ${modID}:Amp. NL Gain !B! Block."
   }
 }

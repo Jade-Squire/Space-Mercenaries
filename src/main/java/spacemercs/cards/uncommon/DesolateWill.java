@@ -26,6 +26,6 @@ public class DesolateWill extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DesolateWillPower(p, -1)));
+        addToBot(new ApplyPowerAction(p, p, new DesolateWillPower(p, 1)));
     }
 }

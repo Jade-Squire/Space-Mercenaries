@@ -23,11 +23,11 @@ public class KnowledgeShockPower extends BasePower implements OnPreDiscard {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount;
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount;
         if(amount > 1) {
-            this.description += DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
+            this.description += DESCRIPTIONS[3];
         } else {
-            this.description += DESCRIPTIONS[1];
+            this.description += DESCRIPTIONS[2];
         }
     }
 
