@@ -158,12 +158,12 @@
 
   "${modID}:Gnaw": {
     "NAME": "Gnaw",
-    "DESCRIPTION": "Deal !D! damage for each energy you have."
+    "DESCRIPTION": "Deal !D! damage for each [E] you have."
   },
 
   "${modID}:StarvingGrenade": {
     "NAME": "Starving Grenade",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Hunger 2. NL Take !M! damage for each energy you have."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Hunger 2. NL Take !M! damage for each [E] you have."
   },
 
   "${modID}:VoidwallGrenade": {
@@ -173,8 +173,8 @@
 
   "${modID}:SuppressionGrenade": {
     "NAME": "Suppression Grenade",
-    "DESCRIPTION": "Apply 1 ${modID}:Suppress for each energy you have.",
-    "UPGRADE_DESCRIPTION": "Apply 1 ${modID}:Suppress for each energy you have. NL Play this twice."
+    "DESCRIPTION": "Apply 1 ${modID}:Suppress for each [E] you have.",
+    "UPGRADE_DESCRIPTION": "Apply 1 ${modID}:Suppress for each [E] you have. NL Play this twice."
   },
 
   "${modID}:PurgingMaw": {
@@ -308,8 +308,13 @@
 
   "${modID}:SeismicStrike": {
     "NAME": " Seismic Strike",
-    "DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Refund 1 energy.",
-    "UPGRADE_DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Draw X cards. NL Refund 1 energy.",
+    "DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Refund 1 [E].",
+    "UPGRADE_DESCRIPTION": "Deal 2*X damage. NL Apply 2*X ${modID}:Jolt. NL Gain 2*X ${modID}:Amp. NL Draw X cards. NL Refund 1 [E].",
     "EXTENDED_DESCRIPTION": [" NL (Deals ", " damage.)"]
+  },
+
+  "${modID}:SturdyCircuitry": {
+    "NAME": " Sturdy Circuitry",
+    "DESCRIPTION": "Refund 1 [E] when you play a card that costs more than !M!."
   }
 }

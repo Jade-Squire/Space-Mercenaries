@@ -147,5 +147,11 @@
     "DESCRIPTIONS": [
       "Whenever you play a card, deal #b", " damage to a random enemy and lose #b1 #yAmp. Whenever you take health damage, lose #b", " more HP."
     ]
+  },
+  "${modID}:SturdyCircuitryPower": {
+    "NAME": "Sturdy Circuitry",
+    "DESCRIPTIONS": [
+      "Refund up to #b", " [E] when you play a card that costs more than #b", " NL Increase this cap by #b", " [E] if the card costs more than #b"
+    ]
   }
 }
