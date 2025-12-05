@@ -153,5 +153,17 @@
     "DESCRIPTIONS": [
       "Refund up to #b", " [E] when you play a card that costs more than #b", " NL Increase this cap by #b", " [E] if the card costs more than #b"
     ]
+  },
+  "${modID}:SearingVoltagePower": {
+    "NAME": "Searing Voltage",
+    "DESCRIPTIONS": [
+      "Whenever an enemy gains #yScorch, they also gain #b", " #yJolt.", " NL When an enemy #yIgnites, gain #b", " #yAmp."
+    ]
+  },
+  "${modID}:BatteryPower": {
+    "NAME": "Battery Power",
+    "DESCRIPTIONS": [
+      "Gain #b", " #yAmp at the start of your next turn."
+    ]
   }
 }

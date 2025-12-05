@@ -331,5 +331,21 @@
   "${modID}:Boost": {
     "NAME": "Boost",
     "DESCRIPTION": "Gain !M! ${modID}:Amp. NL Gain !B! Block."
+  },
+
+  "${modID}:SearingVoltage": {
+    "NAME": "Searing Voltage",
+    "DESCRIPTION": "Whenever an enemy gains ${modID}:Scorch, they also gain 1 ${modID}:Jolt.",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy gains ${modID}:Scorch, they also gain 1 ${modID}:Jolt. NL Whenever an enemy ${modID}:Ignites, gain 10 ${modID}:Amp."
+  },
+
+  "${modID}:Battery": {
+    "NAME": "Battery",
+    "DESCRIPTION": "Remove ALL your ${modID}:Amp and regain it at the start of your next turn."
+  },
+
+  "${modID}:AmplifyPotential": {
+    "NAME": "Amplify Potential",
+    "DESCRIPTION": "Gain 2 ${modID}:Amp. NL Draw !M! cards."
   }
 }

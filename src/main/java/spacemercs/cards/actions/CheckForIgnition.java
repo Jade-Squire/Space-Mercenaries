@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import spacemercs.interfaces.OnIgnition;
 import spacemercs.powers.ForgeMasterPower;
 import spacemercs.powers.Scorch;
 
@@ -68,9 +70,13 @@ public class CheckForIgnition extends AbstractGameAction {
                         }
                         e.tint.color = Color.RED.cpy();
                         e.tint.changeColor(Color.WHITE.cpy());
-                        //info.applyEnemyPowersOnly(target);
                         e.damage(info);
                         this.addToTop(new WaitAction(0.1F));
+                    }
+                    for(AbstractPower p : AbstractDungeon.player.powers) {
+                        if(p instanceof OnIgnition) {
+                            ((OnIgnition) p).onIgnite(target);
+                        }
                     }
                     if(target.hasPower(Scorch.POWER_ID)) {
                         addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));

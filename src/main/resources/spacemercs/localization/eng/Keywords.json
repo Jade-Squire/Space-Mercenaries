@@ -39,11 +39,12 @@
     "PROPER_NAME": "Ignition",
     "NAMES": [
       "ignite",
+      "ignites",
       "ignition",
       "ignitions",
       "ignited"
     ],
-    "DESCRIPTION": "Deal 30 damage to #yIgnited enemy and 15 to ALL others."
+    "DESCRIPTION": "Deal #b30 damage to #yIgnited enemy and #b15 to ALL others."
   },
   {
     "PROPER_NAME": "Cure",
@@ -99,7 +100,7 @@
       "suppress",
       "suppressed"
     ],
-    "DESCRIPTION": "Whenever the enemy is dealt damage, apply 1 #yWeak or 1 #yVulnerable based on which is lower, then they lose 1 #ySuppress."
+    "DESCRIPTION": "Whenever the enemy is dealt damage, apply #b1 #yWeak or #b1 #yVulnerable based on which is lower, then they lose #b1 #ySuppress."
   },
   {
     "PROPER_NAME": "Of the Void [${modID}:OfTheVoidIcon]",
@@ -107,7 +108,7 @@
       "of the void",
       "of_the_void"
     ],
-    "DESCRIPTION": "Whenever you draw a #yVoid card, #yHunger 1 and heal 1 hp."
+    "DESCRIPTION": "Whenever you draw a #yVoid card, #yHunger #b1 and heal #b1 hp."
   },
   {
     "PROPER_NAME": "Jolt",
