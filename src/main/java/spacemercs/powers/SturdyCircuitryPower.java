@@ -2,14 +2,13 @@ package spacemercs.powers;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.RefundAction;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.RefundFields;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import spacemercs.cards.actions.RefundHandlerAction;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
@@ -57,12 +56,9 @@ public class SturdyCircuitryPower extends BasePower {
         if(cardCost > 1) {
             refundAmount += refund1Cost;
         }
-        if(refundAmount + RefundFields.refund.get(card) > cardCost) {
-            refundAmount = cardCost - RefundFields.refund.get(card);
-        }
         if(refundAmount > 0) {
             flashWithoutSound();
-            addToBot(new RefundAction(card, refundAmount));
+            addToBot(new RefundHandlerAction(owner, owner, card, refundAmount));
         }
     }
 

@@ -347,5 +347,22 @@
   "${modID}:AmplifyPotential": {
     "NAME": "Amplify Potential",
     "DESCRIPTION": "Gain 2 ${modID}:Amp. NL Draw !M! cards."
+  },
+
+  "${modID}:NegativeFeedback": {
+    "NAME": "Negative Feedback",
+    "DESCRIPTION": "Whenever you take health damage while ${modID}:Amped, apply !M! ${modID}:Jolt to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you take health damage while ${modID}:Amped, apply !M! ${modID}:Jolt to ALL enemies."
+  },
+
+  "${modID}:PositiveFeedback": {
+    "NAME": "Positive Feedback",
+    "DESCRIPTION": "At the start of your turn, if you didn't take health damage since last turn, gain !M! ${modID}:Amp.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, if you didn't take health damage since last turn, gain !M! ${modID}:Amp."
+  },
+
+  "${modID}:ConsumingEnergy": {
+    "NAME": "Consuming Energy",
+    "DESCRIPTION": "The next time more than 3 [E] is spend at once this turn, Refund 3 [E]."
   }
 }

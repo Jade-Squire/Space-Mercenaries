@@ -14,7 +14,7 @@
   "${modID}:Cure": {
     "NAME": "Cure",
     "DESCRIPTIONS": [
-      "Heal HP equal to your stacks of #yCure at the end of your turn. Taking damage causes you to lose half of your #yCure stacks unless you were at full health at the end of your turn."
+      "Heal #b", " HP at the end of your turn. Taking damage causes you to lose half of your #yCure stacks unless you were at full health at the end of your turn."
     ]
   },
   "${modID}:SmokeScreenPower": {
@@ -161,9 +161,27 @@
     ]
   },
   "${modID}:BatteryPower": {
-    "NAME": "Battery Power",
+    "NAME": "Battery",
     "DESCRIPTIONS": [
       "Gain #b", " #yAmp at the start of your next turn."
+    ]
+  },
+  "${modID}:NegativeFeedbackPower": {
+    "NAME": "Negative Feedback",
+    "DESCRIPTIONS": [
+      "Whenever you take health damage while #yAmped, apply #b", " #yJolt to ALL enemies."
+    ]
+  },
+  "${modID}:PositiveFeedbackPower": {
+    "NAME": "Positive Feedback",
+    "DESCRIPTIONS": [
+      "At the start of your turn, if you didn't take health damage since last turn, gain #b", " #yAmp."
+    ]
+  },
+  "${modID}:ConsumingEnergyPower": {
+    "NAME": "Consuming Energy",
+    "DESCRIPTIONS": [
+      "The next time more than #b3 [E] is spend at once this turn, #yRefund #b", " [E] ."
     ]
   }
 }
