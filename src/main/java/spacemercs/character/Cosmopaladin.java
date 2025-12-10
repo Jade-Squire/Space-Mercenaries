@@ -70,6 +70,18 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
                 HAS_GOTTEN_HUNGER_REWARD = bool;
             }
         });
+
+        BaseMod.addSaveField("SelectedSubclass", new CustomSavable<Subclass>() {
+            @Override
+            public Subclass onSave() {
+                return SUBCLASS;
+            }
+
+            @Override
+            public void onLoad(Subclass sub) {
+                SUBCLASS = sub;
+            }
+        });
     }
 
     @Override

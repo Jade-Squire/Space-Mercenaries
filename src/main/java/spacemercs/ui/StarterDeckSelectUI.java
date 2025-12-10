@@ -22,7 +22,6 @@ public class StarterDeckSelectUI {
     private static int currSelection = 1;
 
     private static final Color[] colors = {Color.ORANGE, Color.CYAN, Color.PURPLE, Color.BLUE};
-    private static final Cosmopaladin.Subclass[] classes = {Cosmopaladin.Subclass.SOLAR, Cosmopaladin.Subclass.ARC, Cosmopaladin.Subclass.VOID, Cosmopaladin.Subclass.STASIS};
 
     public static void render(SpriteBatch sb, float currX) {
         FontHelper.renderFontLeft(sb, FontHelper.buttonLabelFont, UIStrings.TEXT[0], currX - (Settings.WIDTH * 0.02F), Settings.HEIGHT * 0.78F, Settings.GOLD_COLOR);
@@ -66,6 +65,6 @@ public class StarterDeckSelectUI {
         if(currSelection < 1) {
             currSelection = 4;
         }
-        Cosmopaladin.SUBCLASS = classes[currSelection - 1];
+        Cosmopaladin.SUBCLASS = Cosmopaladin.Subclass.values()[currSelection - 1];
     }
 }
