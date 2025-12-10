@@ -26,6 +26,12 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import spacemercs.cards.basic.*;
+import spacemercs.cards.common.Jetpack;
+import spacemercs.cards.common.SmokeScreen;
+import spacemercs.cards.common.TacticalStrafe;
+import spacemercs.cards.uncommon.FusionGrenade;
+import spacemercs.cards.uncommon.LightningGrenade;
+import spacemercs.cards.uncommon.StarvingGrenade;
 import spacemercs.rewards.HungerReward;
 
 import java.util.ArrayList;
@@ -47,6 +53,8 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
 
     private int HUNGER_THIS_COMBAT = 0;
     private static boolean HAS_GOTTEN_HUNGER_REWARD = false;
+
+    public static Subclass SUBCLASS = Subclass.SOLAR;
 
     @Override
     public void receivePostInitialize() {
@@ -179,8 +187,29 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(RememberedVow.ID);
-        retVal.add(BrokenOath.ID);
+        /*retVal.add(RememberedVow.ID);
+        retVal.add(BrokenOath.ID);*/
+
+        switch(SUBCLASS){
+            case SOLAR:
+                retVal.add(SmokeScreen.ID);
+                retVal.add(FusionGrenade.ID);
+                break;
+            case ARC:
+                retVal.add(TacticalStrafe.ID);
+                retVal.add(LightningGrenade.ID);
+                break;
+            case VOID:
+                retVal.add(Jetpack.ID);
+                retVal.add(StarvingGrenade.ID);
+                break;
+            case STASIS:
+                retVal.add(RememberedVow.ID);
+                retVal.add(BrokenOath.ID);
+                break;
+            default:
+                break;
+        }
 
         return retVal;
     }
@@ -309,5 +338,12 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
     public AbstractPlayer newInstance() {
         //Makes a new instance of your character class.
         return new Cosmopaladin();
+    }
+
+    public enum Subclass {
+        SOLAR,
+        ARC,
+        VOID,
+        STASIS
     }
 }
