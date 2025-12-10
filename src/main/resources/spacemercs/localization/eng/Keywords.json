@@ -125,5 +125,12 @@
       "amped"
     ],
     "DESCRIPTION": "Whenever you play a card, deal X damage to a random enemy and lose #b1 #yAmp. Whenever you take health damage, lose X more HP."
+  },
+  {
+    "PROPER_NAME": "Will",
+    "NAMES": [
+      "will"
+    ],
+    "DESCRIPTION": "Does nothing yet..."
   }
 ]

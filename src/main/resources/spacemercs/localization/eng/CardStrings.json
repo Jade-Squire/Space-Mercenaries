@@ -364,5 +364,17 @@
   "${modID}:ConsumingEnergy": {
     "NAME": "Consuming Energy",
     "DESCRIPTION": "The next time more than 3 [E] is spend at once this turn, Refund 3 [E]."
+  },
+
+  "${modID}:Recrudesce": {
+    "NAME": "Recrudesce",
+    "DESCRIPTION": "Whenever an enemy ${modID}:Ignites, apply 4 ${modID}:Scorch and 5 ${modID}:Jolt to a random enemy.",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy ${modID}:Ignites, apply 4 ${modID}:Scorch and 5 ${modID}:Jolt to ALL enemies."
+  },
+
+  "${modID}:FinalStand": {
+    "NAME": "Final Stand",
+    "DESCRIPTION": "Draw cards until your hand is full. NL Gain 3 [E]. NL Gain 3 ${modID}:Will. NL Can't play above 25% health.",
+    "UPGRADE_DESCRIPTION": "Discard any number of cards. NL Draw cards until your hand is full. NL Gain 3 [E]. NL Gain 3 ${modID}:Will. NL Can't play above 25% health."
   }
 }

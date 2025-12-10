@@ -73,13 +73,13 @@ public class CheckForIgnition extends AbstractGameAction {
                         e.damage(info);
                         this.addToTop(new WaitAction(0.1F));
                     }
+                    if(target.hasPower(Scorch.POWER_ID)) {
+                        addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));
+                    }
                     for(AbstractPower p : AbstractDungeon.player.powers) {
                         if(p instanceof OnIgnition) {
                             ((OnIgnition) p).onIgnite(target);
                         }
-                    }
-                    if(target.hasPower(Scorch.POWER_ID)) {
-                        addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));
                     }
                 }
             }

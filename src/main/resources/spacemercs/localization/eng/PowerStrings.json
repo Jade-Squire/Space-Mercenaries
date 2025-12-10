@@ -183,5 +183,17 @@
     "DESCRIPTIONS": [
       "The next time more than #b3 [E] is spend at once this turn, #yRefund #b", " [E] ."
     ]
+  },
+  "${modID}:RecrudescePower": {
+    "NAME": "Recrudesce",
+    "DESCRIPTIONS": [
+      "Whenever an enemy #yIgnites, apply #b", " #yScorch and #b", " #yJolt to a random enemy.", " NL Additionally, apply #b", " #yJolt to ALL enemies."
+    ]
+  },
+  "${modID}:WillPower": {
+    "NAME": "Will",
+    "DESCRIPTIONS": [
+      "Does nothing yet."
+    ]
   }
 }
