@@ -80,11 +80,6 @@ public class WillCostModifier extends AbstractCardModifier implements AlternateC
         energyLoc.x += card.current_x;
         energyLoc.y += card.current_y;
 
-        /*float cos = MathUtils.cosDeg(rotation);
-        float sin = MathUtils.sinDeg(rotation);
-        x1 = cos * fx - sin * fy;
-        y1 = sin * fx + cos * fy;*/
-
         checkHb.resize(70.f * card.drawScale * Settings.scale, 70.f * card.drawScale * Settings.scale);
         checkHb.move(energyLoc.x, energyLoc.y);
         checkHb.update();
@@ -99,7 +94,7 @@ public class WillCostModifier extends AbstractCardModifier implements AlternateC
 
     @Override
     public void onRender(AbstractCard card, SpriteBatch sb) {
-        if(card.costForTurn == -1) {
+        if(card.costForTurn == -1 && AbstractDungeon.player.hand.contains(card)) {
             sb.draw(ImageMaster.OPTION_TOGGLE, checkHb.cX - checkHb.width/2, checkHb.cY - checkHb.height/2, checkHb.width, checkHb.height);
             if(shouldSpend) {
                 sb.setColor(Color.WHITE);

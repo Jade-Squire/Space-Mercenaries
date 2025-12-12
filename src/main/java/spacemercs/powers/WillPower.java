@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.patches.bothInterfaces.OnCreateCardInterface;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -7,6 +8,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import spacemercs.cards.modifiers.WillCostModifier;
+
+import java.util.ArrayList;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
@@ -41,17 +44,35 @@ public class WillPower extends BasePower implements OnCreateCardInterface {
 
     @Override
     public void onRemove() {
+        if(AbstractDungeon.player.cardInUse != null) {
+            ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(AbstractDungeon.player.cardInUse, WillCostModifier.ID);
+            for(AbstractCardModifier mod : mods) {
+                CardModifierManager.removeSpecificModifier(AbstractDungeon.player.cardInUse, mod, false);
+            }
+        }
         for(AbstractCard c : AbstractDungeon.player.hand.group) {
-            CardModifierManager.removeSpecificModifier(c, new WillCostModifier(), false);
+            ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(c, WillCostModifier.ID);
+            for(AbstractCardModifier mod : mods) {
+                CardModifierManager.removeSpecificModifier(c, mod, false);
+            }
         }
         for(AbstractCard c : AbstractDungeon.player.drawPile.group) {
-            CardModifierManager.removeSpecificModifier(c, new WillCostModifier(), false);
+            ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(c, WillCostModifier.ID);
+            for(AbstractCardModifier mod : mods) {
+                CardModifierManager.removeSpecificModifier(c, mod, false);
+            }
         }
         for(AbstractCard c : AbstractDungeon.player.discardPile.group) {
-            CardModifierManager.removeSpecificModifier(c, new WillCostModifier(), false);
+            ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(c, WillCostModifier.ID);
+            for(AbstractCardModifier mod : mods) {
+                CardModifierManager.removeSpecificModifier(c, mod, false);
+            }
         }
         for(AbstractCard c : AbstractDungeon.player.exhaustPile.group) {
-            CardModifierManager.removeSpecificModifier(c, new WillCostModifier(), false);
+            ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(c, WillCostModifier.ID);
+            for(AbstractCardModifier mod : mods) {
+                CardModifierManager.removeSpecificModifier(c, mod, false);
+            }
         }
     }
 
