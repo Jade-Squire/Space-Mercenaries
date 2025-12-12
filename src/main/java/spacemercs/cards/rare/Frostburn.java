@@ -1,5 +1,6 @@
 package spacemercs.cards.rare;
 
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
+import spacemercs.cards.modifiers.WillAltCostModifier;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.FrostArmor;
 import spacemercs.powers.Scorch;
@@ -26,15 +28,16 @@ public class Frostburn extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BASE_DAMAGE = 7;
-    private static final int UPG_DAMAGE = 3;
-    private static final int BASE_MAGIC = 7;
-    private static final int UPG_MAGIC = 3;
+    private static final int BASE_DAMAGE = 6;
+    private static final int UPG_DAMAGE = 2;
+    private static final int BASE_MAGIC = 6;
+    private static final int UPG_MAGIC = 2;
 
     public Frostburn() {
         super(ID, info);
         setDamage(BASE_DAMAGE, UPG_DAMAGE);
         setMagic(BASE_MAGIC, UPG_MAGIC);
+        CardModifierManager.addModifier(this, new WillAltCostModifier());
     }
 
     @Override

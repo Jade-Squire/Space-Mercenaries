@@ -32,7 +32,9 @@ public class WillCostModifier extends AbstractCardModifier implements AlternateC
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new WillCostModifier();
+        WillCostModifier retVal = new WillCostModifier();
+        retVal.shouldSpend = this.shouldSpend;
+        return retVal;
     }
 
     @Override

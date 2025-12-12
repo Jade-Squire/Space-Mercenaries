@@ -131,6 +131,13 @@
     "NAMES": [
       "will"
     ],
-    "DESCRIPTION": "Can be used as an alternate source of [E] to cast cards at a 2 #yWill : 1 [E] ratio."
+    "DESCRIPTION": "Can be used as an alternate source of [E] to play cards at a 2 #yWill : 1 [E] ratio. May also be used to play #yWillable cards."
+  },
+  {
+    "PROPER_NAME": "Willable",
+    "NAMES": [
+      "willable"
+    ],
+    "DESCRIPTION": "Can spend #b1 #yWill to play this card instead of [E] ."
   }
 ]

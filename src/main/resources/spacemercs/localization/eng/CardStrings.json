@@ -137,7 +137,7 @@
 
   "${modID}:Frostburn": {
     "NAME": "Frostburn",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Scorch. NL Apply !M! ${modID}:Slow. NL Gain ${modID}:Frost_Armor."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Scorch. NL Apply !M! ${modID}:Slow. NL Gain ${modID}:Frost_Armor. NL ${modID}:Willable."
   },
 
   "${modID}:RememberedVow": {
@@ -376,5 +376,28 @@
     "NAME": "Final Stand",
     "DESCRIPTION": "Draw cards until your hand is full. NL Gain 3 [E]. NL Gain 3 ${modID}:Will. NL Can't play above 25% health.",
     "UPGRADE_DESCRIPTION": "Discard any number of cards. NL Draw cards until your hand is full. NL Gain 3 [E]. NL Gain 3 ${modID}:Will. NL Can't play above 25% health."
+  },
+
+  "${modID}:Impede": {
+    "NAME": "Impede",
+    "DESCRIPTION": "Gain !B! Block for each card discarded this turn.",
+    "EXTENDED_DESCRIPTION": [" NL (", " discarded.)"]
+  },
+
+  "${modID}:Alternate": {
+    "NAME": "Alternate",
+    "DESCRIPTION": "Discard 1 card. NL Deal !D! damage to random enemies for each [E] of the discarded card.",
+    "UPGRADE_DESCRIPTION": "Discard 1 card. NL Draw cards and deal !D! damage to random enemies for each [E] of the discarded card."
+  },
+
+  "${modID}:OffAndOnAgain": {
+    "NAME": "Off and On Again",
+    "DESCRIPTION": "Draw !M! cards then discard !M! cards. NL Return this to your hand.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards then discard !M! cards. NL Gain !M! temporary Strength. NL Return this to your hand."
+  },
+
+  "${modID}:GlacierGrenade": {
+    "NAME": "Glacier Grenade",
+    "DESCRIPTION": "Gain !B! Block, then if you have !M! or more Block, apply 3 ${modID}:Slow to ALL enemies."
   }
 }
