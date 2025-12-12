@@ -2,13 +2,33 @@ package spacemercs.cards.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
 import basemod.interfaces.AlternateCardCostModifier;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import spacemercs.powers.WillPower;
 
-public class WillCostModifier extends AbstractCardModifier implements AlternateCardCostModifier {
+import java.awt.*;
+
+import static spacemercs.SpaceMercsMod.makeID;
+
+public class WillCostModifier extends AbstractCardModifier implements AlternateCardCostModifier{
+    public boolean shouldSpend = true;
+    public static final String ID = makeID(WillCostModifier.class.getSimpleName());
+    private final Hitbox checkHb = new Hitbox(100.f * Settings.scale, 100.f * Settings.scale);
+
     public WillCostModifier() {}
+
+    @Override
+    public String identifier(AbstractCard card) {
+        return ID;
+    }
 
     @Override
     public AbstractCardModifier makeCopy() {
@@ -17,7 +37,7 @@ public class WillCostModifier extends AbstractCardModifier implements AlternateC
 
     @Override
     public int getAlternateResource(AbstractCard card) {
-        if(!AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
+        if(!AbstractDungeon.player.hasPower(WillPower.POWER_ID) || !shouldSpend) {
             return -1;
         }
         return AbstractDungeon.player.getPower(WillPower.POWER_ID).amount / 2;
@@ -36,6 +56,9 @@ public class WillCostModifier extends AbstractCardModifier implements AlternateC
     @Override
     public int spendAlternateCost(AbstractCard abstractCard, int costToSpend) {
         int resource = -1;
+        if(!shouldSpend) {
+            return costToSpend;
+        }
         if(AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
             resource = AbstractDungeon.player.getPower(WillPower.POWER_ID).amount / 2;
         }
@@ -48,5 +71,40 @@ public class WillCostModifier extends AbstractCardModifier implements AlternateC
         }
 
         return costToSpend;
+    }
+
+    @Override
+    public void onUpdate(AbstractCard card) {
+        Vector2 energyLoc = new Vector2(-132.0F * card.drawScale * Settings.scale, 260.0f * card.drawScale * Settings.scale);
+        energyLoc.rotate(card.angle);
+        energyLoc.x += card.current_x;
+        energyLoc.y += card.current_y;
+
+        /*float cos = MathUtils.cosDeg(rotation);
+        float sin = MathUtils.sinDeg(rotation);
+        x1 = cos * fx - sin * fy;
+        y1 = sin * fx + cos * fy;*/
+
+        checkHb.resize(70.f * card.drawScale * Settings.scale, 70.f * card.drawScale * Settings.scale);
+        checkHb.move(energyLoc.x, energyLoc.y);
+        checkHb.update();
+
+        if(InputHelper.justClickedRight) {
+            if(AbstractDungeon.player.hoveredCard == card) {
+                shouldSpend = !shouldSpend;
+                card.applyPowers();
+            }
+        }
+    }
+
+    @Override
+    public void onRender(AbstractCard card, SpriteBatch sb) {
+        if(card.costForTurn == -1) {
+            sb.draw(ImageMaster.OPTION_TOGGLE, checkHb.cX - checkHb.width/2, checkHb.cY - checkHb.height/2, checkHb.width, checkHb.height);
+            if(shouldSpend) {
+                sb.setColor(Color.WHITE);
+                sb.draw(ImageMaster.OPTION_TOGGLE_ON, checkHb.cX - checkHb.width/2, checkHb.cY - checkHb.height/2, checkHb.width, checkHb.height);
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.relics.BaseRelic;
 import spacemercs.rewards.HungerReward;
 import spacemercs.rewards.HungerRewardType;
+import spacemercs.screens.TestScreen;
 import spacemercs.util.GeneralUtils;
 import spacemercs.util.KeywordInfo;
 import spacemercs.util.Sounds;
@@ -86,6 +87,7 @@ public class SpaceMercsMod implements
         }, (customReward) -> {
             return new RewardSave(customReward.type.toString(), null);
         });
+        BaseMod.addCustomScreen(new TestScreen());
     }
 
     /*----------Localization----------*/

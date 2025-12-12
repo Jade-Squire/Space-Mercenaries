@@ -193,7 +193,7 @@
   "${modID}:WillPower": {
     "NAME": "Will",
     "DESCRIPTIONS": [
-      "Does nothing yet."
+      "Can be used as an alternate source of [E] to cast cards at a 2 #yWill : 1 [E] ratio. NL NL Right click while hovering over an X cost card to choose whether to spend #yWill."
     ]
   }
 }
