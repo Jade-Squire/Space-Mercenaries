@@ -195,5 +195,29 @@
     "DESCRIPTIONS": [
       "Can be used as an alternate source of [E] to cast cards at a 2 #yWill : 1 [E] ratio. May also be used to play #yWillable cards. NL NL Right click while hovering over an X cost card to choose whether to spend #yWill."
     ]
+  },
+  "${modID}:GlacialGuardPower": {
+    "NAME": "Glacial Guard",
+    "DESCRIPTIONS": [
+      "When an enemy hits your block this turn, apply #b", " #ySlow to them.", " NL When you lose all #yBlock, apply #b", " #ySlow to ALL enemies."
+    ]
+  },
+  "${modID}:HowlingRevengePower": {
+    "NAME": "Howling Revenge",
+    "DESCRIPTIONS": [
+      "If you would die, instead return with #b", "% health. When you use this effect, remove #yHowling #yRevenge from your deck."
+    ]
+  },
+  "${modID}:BlissfulIgnorancePower": {
+    "NAME": "Blissful Ignorance",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, gain #b", " #yBlock. You cannot see enemy intents next turn."
+    ]
+  },
+  "${modID}:BlindedPower": {
+    "NAME": "Blinded",
+    "DESCRIPTIONS": [
+      "You cannot see enemy intents this turn."
+    ]
   }
 }

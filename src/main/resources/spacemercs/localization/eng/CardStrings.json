@@ -386,8 +386,8 @@
 
   "${modID}:Alternate": {
     "NAME": "Alternate",
-    "DESCRIPTION": "Discard 1 card. NL Deal !D! damage to random enemies for each [E] of the discarded card.",
-    "UPGRADE_DESCRIPTION": "Discard 1 card. NL Draw cards and deal !D! damage to random enemies for each [E] of the discarded card."
+    "DESCRIPTION": "Discard 1 card. NL Deal !D! damage to random enemies a number of times equal to [E] of the discarded card.",
+    "UPGRADE_DESCRIPTION": "Discard 1 card. NL Draw cards and deal !D! damage to random enemies a number of times equal to [E] of the discarded card."
   },
 
   "${modID}:OffAndOnAgain": {
@@ -399,5 +399,42 @@
   "${modID}:GlacierGrenade": {
     "NAME": "Glacier Grenade",
     "DESCRIPTION": "Gain !B! Block, then if you have !M! or more Block, apply 3 ${modID}:Slow to ALL enemies."
+  },
+
+  "${modID}:Icefall": {
+    "NAME": "Icefall",
+    "DESCRIPTION": "Deal !D! damage and apply !M! ${modID}:Slow."
+  },
+
+  "${modID}:GlacialGuard": {
+    "NAME": "Glacial Guard",
+    "DESCRIPTION": "Gain !B! Block. NL When an enemy hits your block this turn, apply !M! ${modID}:Slow to them.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL When an enemy hits your block this turn, apply !M! ${modID}:Slow to them. NL If you lose all block, apply 5 ${modID}:Slow to ALL enemies."
+  },
+
+  "${modID}:OutOfOptions": {
+    "NAME": "Out Of Options",
+    "DESCRIPTION": "${modID}:Freeze ALL enemies and end the turn. NL Can only be played as the first card this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL ${modID}:Freeze ALL enemies and end the turn. NL Can only be played as the first card this turn. NL Exhaust."
+  },
+
+  "${modID}:HowlingRevenge": {
+    "NAME": "Howling Revenge",
+    "DESCRIPTION": "If you would die, return with !M!% health. NL Remove this card from your deck when the effect is used."
+  },
+
+  "${modID}:BlissfulIgnorance": {
+    "NAME": "Blissful Ignorance",
+    "DESCRIPTION": "Gain !M! ${modID}:Will. NL Gain !B! Block next turn. You cannot see enemy intents next turn."
+  },
+
+  "${modID}:ColdStare": {
+    "NAME": "Cold Stare",
+    "DESCRIPTION": "Apply 2 ${modID}:Slow to a random enemy. NL Gain !M! ${modID}:Will."
+  },
+
+  "${modID}:ArcticBlast": {
+    "NAME": "Arctic Blast",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Slow to ALL enemies. NL ${modID}:Willable."
   }
 }
