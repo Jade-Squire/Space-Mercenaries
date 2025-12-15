@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
@@ -15,7 +16,7 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class Amp extends BasePower {
+public class Amp extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(Amp.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -51,5 +52,10 @@ public class Amp extends BasePower {
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new Amp(owner, amount);
     }
 }

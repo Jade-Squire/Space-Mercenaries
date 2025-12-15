@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -8,7 +9,7 @@ import spacemercs.interfaces.OnPreDiscard;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class KnowledgeShockPower extends BasePower implements OnPreDiscard {
+public class KnowledgeShockPower extends BasePower implements OnPreDiscard, CloneablePowerInterface {
     public static final String POWER_ID = makeID(KnowledgeShockPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -55,5 +56,10 @@ public class KnowledgeShockPower extends BasePower implements OnPreDiscard {
         addToBot(new DrawCardAction(count * amount));
         flash();
         return true;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new KnowledgeShockPower(owner, amount);
     }
 }

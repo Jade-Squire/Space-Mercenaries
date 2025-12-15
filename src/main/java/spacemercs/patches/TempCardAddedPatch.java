@@ -20,6 +20,7 @@ public class TempCardAddedPatch {
             AbstractDungeon.player.powers.stream().filter(power -> power instanceof OnCreateCard).forEach(power -> ((OnCreateCard)power).onCreateCardBeforeDrawPile(___card, srcCard));
         }
 
+        @SpirePostfixPatch
         public static void Postfix(AbstractGameEffect __instance, AbstractCard ___card, AbstractCard srcCard) {
             AbstractDungeon.player.powers.stream().filter(power -> power instanceof OnCreateCard).forEach(power -> ((OnCreateCard)power).onCreateCardAfterDrawPile(___card, srcCard));
         }

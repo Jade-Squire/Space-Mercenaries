@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseBlockPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -8,7 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class VoidwallPower extends BasePower implements OnLoseBlockPower {
+public class VoidwallPower extends BasePower implements OnLoseBlockPower, CloneablePowerInterface {
     public static final String POWER_ID = makeID(VoidwallPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -31,5 +32,10 @@ public class VoidwallPower extends BasePower implements OnLoseBlockPower {
             addToBot(new ApplyPowerAction(damageInfo.owner, owner,new SuppressPower(damageInfo.owner, amount)));
         }
         return i;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new VoidwallPower(owner, amount);
     }
 }

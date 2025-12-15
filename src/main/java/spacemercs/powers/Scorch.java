@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -8,7 +9,7 @@ import spacemercs.cards.actions.CheckForIgnition;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class Scorch extends BasePower{
+public class Scorch extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(Scorch.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
@@ -45,5 +46,10 @@ public class Scorch extends BasePower{
 
     public void onInitialApplication() {
         addToBot(new CheckForIgnition(owner, owner));
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new Scorch(owner, amount);
     }
 }

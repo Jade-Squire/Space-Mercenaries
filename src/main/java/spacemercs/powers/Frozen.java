@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -26,7 +27,7 @@ import java.lang.reflect.Field;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class Frozen extends AbstractPower {
+public class Frozen extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(Frozen.class.getSimpleName());
     private static final PowerStrings powerStrings;
     public static final String NAME;
@@ -148,93 +149,14 @@ public class Frozen extends AbstractPower {
         return damageAmount;
     }
 
+    @Override
+    public AbstractPower makeCopy() {
+        return new Frozen((AbstractMonster) owner, amount);
+    }
+
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         NAME = powerStrings.NAME;
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     }
 }
-
-/*public class Frozen extends BasePower {
-    public static final String POWER_ID = makeID(Frozen.class.getSimpleName());
-    private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.DEBUFF;
-    private static final boolean TURN_BASED = true;
-    private byte moveByte;
-    private AbstractMonster.Intent moveIntent;
-    private EnemyMoveInfo move;
-    private static final int WEAK_STACKS = 3;
-    private static final int SHATTER_DAMAGE = 20;
-    //The only thing TURN_BASED controls is the color of the number on the power icon.
-    //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
-    //For a power to actually decrease/go away on its own they do it themselves.
-    //Look at powers that do this like VulnerablePower and DoubleTapPower.
-
-    public Frozen(AbstractCreature owner, int amount) {
-        super(POWER_ID, TYPE, TURN_BASED, owner, amount);
-    }
-
-    public void updateDescription() {
-        if (this.amount > 1) {
-            this.description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
-        } else {
-            this.description = DESCRIPTIONS[0];
-        }
-        this.description += DESCRIPTIONS[3];
-    }
-
-    public void atEndOfRound() {
-        if (this.amount <= 0) {
-            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-        } else {
-            addToBot(new ReducePowerAction(this.owner, this.owner, this, 1));
-        }
-    }
-
-    public void onInitialApplication() {
-        addToBot(new AbstractGameAction() {
-            public void update() {
-                if (Frozen.this.owner instanceof AbstractMonster) {
-                    Frozen.this.moveByte = ((AbstractMonster)Frozen.this.owner).nextMove;
-                    Frozen.this.moveIntent = ((AbstractMonster)Frozen.this.owner).intent;
-
-                    try {
-                        Field f = AbstractMonster.class.getDeclaredField("move");
-                        f.setAccessible(true);
-                        Frozen.this.move = (EnemyMoveInfo)f.get(Frozen.this.owner);
-                        EnemyMoveInfo stunMove = new EnemyMoveInfo(Frozen.this.moveByte, AbstractMonster.Intent.STUN, -1, 0, false);
-                        f.set(Frozen.this.owner, stunMove);
-                        ((AbstractMonster)Frozen.this.owner).createIntent();
-                    } catch (NoSuchFieldException | IllegalAccessException e) {
-                        ((ReflectiveOperationException)e).printStackTrace();
-                    }
-                }
-
-                this.isDone = true;
-            }
-        });
-    }
-
-    public void onRemove() {
-        if (this.owner instanceof AbstractMonster) {
-            AbstractMonster m = (AbstractMonster)this.owner;
-            if (this.move != null) {
-                m.setMove(this.moveByte, this.moveIntent, this.move.baseDamage, this.move.multiplier, this.move.isMultiDamage);
-            } else {
-                m.setMove(this.moveByte, this.moveIntent);
-            }
-
-            m.createIntent();
-            m.applyPowers();
-        }
-
-    }
-
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        if(damageAmount > 0) {
-            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-            addToBot(new DamageAction(owner, new DamageInfo(owner, SHATTER_DAMAGE, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
-            addToBot(new ApplyPowerAction(owner, AbstractDungeon.player, new WeakPower(owner, WEAK_STACKS, false)));
-        }
-        return damageAmount;
-    }
-}*/

@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,7 +9,7 @@ import spacemercs.cards.actions.GainHungerAction;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class StarvationPower extends BasePower {
+public class StarvationPower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(StarvationPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -60,5 +61,10 @@ public class StarvationPower extends BasePower {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
         this.amount2 += 1;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new StarvationPower(owner, amount2, amount);
     }
 }

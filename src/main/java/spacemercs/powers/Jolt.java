@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,7 +12,7 @@ import static spacemercs.SpaceMercsMod.makeID;
 
 //Currently jolt damage can trigger jolt. idk if thats good
 
-public class Jolt extends BasePower {
+public class Jolt extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(Jolt.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
@@ -34,5 +35,10 @@ public class Jolt extends BasePower {
             addToTop(new JoltAction(AbstractDungeon.getRandomMonster((AbstractMonster) this.owner), this.owner, Math.min(info.output, amount)));
         }
         return super.onAttacked(info, damageAmount);
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new Jolt(owner, amount);
     }
 }

@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -12,7 +13,7 @@ import spacemercs.cards.actions.RefundHandlerAction;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class SturdyCircuitryPower extends BasePower {
+public class SturdyCircuitryPower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(SturdyCircuitryPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -31,6 +32,13 @@ public class SturdyCircuitryPower extends BasePower {
         } else {
             refund2Cost += 1;
         }
+        updateDescription();
+    }
+
+    public SturdyCircuitryPower(AbstractCreature owner, int refund1Cost, int refund2Cost) {
+        super(POWER_ID, TYPE, TURN_BASED, owner, 0);
+        this.refund1Cost = refund1Cost;
+        this.refund2Cost = refund2Cost;
         updateDescription();
     }
 
@@ -100,5 +108,10 @@ public class SturdyCircuitryPower extends BasePower {
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(this.refund2Cost), x, y, this.fontScale, c);
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(this.refund1Cost), x, y + 15.0F * Settings.scale, this.fontScale, c);
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new SturdyCircuitryPower(owner, refund1Cost, refund2Cost);
     }
 }

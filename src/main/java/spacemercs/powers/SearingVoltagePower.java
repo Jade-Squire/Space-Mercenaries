@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -9,7 +10,7 @@ import spacemercs.interfaces.OnIgnition;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class SearingVoltagePower extends BasePower implements OnIgnition {
+public class SearingVoltagePower extends BasePower implements OnIgnition, CloneablePowerInterface {
     public static final String POWER_ID = makeID(SearingVoltagePower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -75,5 +76,13 @@ public class SearingVoltagePower extends BasePower implements OnIgnition {
         if(amount2 > 0) {
             amount2 /= AMP_STACKS;
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        SearingVoltagePower p = new SearingVoltagePower(owner, amount);
+        p.amount = this.amount;
+        p.amount2 = this.amount2;
+        return p;
     }
 }

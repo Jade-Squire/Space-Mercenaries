@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class SuppressPower extends BasePower {
+public class SuppressPower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(SuppressPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
@@ -55,5 +56,10 @@ public class SuppressPower extends BasePower {
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new SuppressPower(owner, amount);
     }
 }

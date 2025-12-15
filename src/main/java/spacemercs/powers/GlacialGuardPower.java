@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseBlockPower;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class GlacialGuardPower extends BasePower implements OnLoseBlockPower, OnMyBlockBrokenPower {
+public class GlacialGuardPower extends BasePower implements OnLoseBlockPower, OnMyBlockBrokenPower, CloneablePowerInterface {
     public static final String POWER_ID = makeID(GlacialGuardPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -69,5 +70,12 @@ public class GlacialGuardPower extends BasePower implements OnLoseBlockPower, On
                 addToBot(new ApplyPowerAction(m, owner, new Slow(m, amount2 * SLOW_ON_BREAK)));
             }
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        GlacialGuardPower p = new GlacialGuardPower(owner, amount);
+        p.shouldOnBreak = this.shouldOnBreak;
+        return p;
     }
 }

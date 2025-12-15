@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +13,7 @@ import spacemercs.interfaces.OnCreateCard;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class EmptyEmbracePower extends BasePower implements OnCreateCard {
+public class EmptyEmbracePower extends BasePower implements OnCreateCard, CloneablePowerInterface {
     public static final String POWER_ID = makeID(EmptyEmbracePower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -81,5 +82,10 @@ public class EmptyEmbracePower extends BasePower implements OnCreateCard {
             flash();
             addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new EmptyEmbracePower(owner, amount);
     }
 }

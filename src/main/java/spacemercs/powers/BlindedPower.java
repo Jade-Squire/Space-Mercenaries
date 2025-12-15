@@ -1,7 +1,7 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BeforeRenderIntentPower;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class BlindedPower extends BasePower implements BeforeRenderIntentPower, NonStackablePower {
+public class BlindedPower extends BasePower implements BeforeRenderIntentPower, CloneablePowerInterface {
     public static final String POWER_ID = makeID(BlindedPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
@@ -34,5 +34,10 @@ public class BlindedPower extends BasePower implements BeforeRenderIntentPower, 
     @Override
     public boolean beforeRenderIntent(AbstractMonster abstractMonster) {
         return false;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new BlindedPower(owner, amount);
     }
 }

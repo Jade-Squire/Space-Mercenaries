@@ -436,5 +436,37 @@
   "${modID}:ArcticBlast": {
     "NAME": "Arctic Blast",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Slow to ALL enemies. NL ${modID}:Willable."
+  },
+
+  "${modID}:HonorTheFallen": {
+    "NAME": "Honor The Fallen",
+    "DESCRIPTION": "Gain !B! Block. NL Increase this by 1 permanently when an enemy dies.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain !B! Block. NL Increase this by 1 permanently when an enemy dies."
+  },
+
+  "${modID}:FrigidFortification": {
+    "NAME": "Frigid Fortification",
+    "DESCRIPTION": "Retain. NL Apply !M! ${modID}:Slow to ALL enemies. NL Gain ${modID}:Frost_Armor. NL ${modID}:Willable."
+  },
+
+  "${modID}:HunkerDown": {
+    "NAME": "Hunker Down",
+    "DESCRIPTION": "Gain ${modID}:Frost_Armor."
+  },
+
+  "${modID}:CantDieHere": {
+    "NAME": "Can't Die Here",
+    "DESCRIPTION": "Gain !M! Will. NL Gain Block equal to half your missing health. NL Can only be played under 50% health. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Will. NL Gain Block equal to your missing health. NL Can only be played under 50% health. NL Exhaust."
+  },
+
+  "${modID}:HoarfrostStomp": {
+    "NAME": "Hoarfrost Stomp",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Slow. NL Return this card to your hand. NL ${modID}:Willable."
+  },
+
+  "${modID}:ShiverStrike": {
+    "NAME": "Shiver Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Apply ALL debuffs from this enemy to ALL other enemies."
   }
 }

@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -11,7 +12,7 @@ import spacemercs.interfaces.OnIgnition;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class RecrudescePower extends BasePower implements OnIgnition {
+public class RecrudescePower extends BasePower implements OnIgnition, CloneablePowerInterface {
     public static final String POWER_ID = makeID(RecrudescePower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -89,5 +90,13 @@ public class RecrudescePower extends BasePower implements OnIgnition {
         super.renderAmount(sb, x, y, c);
         amount = tmp;
         amount2 = tmp2;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        RecrudescePower p = new RecrudescePower(owner, amount);
+        p.amount = this.amount;
+        p.amount2 = this.amount2;
+        return p;
     }
 }

@@ -2,6 +2,7 @@ package spacemercs.powers;
 
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.patches.bothInterfaces.OnCreateCardInterface;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class WillPower extends BasePower implements OnCreateCardInterface {
+public class WillPower extends BasePower implements OnCreateCardInterface, CloneablePowerInterface {
     public static final String POWER_ID = makeID(WillPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -83,5 +84,10 @@ public class WillPower extends BasePower implements OnCreateCardInterface {
     @Override
     public void onCreateCard(AbstractCard card) {
         CardModifierManager.addModifier(card, new WillCostModifier());
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new WillPower(owner, amount);
     }
 }

@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnPlayerDeathPower;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -15,7 +16,7 @@ import spacemercs.cards.rare.HowlingRevenge;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class HowlingRevengePower extends BasePower implements OnPlayerDeathPower {
+public class HowlingRevengePower extends BasePower implements OnPlayerDeathPower, CloneablePowerInterface {
     public static final String POWER_ID = makeID(HowlingRevengePower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -86,5 +87,10 @@ public class HowlingRevengePower extends BasePower implements OnPlayerDeathPower
                 return;
             }
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new HowlingRevengePower(owner, amount);
     }
 }

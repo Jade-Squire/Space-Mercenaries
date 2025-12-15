@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -8,7 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class BlissfulIgnorancePower extends BasePower {
+public class BlissfulIgnorancePower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(BlissfulIgnorancePower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -33,5 +34,10 @@ public class BlissfulIgnorancePower extends BasePower {
         addToBot(new GainBlockAction(owner, owner, amount * BLOCK_PER_STACK));
         addToBot(new ApplyPowerAction(owner, owner, new BlindedPower(owner, -1)));
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new BlissfulIgnorancePower(owner, amount);
     }
 }

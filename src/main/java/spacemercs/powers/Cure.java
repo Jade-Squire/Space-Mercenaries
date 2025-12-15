@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -9,12 +10,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class Cure extends BasePower{
+public class Cure extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(Cure.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
-    private static boolean CAN_LOSE_STACKS = true;
-    private static boolean OVERRODE_CAN_LOSE = false;
+    private boolean CAN_LOSE_STACKS = true;
+    private boolean OVERRODE_CAN_LOSE = false;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
     //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
     //For a power to actually decrease/go away on its own they do it themselves.
@@ -25,21 +26,21 @@ public class Cure extends BasePower{
     }
 
     public void overrideCanLoseStacks(boolean canLoseStacks) {
-        CAN_LOSE_STACKS = canLoseStacks;
-        OVERRODE_CAN_LOSE = true;
+        this.CAN_LOSE_STACKS = canLoseStacks;
+        this.OVERRODE_CAN_LOSE = true;
     }
 
     public void atEndOfTurn(boolean isPlayer) {
         if(isPlayer){
-            if(!OVERRODE_CAN_LOSE) {
-                CAN_LOSE_STACKS = owner.currentHealth < owner.maxHealth;
+            if(!this.OVERRODE_CAN_LOSE) {
+                this.CAN_LOSE_STACKS = owner.currentHealth < owner.maxHealth;
             }
-            OVERRODE_CAN_LOSE = false;
+            this.OVERRODE_CAN_LOSE = false;
         }
     }
 
     public void wasHPLost(DamageInfo info, int damageAmount) {
-        if(CAN_LOSE_STACKS) {
+        if(this.CAN_LOSE_STACKS) {
             addToTop(new ReducePowerAction(owner, owner, this, (int)Math.ceil(amount / 2.0)));
         }
     }
@@ -52,5 +53,10 @@ public class Cure extends BasePower{
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new Cure(owner, amount);
     }
 }

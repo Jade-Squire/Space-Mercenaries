@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -20,7 +21,7 @@ import static spacemercs.SpaceMercsMod.makeID;
  *         amount2 = voids in deck                *
  * * * * * * * * * * * * * * * * * * * * * * * * */
 
-public class HungerPower extends BasePower implements OnCreateCard {
+public class HungerPower extends BasePower implements OnCreateCard, CloneablePowerInterface {
     public static final String POWER_ID = makeID(HungerPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -101,5 +102,10 @@ public class HungerPower extends BasePower implements OnCreateCard {
             }
         }
         updateDescription();
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new HungerPower(owner, amount);
     }
 }

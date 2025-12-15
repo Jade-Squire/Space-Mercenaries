@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -7,7 +8,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class Thermite extends BasePower{
+public class Thermite extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(Thermite.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -29,5 +30,10 @@ public class Thermite extends BasePower{
         for(AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
             addToBot(new ApplyPowerAction(e, owner, new Scorch(e, amount)));
         }
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new Thermite(owner, amount);
     }
 }

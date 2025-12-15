@@ -1,5 +1,6 @@
 package spacemercs.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class SmokeScreenPower extends BasePower{
+public class SmokeScreenPower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(SmokeScreenPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -56,5 +57,10 @@ public class SmokeScreenPower extends BasePower{
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new SmokeScreenPower(owner, amount);
     }
 }
