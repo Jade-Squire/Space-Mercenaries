@@ -56,7 +56,7 @@ public class FrostArmor extends BasePower implements CloneablePowerInterface {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount * getSlowStacks() + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
