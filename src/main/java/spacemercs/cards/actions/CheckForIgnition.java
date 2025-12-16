@@ -23,6 +23,8 @@ public class CheckForIgnition extends AbstractGameAction {
     private static final int DAMAGE_OTHERS_ON_ERUPT = 15;
     private static final int DAMAGE_OTHERS_ON_ERUPT_FORGEMASTER = 30;
 
+    public static final int STACKS_FOR_IGNITION = 10;
+
     public CheckForIgnition(AbstractCreature target, AbstractCreature owner, boolean forcedIgnite) {
         this.setValues(target, owner);
         this.forced = forcedIgnite;
@@ -34,7 +36,7 @@ public class CheckForIgnition extends AbstractGameAction {
     @Override
     public void update() {
         if(this.forced || target.hasPower(Scorch.POWER_ID)) {
-            if (this.forced || target.getPower(Scorch.POWER_ID).amount >= 10) {
+            if (this.forced || target.getPower(Scorch.POWER_ID).amount >= STACKS_FOR_IGNITION) {
                 if (this.firstFrame) {
                     boolean playedMusic = false;
 
@@ -55,7 +57,7 @@ public class CheckForIgnition extends AbstractGameAction {
         this.tickDuration();
         if(isDone) {
             if(this.forced || target.hasPower(Scorch.POWER_ID)) {
-                if (this.forced || target.getPower(Scorch.POWER_ID).amount >= 10) {
+                if (this.forced || target.getPower(Scorch.POWER_ID).amount >= STACKS_FOR_IGNITION) {
                     for (AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         DamageInfo info;
                         if (Objects.equals(e, target)) {

@@ -62,7 +62,7 @@
   "${modID}:Slow": {
     "NAME": "Slow",
     "DESCRIPTIONS": [
-      "Doubles stacks at the end of the enemy's turn. Does nothing until the enemy has #b20 stacks of #ySlow, #yFreezing them for their next turn, skipping it."
+      "Doubles stacks at the end of the enemy's turn. When the enemy has #b20 stacks of #ySlow, #yFreeze them, skipping their next turn."
     ]
   },
   "${modID}:FrostArmor": {
@@ -218,6 +218,12 @@
     "NAME": "Blinded",
     "DESCRIPTIONS": [
       "You cannot see enemy intents this turn."
+    ]
+  },
+  "${modID}:EmptyAndUnmovingPower": {
+    "NAME": "Empty and Unmoving",
+    "DESCRIPTIONS": [
+      "Whenever you #yHunger, gain #yFrost #yArmor."
     ]
   }
 }

@@ -9,6 +9,9 @@ import spacemercs.powers.Frozen;
 import spacemercs.powers.Slow;
 
 public class CheckForFreeze extends AbstractGameAction {
+
+    public static final int STACKS_FOR_FREEZE = 20;
+
     public CheckForFreeze(AbstractCreature target, AbstractCreature owner) {
         this.setValues(target, owner);
     }
@@ -16,7 +19,7 @@ public class CheckForFreeze extends AbstractGameAction {
     @Override
     public void update() {
         if(target.hasPower(Slow.POWER_ID)) {
-            if(target.getPower(Slow.POWER_ID).amount >= 20) {
+            if(target.getPower(Slow.POWER_ID).amount >= STACKS_FOR_FREEZE) {
                 addToBot(new ApplyPowerAction(target, target, new Frozen((AbstractMonster) target, 1)));
                 addToBot(new RemoveSpecificPowerAction(target, target, Slow.POWER_ID));
             }

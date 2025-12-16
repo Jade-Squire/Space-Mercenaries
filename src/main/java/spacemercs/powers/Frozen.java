@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import spacemercs.cards.uncommon.ColdDarkGentle;
+import spacemercs.interfaces.OnFreeze;
 import spacemercs.util.GeneralUtils;
 import spacemercs.util.TextureLoader;
 
@@ -112,6 +113,12 @@ public class Frozen extends AbstractPower implements CloneablePowerInterface {
         for(AbstractCard c : AbstractDungeon.player.hand.group) {
             if(c.cardID.equals(ColdDarkGentle.ID)) {
                 c.setCostForTurn(0);
+            }
+        }
+
+        for(AbstractPower p : AbstractDungeon.player.powers) {
+            if(p instanceof OnFreeze) {
+                ((OnFreeze) p).onFreeze(owner);
             }
         }
     }

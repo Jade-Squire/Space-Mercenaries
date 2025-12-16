@@ -26,19 +26,26 @@ public class FrostArmor extends BasePower implements CloneablePowerInterface {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        int blockToGain = 0;
+        int blockToGain;
         if(isPlayer) {
             if(owner.hasPower(POWER_ID)) {
-                for (AbstractMonster e : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    if (e.hasPower(Slow.POWER_ID)) {
-                        blockToGain += e.getPower(Slow.POWER_ID).amount;
-                    }
-                }
+                blockToGain = getSlowStacks();
                 if(blockToGain > 0) {
                     addToBot(new GainBlockAction(owner, blockToGain));
                 }
             }
         }
+    }
+
+    private int getSlowStacks() {
+        int retVal = 0;
+        for (AbstractMonster e : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (e.hasPower(Slow.POWER_ID)) {
+                retVal += e.getPower(Slow.POWER_ID).amount;
+            }
+        }
+
+        return retVal;
     }
 
     @Override
@@ -49,7 +56,7 @@ public class FrostArmor extends BasePower implements CloneablePowerInterface {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + amount * getSlowStacks() + DESCRIPTIONS[1];
     }
 
     @Override

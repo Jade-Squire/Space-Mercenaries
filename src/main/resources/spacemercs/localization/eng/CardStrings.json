@@ -468,5 +468,17 @@
   "${modID}:ShiverStrike": {
     "NAME": "Shiver Strike",
     "DESCRIPTION": "Deal !D! damage. NL Apply ALL debuffs from this enemy to ALL other enemies."
+  },
+
+  "${modID}:HotAndCold": {
+    "NAME": "Hot and Cold",
+    "DESCRIPTION": "Retain. NL Double the stacks of ${modID}:Scorch and ${modID}:Slow on ALL enemies. NL Gain ${modID}:Will equal to the number of enemies ${modID}:Ignited or ${modID}:Frozen this way. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Double the stacks of ${modID}:Scorch and ${modID}:Slow on ALL enemies. NL Gain ${modID}:Will equal to the number of enemies ${modID}:Ignited or ${modID}:Frozen this way."
+  },
+
+  "${modID}:EmptyAndUnmoving": {
+    "NAME": "Empty and Unmoving",
+    "DESCRIPTION": "Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor."
   }
 }

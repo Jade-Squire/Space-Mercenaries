@@ -58,7 +58,7 @@
     "NAMES": [
       "slow"
     ],
-    "DESCRIPTION": "Doubles stacks at the end of the enemy's turn. Does nothing until the enemy has #b20 stacks of #ySlow, #yFreezing them for their next turn, skipping it."
+    "DESCRIPTION": "Doubles stacks at the end of the enemy's turn. When the enemy has #b20 stacks of #ySlow, #yFreeze them, skipping their next turn."
   },
   {
     "PROPER_NAME": "Frozen",

@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.interfaces.OnGainHunger;
 import spacemercs.powers.HungerPower;
 
 public class GainHungerAction extends AbstractGameAction {
@@ -37,6 +39,11 @@ public class GainHungerAction extends AbstractGameAction {
             addToTop(new GainEnergyAction(amount));
             addToTop(new MakeTempCardInDrawPileAction(new VoidCard(), amount, true, true));
             addToTop(new ApplyPowerAction(target, target, new HungerPower(target, amount)));
+        }
+        for(AbstractPower p : AbstractDungeon.player.powers) {
+            if(p instanceof OnGainHunger) {
+                ((OnGainHunger) p).onGainHunger(amount);
+            }
         }
         this.isDone = true;
     }
