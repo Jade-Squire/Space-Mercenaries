@@ -39,6 +39,7 @@ import java.lang.reflect.Modifier;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+
 @SpireInitializer
 public class SpaceMercsMod implements
         EditCardsSubscriber,
