@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.modifiers.WillAltCostModifier;
 import spacemercs.character.Cosmopaladin;
@@ -31,6 +32,7 @@ public class FrigidFortification extends BaseCard {
         setMagic(SLOW, UPG_SLOW);
         setSelfRetain(true);
         CardModifierManager.addModifier(this, new WillAltCostModifier());
+        tags.add(SpaceMercsCustomTags.APLLIESSLOW);
     }
 
     @Override

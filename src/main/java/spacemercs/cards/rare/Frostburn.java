@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.modifiers.WillAltCostModifier;
 import spacemercs.character.Cosmopaladin;
@@ -38,6 +39,7 @@ public class Frostburn extends BaseCard {
         setDamage(BASE_DAMAGE, UPG_DAMAGE);
         setMagic(BASE_MAGIC, UPG_MAGIC);
         CardModifierManager.addModifier(this, new WillAltCostModifier());
+        tags.add(SpaceMercsCustomTags.APLLIESSLOW);
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.modifiers.WillAltCostModifier;
 import spacemercs.character.Cosmopaladin;
@@ -37,6 +38,7 @@ public class HoarfrostStomp extends BaseCard {
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(SLOW);
         CardModifierManager.addModifier(this, new WillAltCostModifier());
+        tags.add(SpaceMercsCustomTags.APLLIESSLOW);
     }
 
     @Override

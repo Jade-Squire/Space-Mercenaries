@@ -7,10 +7,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import spacemercs.cards.actions.JoltAction;
+import spacemercs.interfaces.OnJolted;
 
 import static spacemercs.SpaceMercsMod.makeID;
-
-//Currently jolt damage can trigger jolt. idk if thats good
 
 public class Jolt extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID(Jolt.class.getSimpleName());
@@ -32,7 +31,13 @@ public class Jolt extends BasePower implements CloneablePowerInterface {
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         if(info.output > 0 && AbstractDungeon.getCurrRoom().monsters.monsters.size() > 1) {
-            addToTop(new JoltAction(AbstractDungeon.getRandomMonster((AbstractMonster) this.owner), this.owner, Math.min(info.output, amount)));
+            AbstractMonster target = AbstractDungeon.getRandomMonster((AbstractMonster) this.owner);
+            addToTop(new JoltAction(target, this.owner, Math.min(info.output, amount)));
+            for(AbstractPower p : AbstractDungeon.player.powers) {
+                if(p instanceof OnJolted) {
+                    ((OnJolted) p).OnJoltTriggered(target);
+                }
+            }
         }
         return super.onAttacked(info, damageAmount);
     }

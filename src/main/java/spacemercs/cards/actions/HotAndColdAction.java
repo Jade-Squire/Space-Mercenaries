@@ -33,7 +33,9 @@ public class HotAndColdAction extends AbstractGameAction {
             }
         }
 
-        addToBot(new ApplyPowerAction(source, source, new WillPower(source, willGain)));
+        if(willGain > 0) {
+            addToBot(new ApplyPowerAction(source, source, new WillPower(source, willGain)));
+        }
         this.isDone = true;
     }
 }

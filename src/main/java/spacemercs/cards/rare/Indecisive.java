@@ -13,9 +13,8 @@ import spacemercs.util.CardStats;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("unused")
-public class UnwaveringStarBase extends BaseCard implements SpawnModificationCard {
-    public static final String ID = makeID(UnwaveringStarBase.class.getSimpleName());
+public class Indecisive extends BaseCard implements SpawnModificationCard {
+    public static final String ID = makeID(Indecisive.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.STATUS,
@@ -24,7 +23,7 @@ public class UnwaveringStarBase extends BaseCard implements SpawnModificationCar
             -2
     );
 
-    public UnwaveringStarBase() {
+    public Indecisive() {
         super(ID, info);
     }
 
@@ -48,12 +47,12 @@ public class UnwaveringStarBase extends BaseCard implements SpawnModificationCar
 
         if(hasVow && !hasOath) {
             // give oath version
-            return new UnwaveringStarOath();
+            return new StandFirm();
         } else if(!hasVow && hasOath) {
             // give vow version
-            return new UnwaveringStarVow();
+            return new ChillingPast();
         } else {
-            return new AnswerTheCall();
+            return new NewPath();
         }
     }
 }

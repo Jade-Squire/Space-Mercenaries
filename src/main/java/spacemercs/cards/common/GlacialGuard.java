@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.actions.GlacialGuardAction;
 import spacemercs.character.Cosmopaladin;
@@ -29,6 +30,7 @@ public class GlacialGuard extends BaseCard {
         super(ID, info);
         setBlock(BLOCK);
         setMagic(SLOW_ON_HIT);
+        tags.add(SpaceMercsCustomTags.APLLIESSLOW);
     }
 
     @Override

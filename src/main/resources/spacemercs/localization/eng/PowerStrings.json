@@ -225,5 +225,17 @@
     "DESCRIPTIONS": [
       "Whenever you #yHunger, gain #yFrost #yArmor."
     ]
+  },
+  "${modID}:QuickAndRelentlessPower": {
+    "NAME": "Quick and Relentless",
+    "DESCRIPTIONS": [
+      "Whenever an enemy is damaged by #yJolt this turn, apply #b", " #ySlow.", " Additionally, gain #b", " #yAmp."
+    ]
+  },
+  "${modID}:ChillingPastPower": {
+    "NAME": "Chilling Past",
+    "DESCRIPTIONS": [
+      "Whenever a debuff is applied to an enemy, gain #b", " temporary #yStrength."
+    ]
   }
 }

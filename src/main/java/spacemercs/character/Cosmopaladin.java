@@ -29,6 +29,8 @@ import spacemercs.cards.basic.*;
 import spacemercs.cards.common.Jetpack;
 import spacemercs.cards.common.SmokeScreen;
 import spacemercs.cards.common.TacticalStrafe;
+import spacemercs.cards.rare.Indecisive;
+import spacemercs.cards.rare.UnwaveringStarBase;
 import spacemercs.cards.uncommon.FusionGrenade;
 import spacemercs.cards.uncommon.LightningGrenade;
 import spacemercs.cards.uncommon.StarvingGrenade;
@@ -218,6 +220,8 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
             case STASIS:
                 retVal.add(RememberedVow.ID);
                 retVal.add(BrokenOath.ID);
+                retVal.add(UnwaveringStarBase.ID);
+                retVal.add(Indecisive.ID);
                 break;
             default:
                 break;

@@ -1,33 +1,31 @@
-package spacemercs.cards.rare;
+package spacemercs.cards.uncommon;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.actions.HotAndColdAction;
+import spacemercs.cards.actions.QuickAndRelentlessAction;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
 @SuppressWarnings("unused")
-public class HotAndCold extends BaseCard {
-    public static final String ID = makeID(HotAndCold.class.getSimpleName());
+public class QuickAndRelentless extends BaseCard {
+    public static final String ID = makeID(QuickAndRelentless.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.RARE,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
-            3
+            2
     );
 
-    public HotAndCold() {
+    public QuickAndRelentless() {
         super(ID, info);
-        setSelfRetain(true);
-        setExhaust(true, false);
         tags.add(SpaceMercsCustomTags.APLLIESSLOW);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new HotAndColdAction(m, p));
+        addToBot(new QuickAndRelentlessAction(p, p, upgraded, 1));
     }
 }

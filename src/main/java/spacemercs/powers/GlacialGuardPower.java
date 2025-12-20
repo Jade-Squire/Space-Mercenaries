@@ -76,6 +76,7 @@ public class GlacialGuardPower extends BasePower implements OnLoseBlockPower, On
     public AbstractPower makeCopy() {
         GlacialGuardPower p = new GlacialGuardPower(owner, amount);
         p.shouldOnBreak = this.shouldOnBreak;
+        p.amount2 = this.amount2;
         return p;
     }
 }

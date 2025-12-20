@@ -11,10 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import spacemercs.cards.BaseCard;
-import spacemercs.cards.rare.AnswerTheCall;
-import spacemercs.cards.rare.UnwaveringStarBase;
-import spacemercs.cards.rare.UnwaveringStarOath;
-import spacemercs.cards.rare.UnwaveringStarVow;
+import spacemercs.cards.rare.*;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
 
@@ -77,16 +74,24 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
                         c.misc *= -1;
                         c.updateCost(-1);
                     }
-                } else if (c.cardID.equals(UnwaveringStarBase.ID) || c.cardID.equals(UnwaveringStarVow.ID)) {
+                } else if (c.cardID.equals(UnwaveringStarBase.ID) || c.cardID.equals(UnwaveringStarVow.ID) || c.cardID.equals(Indecisive.ID) || c.cardID.equals(ChillingPast.ID)) {
                     cardsToSwap.add(c);
                 }
             }
             if(!cardsToSwap.isEmpty()) {
                 for(AbstractCard c : cardsToSwap) {
                     if(foundVow) {
-                        ((UnwaveringStarBase) c).replaceSelf(new UnwaveringStarOath());
+                        if(c instanceof UnwaveringStarBase) {
+                            ((UnwaveringStarBase) c).replaceSelf(new UnwaveringStarOath());
+                        } else {
+                            ((Indecisive) c).replaceSelf(new StandFirm());
+                        }
                     } else {
-                        ((UnwaveringStarVow) c).replaceSelf((new AnswerTheCall()));
+                        if(c instanceof UnwaveringStarVow) {
+                            ((UnwaveringStarVow) c).replaceSelf((new AnswerTheCall()));
+                        } else {
+                            ((ChillingPast) c).replaceSelf(new NewPath());
+                        }
                     }
                 }
             }
@@ -112,16 +117,24 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
                     c.updateCost(1);
                     c.isCostModified = false;
                 }
-            } else if (c.cardID.equals(UnwaveringStarOath.ID) || c.cardID.equals(AnswerTheCall.ID)) {
+            } else if (c.cardID.equals(UnwaveringStarOath.ID) || c.cardID.equals(AnswerTheCall.ID) || c.cardID.equals(NewPath.ID) || c.cardID.equals(StandFirm.ID)) {
                 cardsToSwap.add(c);
             }
         }
         if(!cardsToSwap.isEmpty()) {
             for(AbstractCard c : cardsToSwap) {
                 if(foundVow) {
-                    ((UnwaveringStarOath) c).replaceSelf(new UnwaveringStarBase());
+                    if(c instanceof UnwaveringStarOath) {
+                        ((UnwaveringStarOath) c).replaceSelf(new UnwaveringStarBase());
+                    } else {
+                        ((StandFirm) c).replaceSelf(new Indecisive());
+                    }
                 } else {
-                    ((AnswerTheCall) c).replaceSelf(new UnwaveringStarVow());
+                    if(c instanceof AnswerTheCall) {
+                        ((AnswerTheCall) c).replaceSelf(new UnwaveringStarVow());
+                    } else {
+                        ((NewPath) c).replaceSelf(new ChillingPast());
+                    }
                 }
             }
         }

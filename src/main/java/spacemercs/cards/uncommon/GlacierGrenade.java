@@ -31,6 +31,7 @@ public class GlacierGrenade extends BaseCard {
         setBlock(BLOCK);
         setMagic(BLOCK_NEEDED, UPG_BLOCK_NEEDED);
         tags.add(SpaceMercsCustomTags.GRENADE);
+        tags.add(SpaceMercsCustomTags.APLLIESSLOW);
     }
 
     @Override

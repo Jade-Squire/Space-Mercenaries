@@ -480,5 +480,47 @@
     "NAME": "Empty and Unmoving",
     "DESCRIPTION": "Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor.",
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor."
+  },
+
+  "${modID}:QuickAndRelentless": {
+    "NAME": "Quick and Relentless",
+    "DESCRIPTION": "Whenever an enemy is damaged by ${modID}:Jolt this turn, apply 1 ${modID}:Slow.",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy is damaged by ${modID}:Jolt this turn, apply 1 ${modID}:Slow and gain 1 ${modID}:Amp."
+  },
+
+  "${modID}:RimeOrReason": {
+    "NAME": "Rime or Reason",
+    "DESCRIPTION": "Choose whether to gain a random card that inflicts ${modID}:Slow or a random colorless card to add to your hand. NL It costs 0 until played. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose whether to gain a random card that inflicts ${modID}:Slow or a random colorless card to add to your hand. NL It costs 0 this combat. NL Exhaust."
+  },
+
+  "${modID}:ColdShoulder": {
+    "NAME": "Cold Shoulder",
+    "DESCRIPTION": "Gain 1 Intangible if an enemy is ${modID}:Frozen.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain 1 Intangible if an enemy is ${modID}:Frozen."
+  },
+
+  "${modID}:Indecisive": {
+    "NAME": "Indecisive",
+    "DESCRIPTION": "Unplayable. NL Does nothing until you've chosen a path.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Does nothing until you've chosen a path. NL (Remove either *Remembered *Vow or *Broken *Oath)"
+  },
+
+  "${modID}:StandFirm": {
+    "NAME": "Stand Firm",
+    "DESCRIPTION": "Gain ${modID}:Frost_Armor and scale all your permanent scaling effects by 1.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain ${modID}:Frost_Armor and scale all your permanent scaling effects by 1."
+  },
+
+  "${modID}:ChillingPast": {
+    "NAME": "Chilling Past",
+    "DESCRIPTION": "Whenever a debuff is applied to an enemy, gain 1 temporary Strength.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever a debuff is applied to an enemy, gain 1 temporary Strength."
+  },
+
+  "${modID}:NewPath": {
+    "NAME": "New Path",
+    "DESCRIPTION": "Remove this and 3 other cards from your deck. NL Choose a common, uncommon, and rare card to add to your deck. NL End the turn.",
+    "UPGRADE_DESCRIPTION": "Remove this and 3 other cards from your deck. NL Choose a common, uncommon, and rare card to add to your deck. NL ${modID}:Freeze ALL enemies. NL End the turn."
   }
 }

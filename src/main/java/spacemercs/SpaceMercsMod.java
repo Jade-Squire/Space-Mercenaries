@@ -4,6 +4,7 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import spacemercs.cards.BaseCard;
@@ -54,6 +55,8 @@ public class SpaceMercsMod implements
     static { loadModInfo(); }
     private static final String resourcesFolder = checkResourcesPath();
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
+    public static ArrayList<AbstractCard> cosmopaladinCards = new ArrayList<>();
+
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -300,10 +303,15 @@ public class SpaceMercsMod implements
     @Override
     public void receiveEditCards() {
         CustomIconHelper.addCustomIcon(OfTheVoidIcon.get());
-        new AutoAdd(modID) //Loads files from this mod
+        AutoAdd adder = new AutoAdd(modID) //Loads files from this mod
                 .packageFilter(BaseCard.class) //In the same package as this class
-                .setDefaultSeen(true) //And marks them as seen in the compendium
-                .cards(); //Adds the cards
+                .setDefaultSeen(true); //And marks them as seen in the compendium
+        adder.cards(); //Adds the cards
+        adder.any(AbstractCard.class, (info, card) -> {
+            if (card.color == Cosmopaladin.Meta.CARD_COLOR) {
+                cosmopaladinCards.add(card);
+            }
+        });
     }
 
     @Override
