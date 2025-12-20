@@ -4,14 +4,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.actions.PhoenixRisingAction;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.interfaces.PermaScalingCard;
 import spacemercs.powers.Cure;
 import spacemercs.util.CardStats;
 
 @SuppressWarnings("unused")
-public class PhoenixRising extends BaseCard {
+public class PhoenixRising extends BaseCard implements PermaScalingCard {
     public static final String ID = makeID(PhoenixRising.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
@@ -33,11 +35,12 @@ public class PhoenixRising extends BaseCard {
         this.baseBlock = this.misc;
         setCostUpgrade(UPG_COST);
         setExhaust(true);
+        tags.add(SpaceMercsCustomTags.PERMASCALING);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new PhoenixRisingAction(this.uuid, this.magicNumber));
+        this.addToBot(new PhoenixRisingAction(this.uuid));
         this.addToBot(new ApplyPowerAction(p, p, new Cure(p, this.misc)));
     }
 
@@ -55,5 +58,12 @@ public class PhoenixRising extends BaseCard {
 
     public AbstractCard makeCopy() {
         return new PhoenixRising();
+    }
+
+    @Override
+    public void increaseScaling() {
+        this.misc += this.magicNumber;
+        this.applyPowers();
+        this.baseMagicNumber = this.misc;
     }
 }

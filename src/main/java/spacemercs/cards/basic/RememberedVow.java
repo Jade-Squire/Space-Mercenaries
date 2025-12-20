@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,6 +14,7 @@ import spacemercs.cards.BaseCard;
 import spacemercs.cards.actions.RememberedVowAction;
 import spacemercs.cards.rare.*;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.interfaces.PermaScalingCard;
 import spacemercs.util.CardStats;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
     The misc value's sign is the cost reduction. then the next 15 bits are damage, skip 1, then last bits are block
  */
 @SuppressWarnings("unused")
-public class RememberedVow extends BaseCard implements OnObtainCard {
+public class RememberedVow extends BaseCard implements OnObtainCard, PermaScalingCard {
     public static final String ID = makeID(RememberedVow.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
@@ -56,7 +58,7 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberedVowAction(this.uuid, this.magicNumber));
+        addToBot(new RememberedVowAction(this.uuid));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         addToBot(new GainBlockAction(p, block));
     }
@@ -130,6 +132,43 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
                     }
                 }
             }
+            swapMidCombat(AbstractDungeon.player.hand);
+            swapMidCombat(AbstractDungeon.player.drawPile);
+            swapMidCombat(AbstractDungeon.player.discardPile);
+            swapMidCombat(AbstractDungeon.player.exhaustPile);
+        }
+    }
+
+    private void swapMidCombat(CardGroup group) {
+        ArrayList<AbstractCard> cardsToSwap = new ArrayList<>();
+        boolean foundOath = false;
+        for(AbstractCard c : group.group) {
+            if(c.cardID.equals(BrokenOath.ID)) {
+                foundOath = true;
+                if(c.misc >= 0) {
+                    c.misc *= -1;
+                    c.updateCost(-1);
+                }
+            } else if(c.cardID.equals(UnwaveringStarBase.ID) || c.cardID.equals(UnwaveringStarOath.ID) || c.cardID.equals(StandFirm.ID) || c.cardID.equals(Indecisive.ID)) {
+                cardsToSwap.add(c);
+            }
+        }
+        if(!cardsToSwap.isEmpty()) {
+            for(AbstractCard c : cardsToSwap) {
+                if(foundOath) {
+                    if(c instanceof UnwaveringStarBase) {
+                        ((UnwaveringStarBase) c).replaceSelfMidCombat(group, new UnwaveringStarVow());
+                    } else {
+                        ((Indecisive) c).replaceSelfMidCombat(group, new ChillingPast());
+                    }
+                } else {
+                    if(c instanceof UnwaveringStarOath) {
+                        ((UnwaveringStarOath) c).replaceSelfMidCombat(group, new AnswerTheCall());
+                    } else {
+                        ((StandFirm) c).replaceSelfMidCombat(group, new NewPath());
+                    }
+                }
+            }
         }
     }
 
@@ -166,5 +205,38 @@ public class RememberedVow extends BaseCard implements OnObtainCard {
                 }
             }
         }
+    }
+
+    public void increaseScaling(boolean increaseBoth) {
+        if(increaseBoth) {
+            if (this.misc >= 0) {
+                this.misc += magicNumber;
+                this.misc += (magicNumber << 16);
+            } else {
+                this.misc -= magicNumber;
+                this.misc -= (magicNumber << 16);
+            }
+        } else {
+            boolean upgradeDamage = (AbstractDungeon.cardRng.randomBoolean());
+            if(upgradeDamage) {
+                if(this.misc >= 0) {
+                    this.misc += (magicNumber << 16);
+                } else {
+                    this.misc -= (magicNumber << 16);
+                }
+            } else {
+                if(this.misc >= 0) {
+                    this.misc += magicNumber;
+                } else {
+                    this.misc -= magicNumber;
+                }
+            }
+        }
+        applyPowers();
+    }
+
+    @Override
+    public void increaseScaling() {
+        increaseScaling(true);
     }
 }

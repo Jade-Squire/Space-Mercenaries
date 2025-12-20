@@ -13,6 +13,8 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
+import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,18 +24,18 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.relics.BurningBlood;
-import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import spacemercs.cards.basic.*;
 import spacemercs.cards.common.Jetpack;
+import spacemercs.cards.common.PhoenixRising;
 import spacemercs.cards.common.SmokeScreen;
 import spacemercs.cards.common.TacticalStrafe;
-import spacemercs.cards.rare.Indecisive;
-import spacemercs.cards.rare.UnwaveringStarBase;
+import spacemercs.cards.rare.UnwaveringStarVow;
 import spacemercs.cards.uncommon.FusionGrenade;
+import spacemercs.cards.uncommon.HonorTheFallen;
 import spacemercs.cards.uncommon.LightningGrenade;
 import spacemercs.cards.uncommon.StarvingGrenade;
+import spacemercs.relics.BrokenBlade;
 import spacemercs.rewards.HungerReward;
 
 import java.util.ArrayList;
@@ -219,9 +221,11 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
                 break;
             case STASIS:
                 retVal.add(RememberedVow.ID);
-                retVal.add(BrokenOath.ID);
-                retVal.add(UnwaveringStarBase.ID);
-                retVal.add(Indecisive.ID);
+                retVal.add(PhoenixRising.ID);
+                retVal.add(HonorTheFallen.ID);
+                retVal.add(UnwaveringStarVow.ID);
+                retVal.add(GeneticAlgorithm.ID);
+                retVal.add(RitualDagger.ID);
                 break;
             default:
                 break;
@@ -234,8 +238,7 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(BurningBlood.ID);
-        retVal.add(FrozenEye.ID);
+        retVal.add(BrokenBlade.ID);
 
         return retVal;
     }

@@ -6,10 +6,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.interfaces.OnMonsterDeath;
+import spacemercs.interfaces.PermaScalingCard;
 import spacemercs.util.CardStats;
 
 @SuppressWarnings("unused")
-public class HonorTheFallen extends BaseCard implements OnMonsterDeath {
+public class HonorTheFallen extends BaseCard implements OnMonsterDeath, PermaScalingCard {
     public static final String ID = makeID(HonorTheFallen.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
@@ -35,6 +36,11 @@ public class HonorTheFallen extends BaseCard implements OnMonsterDeath {
 
     @Override
     public void onMonsterDeath(AbstractMonster m) {
+        increaseScaling();
+    }
+
+    @Override
+    public void increaseScaling() {
         this.misc++;
         this.baseBlock++;
         applyPowers();

@@ -8,4 +8,6 @@ public class SpaceMercsCustomTags {
     public static AbstractCard.CardTags GRENADE; // Grenade custom tag
     @SpireEnum
     public static AbstractCard.CardTags APLLIESSLOW;
+    @SpireEnum
+    public static AbstractCard.CardTags PERMASCALING;
 }

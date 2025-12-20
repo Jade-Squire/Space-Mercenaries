@@ -5,6 +5,7 @@ import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScre
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -12,13 +13,14 @@ import spacemercs.cards.BaseCard;
 import spacemercs.cards.actions.GainHungerAction;
 import spacemercs.cards.actions.UnwaveringStarVowAction;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.interfaces.PermaScalingCard;
 import spacemercs.util.CardStats;
 
 import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 @NoCompendium
-public class UnwaveringStarVow extends BaseCard implements SpawnModificationCard, CustomSavable<Integer> {
+public class UnwaveringStarVow extends BaseCard implements SpawnModificationCard, CustomSavable<Integer>, PermaScalingCard {
     public static final String ID = makeID(UnwaveringStarVow.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
@@ -44,7 +46,7 @@ public class UnwaveringStarVow extends BaseCard implements SpawnModificationCard
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new UnwaveringStarVowAction(this.uuid, INCREMENT_AMOUNT));
+        addToBot(new UnwaveringStarVowAction(this.uuid));
         addToBot(new GainHungerAction(p, p, this.baseMagicNumber));
         addToBot(new GainBlockAction(p, this.baseBlock));
     }
@@ -90,5 +92,40 @@ public class UnwaveringStarVow extends BaseCard implements SpawnModificationCard
         }
         AbstractDungeon.player.masterDeck.addToTop(newCard);
         AbstractDungeon.player.masterDeck.removeCard(this);
+    }
+
+    public void replaceSelfMidCombat(CardGroup cardGroup, AbstractCard newCard) {
+        if(upgraded) {
+            newCard.upgrade();
+        }
+        int index = 0;
+        for(AbstractCard c : cardGroup.group) {
+            if(c == this) {
+                break;
+            }
+            index++;
+        }
+        cardGroup.group.add(index, newCard);
+        cardGroup.removeCard(this);
+    }
+
+    public void increaseScaling(boolean increaseBoth) {
+        if(increaseBoth) {
+            this.block += INCREMENT_AMOUNT;
+            this.misc += INCREMENT_AMOUNT;
+        } else {
+            upgradeBlock = AbstractDungeon.cardRng.randomBoolean();
+            if(upgradeBlock) {
+                this.block += INCREMENT_AMOUNT;
+            } else {
+                this.misc += INCREMENT_AMOUNT;
+            }
+        }
+        this.applyPowers();
+    }
+
+    @Override
+    public void increaseScaling() {
+        increaseScaling(true);
     }
 }

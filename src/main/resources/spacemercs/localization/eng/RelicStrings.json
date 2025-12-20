@@ -12,5 +12,19 @@
     "DESCRIPTIONS": [
       "Whenever you draw a #yVoid card, #y${modID}:Hunger #b1 and heal #b1 hp."
     ]
+  },
+  "${modID}:BrokenBlade": {
+    "NAME": "Broken Blade",
+    "FLAVOR": "Reforge the blade.",
+    "DESCRIPTIONS": [
+      "Right click to activate. Deal #b", " damage to the enemy with the least health. If this kills the enemy, gain #b1 Obsidian."
+    ]
+  },
+  "${modID}:ObsidianSword": {
+    "NAME": "Obsidian Sword",
+    "FLAVOR": "A sword as black as night.",
+    "DESCRIPTIONS": [
+      "Right click to activate. Deal damage equal to your obsidian stacks to the enemy with the least health, then gain #b1 Obsidian."
+    ]
   }
 }

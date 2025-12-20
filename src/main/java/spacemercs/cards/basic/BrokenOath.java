@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -92,6 +93,43 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
                         } else {
                             ((ChillingPast) c).replaceSelf(new NewPath());
                         }
+                    }
+                }
+            }
+            swapMidCombat(AbstractDungeon.player.hand);
+            swapMidCombat(AbstractDungeon.player.drawPile);
+            swapMidCombat(AbstractDungeon.player.discardPile);
+            swapMidCombat(AbstractDungeon.player.exhaustPile);
+        }
+    }
+
+    private void swapMidCombat(CardGroup group) {
+        ArrayList<AbstractCard> cardsToSwap = new ArrayList<>();
+        boolean foundVow = false;
+        for(AbstractCard c : group.group) {
+            if(c.cardID.equals(RememberedVow.ID)) {
+                foundVow = true;
+                if(c.misc >= 0) {
+                    c.misc *= -1;
+                    c.updateCost(-1);
+                }
+            } else if (c.cardID.equals(UnwaveringStarBase.ID) || c.cardID.equals(UnwaveringStarVow.ID) || c.cardID.equals(Indecisive.ID) || c.cardID.equals(ChillingPast.ID)) {
+                cardsToSwap.add(c);
+            }
+        }
+        if(!cardsToSwap.isEmpty()) {
+            for(AbstractCard c : cardsToSwap) {
+                if(foundVow) {
+                    if(c instanceof UnwaveringStarBase) {
+                        ((UnwaveringStarBase) c).replaceSelfMidCombat(group, new UnwaveringStarOath());
+                    } else {
+                        ((Indecisive) c).replaceSelfMidCombat(group, new StandFirm());
+                    }
+                } else {
+                    if(c instanceof UnwaveringStarVow) {
+                        ((UnwaveringStarVow) c).replaceSelfMidCombat(group, new AnswerTheCall());
+                    } else {
+                        ((ChillingPast) c).replaceSelfMidCombat(group, new NewPath());
                     }
                 }
             }
