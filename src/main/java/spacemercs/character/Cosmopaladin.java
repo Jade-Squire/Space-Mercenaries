@@ -13,9 +13,6 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
-import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
-import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -26,15 +23,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import spacemercs.cards.basic.*;
-import spacemercs.cards.common.Jetpack;
-import spacemercs.cards.common.PhoenixRising;
-import spacemercs.cards.common.SmokeScreen;
-import spacemercs.cards.common.TacticalStrafe;
-import spacemercs.cards.rare.UnwaveringStarVow;
-import spacemercs.cards.uncommon.FusionGrenade;
-import spacemercs.cards.uncommon.HonorTheFallen;
-import spacemercs.cards.uncommon.LightningGrenade;
-import spacemercs.cards.uncommon.StarvingGrenade;
+import spacemercs.cards.common.*;
 import spacemercs.relics.BrokenBlade;
 import spacemercs.rewards.HungerReward;
 
@@ -57,6 +46,7 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
 
     private int HUNGER_THIS_COMBAT = 0;
     private static boolean HAS_GOTTEN_HUNGER_REWARD = false;
+    private static final int HUNGER_FOR_REWARD = 7;
 
     public static Subclass SUBCLASS = Subclass.SOLAR;
 
@@ -195,37 +185,35 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(Strike.ID);
+        retVal.add(RememberedVow.ID);
+        retVal.add(BrokenOath.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        /*retVal.add(RememberedVow.ID);
-        retVal.add(BrokenOath.ID);*/
 
         switch(SUBCLASS){
             case SOLAR:
-                retVal.add(SmokeScreen.ID);
-                retVal.add(FusionGrenade.ID);
+                retVal.add(Jetpack.ID);
+                retVal.add(ThrowingHammer.ID);
+                retVal.add(Cauterize.ID);
                 break;
             case ARC:
                 retVal.add(TacticalStrafe.ID);
-                retVal.add(LightningGrenade.ID);
+                retVal.add(Boost.ID);
+                retVal.add(Poke.ID);
+                retVal.add(Prod.ID);
                 break;
             case VOID:
-                retVal.add(Jetpack.ID);
-                retVal.add(StarvingGrenade.ID);
+                retVal.add(OrbitalShield.ID);
+                retVal.add(SmokeScreen.ID);
+                retVal.add(PurgingMaw.ID);
                 break;
             case STASIS:
-                retVal.add(RememberedVow.ID);
-                retVal.add(PhoenixRising.ID);
-                retVal.add(HonorTheFallen.ID);
-                retVal.add(UnwaveringStarVow.ID);
-                retVal.add(GeneticAlgorithm.ID);
-                retVal.add(RitualDagger.ID);
+                retVal.add(Icefall.ID);
+                retVal.add(HunkerDown.ID);
                 break;
             default:
                 break;
@@ -247,12 +235,12 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
     public AbstractCard getStartCardForEvent() {
         //This card is used for the Gremlin card matching game.
         //It should be a non-strike non-defend starter card, but it doesn't have to be.
-        return new Strike_Red();
+        return new Jetpack();
     }
 
     public void gainedHungerForReward(int amount) {
         this.HUNGER_THIS_COMBAT += amount;
-        if(!HAS_GOTTEN_HUNGER_REWARD && this.HUNGER_THIS_COMBAT > 3) {
+        if(!HAS_GOTTEN_HUNGER_REWARD && this.HUNGER_THIS_COMBAT > HUNGER_FOR_REWARD) {
             AbstractDungeon.getCurrRoom().rewards.add(new HungerReward());
             HAS_GOTTEN_HUNGER_REWARD = true;
         }

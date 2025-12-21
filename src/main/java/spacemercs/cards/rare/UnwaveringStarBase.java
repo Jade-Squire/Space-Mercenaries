@@ -62,10 +62,12 @@ public class UnwaveringStarBase extends BaseCard implements SpawnModificationCar
         boolean hasVow = AbstractDungeon.player.masterDeck.findCardById(RememberedVow.ID) != null;
         boolean hasOath = AbstractDungeon.player.masterDeck.findCardById(BrokenOath.ID) != null;
 
-        if(hasVow && !hasOath) {
+        if(hasVow && hasOath) {
+            return new UnwaveringStarBase();
+        } else if(hasVow) {
             // give oath version
             return new UnwaveringStarOath();
-        } else if(!hasVow && hasOath) {
+        } else if(hasOath) {
             // give vow version
             return new UnwaveringStarVow();
         } else {

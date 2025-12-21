@@ -61,10 +61,12 @@ public class Indecisive extends BaseCard implements SpawnModificationCard {
         boolean hasVow = AbstractDungeon.player.masterDeck.findCardById(RememberedVow.ID) != null;
         boolean hasOath = AbstractDungeon.player.masterDeck.findCardById(BrokenOath.ID) != null;
 
-        if(hasVow && !hasOath) {
+        if(hasVow && hasOath) {
+            return new Indecisive();
+        } else if(hasVow) {
             // give oath version
             return new StandFirm();
-        } else if(!hasVow && hasOath) {
+        } else if(hasOath) {
             // give vow version
             return new ChillingPast();
         } else {

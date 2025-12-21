@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import spacemercs.cards.actions.GainRelicAction;
 import spacemercs.cards.actions.RemoveRelicAction;
@@ -33,12 +34,16 @@ public class BrokenBlade extends BaseRelic implements ClickableRelic {
     }
 
     @Override
-    public void onVictory() {
+    public void atBattleStart() {
+        super.atBattleStart();
         activatedThisFight = false;
     }
 
     @Override
     public void onRightClick() {
+        if(AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) {
+            return;
+        }
         if(activatedThisFight || AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() || AbstractDungeon.getCurrRoom().monsters.monsters.isEmpty()) {
             return;
         }
@@ -46,7 +51,7 @@ public class BrokenBlade extends BaseRelic implements ClickableRelic {
         int currMinHp = Integer.MAX_VALUE;
         AbstractCreature target = null;
         for(AbstractCreature c : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if(c.currentHealth < currMinHp) {
+            if(!c.isDying && !c.halfDead && c.currentHealth < currMinHp) {
                 currMinHp = c.currentHealth;
                 target = c;
             }
@@ -55,7 +60,7 @@ public class BrokenBlade extends BaseRelic implements ClickableRelic {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             target.damage(new DamageInfo(AbstractDungeon.player, DAMAGE, DamageInfo.DamageType.THORNS));
             if ((target.isDying || target.currentHealth <= 0) && !target.halfDead && !target.hasPower("Minion")) {
-                this.counter += 3;
+                this.counter++;
                 if(counter >= OBSIDIAN_TO_UPGRADE) {
                     upgradeRelic();
                 }
