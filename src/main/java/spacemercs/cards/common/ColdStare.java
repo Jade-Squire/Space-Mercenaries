@@ -19,7 +19,7 @@ public class ColdStare extends BaseCard {
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.SKILL,
             AbstractCard.CardRarity.COMMON,
-            CardTarget.ALL,
+            CardTarget.ALL_ENEMY,
             1
     );
 
