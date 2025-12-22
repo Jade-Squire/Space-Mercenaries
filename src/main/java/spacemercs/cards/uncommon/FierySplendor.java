@@ -18,7 +18,7 @@ public class FierySplendor extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            1
     );
 
     public FierySplendor() {

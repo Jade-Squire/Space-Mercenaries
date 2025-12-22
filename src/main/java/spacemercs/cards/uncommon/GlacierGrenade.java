@@ -20,7 +20,7 @@ public class GlacierGrenade extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 8;
     private static final int BLOCK_NEEDED = 20;
     private static final int UPG_BLOCK_NEEDED = -5;
     // hardcoded in description, change in both places

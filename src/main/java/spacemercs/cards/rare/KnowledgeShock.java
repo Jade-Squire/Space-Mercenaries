@@ -1,5 +1,9 @@
 package spacemercs.cards.rare;
 
+/// TEST THIS!!!
+
+
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -21,15 +25,16 @@ public class KnowledgeShock extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int UPG_COST = 3;
+    private static final int DRAW_AND_AMP = 1;
+    private static final int UPG_DRAW_AND_AMP = 1;
 
     public KnowledgeShock() {
         super(ID, info);
-        setCostUpgrade(UPG_COST);
+        setMagic(DRAW_AND_AMP, UPG_DRAW_AND_AMP);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new KnowledgeShockPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new KnowledgeShockPower(p, magicNumber), magicNumber));
     }
 }

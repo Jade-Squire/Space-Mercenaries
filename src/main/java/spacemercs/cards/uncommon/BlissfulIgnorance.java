@@ -22,8 +22,8 @@ public class BlissfulIgnorance extends BaseCard {
 
     private static final int UPG_COST = 2;
     private static final int BLOCK = 20;
-    private static final int WILL_GAIN = 2;
-    private static final int UPG_WILL_GAIN = 1;
+    private static final int WILL_GAIN = 3;
+    private static final int UPG_WILL_GAIN = 2;
 
     public BlissfulIgnorance() {
         super(ID, info);

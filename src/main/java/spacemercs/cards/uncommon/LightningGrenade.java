@@ -23,8 +23,8 @@ public class LightningGrenade extends BaseCard {
             1
     );
 
-    private static final int AMP = 2;
-    private static final int UPG_AMP = 4;
+    private static final int AMP = 4;
+    private static final int UPG_AMP = 2;
     private static final int DAMAGE = 7;
 
     public LightningGrenade() {

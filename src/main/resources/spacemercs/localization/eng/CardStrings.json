@@ -40,7 +40,7 @@
   "${modID}:TacticalStrafe": {
     "NAME": "Tactical Strafe",
     "DESCRIPTION": "Gain !B! Block. NL Draw !M! card, then discard 1 card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards, then discard 1 card."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards."
   },
 
   "${modID}:Jetpack": {
@@ -112,7 +112,7 @@
 
   "${modID}:ForgeMaster": {
     "NAME": "Forge Master",
-    "DESCRIPTION": "${modID}:Ignitions you cause deal 30 damage to other enemies instead of 15."
+    "DESCRIPTION": "${modID}:Ignitions you cause apply !M! {modID}:Scorch and deal 30 damage to other enemies instead of 15."
   },
 
   "${modID}:SunfireFurnace": {
@@ -122,7 +122,7 @@
 
   "${modID}:PhoenixRising": {
     "NAME": "Phoenix Rising",
-    "DESCRIPTION": "Gain !B! ${modID}:Cure. NL Permanently increase this card's ${modID}:Cure by 1. NL Exhaust."
+    "DESCRIPTION": "Gain !B! ${modID}:Cure. NL Permanently increase this card's ${modID}:Cure by !M!. NL Exhaust."
   },
 
   "${modID}:BurningTreads": {
@@ -142,8 +142,8 @@
 
   "${modID}:RememberedVow": {
     "NAME": "Remembered Vow",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Randomly increase one of these by !M! permanently. NL Costs 1 less if *Broken *Oath is not in your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Increase both of these by !M! permanently. NL Costs 1 less if *Broken *Oath is not in your deck. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Randomly increase one of these by !M! permanently. NL Costs 1 less if *Broken *Oath is not in your deck.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Increase both of these by !M! permanently. NL Costs 1 less if *Broken *Oath is not in your deck."
   },
 
   "${modID}:BrokenOath": {
@@ -163,7 +163,7 @@
 
   "${modID}:StarvingGrenade": {
     "NAME": "Starving Grenade",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Hunger 2. NL Take !M! damage for each [E] you have."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Hunger !M!. NL Take 3 damage for each [E] you have."
   },
 
   "${modID}:VoidwallGrenade": {
@@ -189,7 +189,7 @@
 
   "${modID}:DreadedVisage": {
     "NAME": "Dreaded Visage",
-    "DESCRIPTION": "Apply !M! ${modID}:Suppress to ALL enemies for each Void card in your draw pile. NL Exhaust ALL Voids in your draw pile."
+    "DESCRIPTION": "Retain. NL Apply !M! ${modID}:Suppress to ALL enemies for each Void card in your draw pile. NL Exhaust ALL Voids in your draw pile."
   },
 
   "${modID}:UnwaveringStarBase": {
@@ -205,8 +205,8 @@
 
   "${modID}:UnwaveringStarVow": {
     "NAME": "Unwavering Star",
-    "DESCRIPTION": "${modID}:Hunger !M!. NL Gain !B! Block. NL Randomly increase one of these by 1 permanently. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "${modID}:Hunger !M!. NL Gain !B! Block. NL Increase both of these by 1 permanently. NL Exhaust."
+    "DESCRIPTION": "${modID}:Hunger !M!. NL Gain !B! Block. NL Randomly increase one of these by 1 permanently.",
+    "UPGRADE_DESCRIPTION": "${modID}:Hunger !M!. NL Gain !B! Block. NL Increase both of these by 1 permanently."
   },
 
   "${modID}:AnswerTheCall": {
@@ -255,7 +255,7 @@
 
   "${modID}:Starvation": {
     "NAME": "Starvation",
-    "DESCRIPTION": "${modID}:Hunger 1 at the start of your turn. Increase this amount by !M! every turn."
+    "DESCRIPTION": "${modID}:Hunger 1 at the start of your turn. Increase this amount by !M! every turn. NL Deal damage equal to unspend energy to random enemies at the end of your turn."
   },
 
   "${modID}:ColdDarkGentle": {
@@ -282,7 +282,8 @@
 
   "${modID}:KnowledgeShock": {
     "NAME": "Knowledge Shock",
-    "DESCRIPTION": "Whenever an effect would have you discard a card, instead ${modID}:Hunger 1, and draw 1 card."
+    "DESCRIPTION": "Whenever you draw a *Void card, gain !M! ${modID}:Amp and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a *Void card, gain !M! ${modID}:Amp and draw !M! cards."
   },
 
   "${modID}:FlashGrenade": {
@@ -315,17 +316,19 @@
 
   "${modID}:SturdyCircuitry": {
     "NAME": "Sturdy Circuitry",
-    "DESCRIPTION": "Refund 1 [E] when you play a card that costs more than !M!."
+    "DESCRIPTION": "Refund 1 [E] when you play a card that costs more than !M!. NL ${modID}:Willable."
   },
 
   "${modID}:Poke": {
     "NAME": "Poke",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Discard 1 card."
+    "DESCRIPTION": "Deal damage equal to stacks of ${modID}:Jolt on the enemy. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to stacks of ${modID}:Jolt on the enemy. NL Draw !M! cards."
   },
 
   "${modID}:Prod": {
     "NAME": "Prod",
-    "DESCRIPTION": "Apply !M! ${modID}:Jolt. NL Draw 1 card. NL Discard 1 card."
+    "DESCRIPTION": "Apply 5 ${modID}:Jolt. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Apply 5 ${modID}:Jolt. NL Draw !M! cards."
   },
 
   "${modID}:Boost": {
@@ -335,18 +338,19 @@
 
   "${modID}:SearingVoltage": {
     "NAME": "Searing Voltage",
-    "DESCRIPTION": "Whenever an enemy gains ${modID}:Scorch, they also gain 1 ${modID}:Jolt.",
-    "UPGRADE_DESCRIPTION": "Whenever an enemy gains ${modID}:Scorch, they also gain 1 ${modID}:Jolt. NL Whenever an enemy ${modID}:Ignites, gain 10 ${modID}:Amp."
+    "DESCRIPTION": "Whenever an enemy gains ${modID}:Scorch, they also gain 3 ${modID}:Jolt.",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy gains ${modID}:Scorch, they also gain 3 ${modID}:Jolt. NL Whenever an enemy ${modID}:Ignites, gain 10 ${modID}:Amp."
   },
 
   "${modID}:Battery": {
     "NAME": "Battery",
-    "DESCRIPTION": "Remove ALL your ${modID}:Amp and regain it at the start of your next turn."
+    "DESCRIPTION": "Remove ALL your ${modID}:Amp and regain it at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Remove ALL your ${modID}:Amp and regain twice the amount you had at the start of your next turn."
   },
 
   "${modID}:AmplifyPotential": {
     "NAME": "Amplify Potential",
-    "DESCRIPTION": "Gain 2 ${modID}:Amp. NL Draw !M! cards."
+    "DESCRIPTION": "Gain 4 ${modID}:Amp. NL Draw !M! cards."
   },
 
   "${modID}:NegativeFeedback": {
@@ -380,8 +384,8 @@
 
   "${modID}:Impede": {
     "NAME": "Impede",
-    "DESCRIPTION": "Gain !B! Block for each card discarded this turn.",
-    "EXTENDED_DESCRIPTION": [" NL (", " discarded.)"]
+    "DESCRIPTION": "Gain !B! Block for each card played this turn.",
+    "EXTENDED_DESCRIPTION": [" NL (", " played.)"]
   },
 
   "${modID}:Alternate": {
@@ -440,13 +444,13 @@
 
   "${modID}:HonorTheFallen": {
     "NAME": "Honor The Fallen",
-    "DESCRIPTION": "Gain !B! Block. NL Increase this by 1 permanently when an enemy dies.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain !B! Block. NL Increase this by 1 permanently when an enemy dies."
+    "DESCRIPTION": "Gain !B! Block. NL Increase this by 2 permanently when an enemy dies.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain !B! Block. NL Increase this by 2 permanently when an enemy dies."
   },
 
   "${modID}:FrigidFortification": {
     "NAME": "Frigid Fortification",
-    "DESCRIPTION": "Retain. NL Apply !M! ${modID}:Slow to ALL enemies. NL Gain ${modID}:Frost_Armor. NL ${modID}:Willable."
+    "DESCRIPTION": "Retain. NL Apply !M! ${modID}:Slow to ALL enemies. NL Gain ${modID}:Frost_Armor this and next turn. NL ${modID}:Willable."
   },
 
   "${modID}:HunkerDown": {
@@ -454,8 +458,8 @@
     "DESCRIPTION": "Gain ${modID}:Frost_Armor."
   },
 
-  "${modID}:CantDieHere": {
-    "NAME": "Can't Die Here",
+  "${modID}:CantDieAgain": {
+    "NAME": "Can't Die Again",
     "DESCRIPTION": "Gain !M! Will. NL Gain Block equal to half your missing health. NL Can only be played under 50% health. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! Will. NL Gain Block equal to your missing health. NL Can only be played under 50% health. NL Exhaust."
   },
@@ -472,14 +476,14 @@
 
   "${modID}:HotAndCold": {
     "NAME": "Hot and Cold",
-    "DESCRIPTION": "Retain. NL Double the stacks of ${modID}:Scorch and ${modID}:Slow on ALL enemies. NL Gain ${modID}:Will equal to the number of enemies ${modID}:Ignited or ${modID}:Frozen this way. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Double the stacks of ${modID}:Scorch and ${modID}:Slow on ALL enemies. NL Gain ${modID}:Will equal to the number of enemies ${modID}:Ignited or ${modID}:Frozen this way."
+    "DESCRIPTION": "Retain. NL Double the stacks of ${modID}:Scorch and ${modID}:Slow on ALL enemies. NL Gain ${modID}:Will equal to the number of enemies ${modID}:Ignited or ${modID}:Frozen this way. NL Exhaust. NL ${modID}:Willable.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Double the stacks of ${modID}:Scorch and ${modID}:Slow on ALL enemies. NL Gain ${modID}:Will equal to the number of enemies ${modID}:Ignited or ${modID}:Frozen this way. NL ${modID}:Willable."
   },
 
   "${modID}:EmptyAndUnmoving": {
     "NAME": "Empty and Unmoving",
-    "DESCRIPTION": "Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor."
+    "DESCRIPTION": "Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor. NL ${modID}:Willable.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain ${modID}:Hunger, gain ${modID}:Frost_Armor. NL ${modID}:Willable."
   },
 
   "${modID}:QuickAndRelentless": {
@@ -496,8 +500,8 @@
 
   "${modID}:ColdShoulder": {
     "NAME": "Cold Shoulder",
-    "DESCRIPTION": "Gain 1 Intangible if an enemy is ${modID}:Frozen.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain 1 Intangible if an enemy is ${modID}:Frozen."
+    "DESCRIPTION": "Gain 1 Intangible this and next turn if an enemy is ${modID}:Frozen.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain 1 Intangible this and next turn if an enemy is ${modID}:Frozen."
   },
 
   "${modID}:Indecisive": {

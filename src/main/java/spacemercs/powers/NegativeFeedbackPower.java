@@ -18,7 +18,7 @@ public class NegativeFeedbackPower extends BasePower implements CloneablePowerIn
     //For a power to actually decrease/go away on its own they do it themselves.
     //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
-    private static final int AMOUNT_PER_STACK = 3;
+    private static final int AMOUNT_PER_STACK = 6;
 
     public NegativeFeedbackPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);

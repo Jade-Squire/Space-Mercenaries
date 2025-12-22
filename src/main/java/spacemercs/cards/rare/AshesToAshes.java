@@ -16,7 +16,7 @@ public class AshesToAshes extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
-            3
+            2
     );
 
     //These will be used in the constructor. Technically you can just use the values directly,

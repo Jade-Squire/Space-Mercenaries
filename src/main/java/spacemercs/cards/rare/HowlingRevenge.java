@@ -1,5 +1,8 @@
 package spacemercs.cards.rare;
 
+/// TEST THIS!!!
+
+
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
@@ -14,11 +17,11 @@ public class HowlingRevenge extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
-            2
+            1
     );
 
     private static final int HP_GAIN = 25;
-    private static final int UPG_HP_GAIN = 25;
+    private static final int UPG_HP_GAIN = 50;
 
     public HowlingRevenge() {
         super(ID, info);

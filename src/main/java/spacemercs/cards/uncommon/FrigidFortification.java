@@ -9,6 +9,7 @@ import spacemercs.SpaceMercsCustomTags;
 import spacemercs.cards.BaseCard;
 import spacemercs.cards.modifiers.WillAltCostModifier;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.powers.FrigidFortificationPower;
 import spacemercs.powers.FrostArmor;
 import spacemercs.powers.Slow;
 import spacemercs.util.CardStats;
@@ -42,5 +43,6 @@ public class FrigidFortification extends BaseCard {
         }
 
         addToBot(new ApplyPowerAction(p, p, new FrostArmor(p, -1)));
+        addToBot(new ApplyPowerAction(p, p, new FrigidFortificationPower(p, -1), -1));
     }
 }

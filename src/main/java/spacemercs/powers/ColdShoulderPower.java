@@ -2,14 +2,15 @@ package spacemercs.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import spacemercs.interfaces.OnIgnition;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class ForgeMasterPower extends BasePower implements CloneablePowerInterface, OnIgnition {
-    public static final String POWER_ID = makeID(ForgeMasterPower.class.getSimpleName());
+public class ColdShoulderPower extends BasePower implements CloneablePowerInterface {
+    public static final String POWER_ID = makeID(ColdShoulderPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
@@ -17,23 +18,22 @@ public class ForgeMasterPower extends BasePower implements CloneablePowerInterfa
     //For a power to actually decrease/go away on its own they do it themselves.
     //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
-    private static final int SCORCH_PER_STACK = 2;
-
-    public ForgeMasterPower(AbstractCreature owner, int amount) {
+    public ColdShoulderPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + (SCORCH_PER_STACK * amount) + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        addToBot(new ApplyPowerAction(owner, owner, new IntangiblePlayerPower(owner, 1), 1));
+        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new ForgeMasterPower(owner, amount);
-    }
-
-    @Override
-    public void onIgnite(AbstractCreature target) {
-        addToBot(new ApplyPowerAction(target, owner, new Scorch(target, SCORCH_PER_STACK * amount), SCORCH_PER_STACK * amount));
+        return new ColdShoulderPower(owner, amount);
     }
 }

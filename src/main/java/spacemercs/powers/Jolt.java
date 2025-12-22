@@ -35,7 +35,7 @@ public class Jolt extends BasePower implements CloneablePowerInterface {
             addToTop(new JoltAction(target, this.owner, Math.min(info.output, amount)));
             for(AbstractPower p : AbstractDungeon.player.powers) {
                 if(p instanceof OnJolted) {
-                    ((OnJolted) p).OnJoltTriggered(target);
+                    ((OnJolted) p).OnJoltTriggered(target, info.output);
                 }
             }
         }

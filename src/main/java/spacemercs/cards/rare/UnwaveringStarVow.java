@@ -41,7 +41,6 @@ public class UnwaveringStarVow extends BaseCard implements SpawnModificationCard
         this.baseBlock = this.block;
         this.baseMagicNumber = this.misc;
         this.magicNumber = this.baseMagicNumber;
-        setExhaust(true);
     }
 
     @Override

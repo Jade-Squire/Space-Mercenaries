@@ -34,6 +34,7 @@ public class DreadedVisage extends BaseCard {
         super(ID, info);
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(SUPPRESS_STACKS, UPG_SUPPRESS_STACKS);
+        setSelfRetain(true);
     }
 
     @Override

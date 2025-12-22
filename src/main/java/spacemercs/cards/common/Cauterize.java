@@ -30,13 +30,14 @@ public class Cauterize extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int effect = energyOnUse;
+        // should probably mult X then add chemX
         if(p.hasRelic(ChemicalX.ID)){
             effect += 2;
         }
         if(effect > 0) {
-            addToBot(new ApplyPowerAction(m, p, new Scorch(m, 2 * effect)));
+            addToBot(new ApplyPowerAction(m, p, new Scorch(m, 3 * effect)));
             if(upgraded) {
-                addToBot(new ApplyPowerAction(p, p, new Cure(p, 2 * effect)));
+                addToBot(new ApplyPowerAction(p, p, new Cure(p, 3 * effect)));
             }
         }
         p.energy.use(EnergyPanel.totalCount);

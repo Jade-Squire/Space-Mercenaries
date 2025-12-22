@@ -1,8 +1,10 @@
 package spacemercs.cards.common;
 
+/// TEST THIS!!!
+
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.powers.Jolt;
 import spacemercs.util.CardStats;
 
 @SuppressWarnings("unused")
@@ -23,18 +26,19 @@ public class Poke extends BaseCard {
             0
     );
 
-    private static final int DAMAGE = 2;
-    private static final int UPG_DAMAGE = 1;
+    private static final int DRAW = 1;
+    private static final int UPG_DRAW = 1;
 
     public Poke() {
         super(ID, info);
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(DRAW, UPG_DRAW);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new DrawCardAction(1));
-        addToBot(new DiscardAction(p, p, 1, false));
+        if(m.hasPower(Jolt.POWER_ID)) {
+            addToBot(new DamageAction(m, new DamageInfo(p, m.getPower(Jolt.POWER_ID).amount), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        }
+        addToBot(new DrawCardAction(magicNumber));
     }
 }

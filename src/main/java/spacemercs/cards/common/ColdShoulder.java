@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
+import spacemercs.powers.ColdShoulderPower;
 import spacemercs.powers.Frozen;
 import spacemercs.util.CardStats;
 
@@ -35,6 +36,7 @@ public class ColdShoulder extends BaseCard {
             for(AbstractPower pow : t.powers) {
                 if(pow instanceof Frozen) {
                     addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
+                    addToBot(new ApplyPowerAction(p, p, new ColdShoulderPower(p, -1), -1));
                     found = true;
                     break;
                 }

@@ -19,7 +19,7 @@ public class PositiveFeedbackPower extends BasePower implements CloneablePowerIn
     //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
     private static boolean LOST_HP_LAST_TURN = false;
-    private static final int AMOUNT_PER_STACK = 3;
+    private static final int AMOUNT_PER_STACK = 10;
 
     public PositiveFeedbackPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);

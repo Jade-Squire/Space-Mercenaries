@@ -1,5 +1,8 @@
 package spacemercs.cards.uncommon;
 
+/// TEST THIS!!!
+
+
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -21,6 +24,7 @@ public class HonorTheFallen extends BaseCard implements OnMonsterDeath, PermaSca
     );
 
     private static final int BLOCK = 1;
+    private static final int INCREASE_AMT = 2;
 
     public HonorTheFallen() {
         super(ID, info);
@@ -41,8 +45,8 @@ public class HonorTheFallen extends BaseCard implements OnMonsterDeath, PermaSca
 
     @Override
     public void increaseScaling() {
-        this.misc++;
-        this.baseBlock++;
+        this.misc+=INCREASE_AMT;
+        this.baseBlock+=INCREASE_AMT;
         applyPowers();
         initializeDescription();
     }

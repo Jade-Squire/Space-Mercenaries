@@ -16,10 +16,10 @@ public class NegativeFeedback extends BaseCard {
             CardType.POWER,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            1
     );
 
-    private static final int STACKS = 3;
+    private static final int STACKS = 6;
 
     public NegativeFeedback() {
         super(ID, info);

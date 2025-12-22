@@ -21,7 +21,7 @@ public class GlacialGuard extends BaseCard {
             2
     );
 
-    private static final int BLOCK = 10;
+    private static final int BLOCK = 15;
     private static final int SLOW_ON_HIT = 1;
     // hardcoded in description, unused but kept as reminder
     private static final int SLOW_ON_BREAK = 5;

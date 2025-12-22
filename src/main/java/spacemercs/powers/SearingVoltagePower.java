@@ -20,6 +20,7 @@ public class SearingVoltagePower extends BasePower implements OnIgnition, Clonea
     //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
     private static final int AMP_STACKS = 10;
+    private static final int JOLT_STACKS = 3;
 
     public SearingVoltagePower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -30,7 +31,7 @@ public class SearingVoltagePower extends BasePower implements OnIgnition, Clonea
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.ID.equals(Scorch.POWER_ID) && source == this.owner && target != this.owner && !target.hasPower("Artifact")) {
             this.flash();
-            this.addToBot(new ApplyPowerAction(target, source, new Jolt(target, amount)));
+            this.addToBot(new ApplyPowerAction(target, source, new Jolt(target, JOLT_STACKS * amount)));
         }
     }
 
@@ -53,7 +54,7 @@ public class SearingVoltagePower extends BasePower implements OnIgnition, Clonea
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + JOLT_STACKS * amount + DESCRIPTIONS[1];
         if(amount2 > 0) {
             this.description += DESCRIPTIONS[2] + (amount2 * AMP_STACKS) + DESCRIPTIONS[3];
         }

@@ -17,7 +17,7 @@ public class QuickAndRelentlessAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        QuickAndRelentlessPower powerToApply = new QuickAndRelentlessPower(source, amount);
+        QuickAndRelentlessPower powerToApply = new QuickAndRelentlessPower(source, -1);
         if(upgraded) {
             powerToApply.amount2 = amount;
         }

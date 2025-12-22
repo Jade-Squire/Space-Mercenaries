@@ -26,14 +26,15 @@ public class ArcticBlast extends BaseCard {
             3
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 20;
+    private static final int UPG_DAMAGE = 10;
     private static final int SLOW = 2;
+    private static final int UPG_SLOW = 2;
 
     public ArcticBlast() {
         super(ID, info);
         setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(SLOW);
+        setMagic(SLOW, UPG_SLOW);
         CardModifierManager.addModifier(this, new WillAltCostModifier());
         tags.add(SpaceMercsCustomTags.APLLIESSLOW);
     }

@@ -21,7 +21,7 @@ public class FlashGrenade extends BaseCard {
             1
     );
 
-    private static final int JOLT = 5;
+    private static final int JOLT = 9;
 
     public FlashGrenade() {
         super(ID, info);

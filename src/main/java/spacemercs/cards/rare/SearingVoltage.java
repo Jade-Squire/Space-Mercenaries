@@ -16,7 +16,7 @@ public class SearingVoltage extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
-            3
+            1
     );
 
     public SearingVoltage() {

@@ -1,5 +1,8 @@
 package spacemercs.cards.rare;
 
+/// TEST THIS!!!
+
+
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -33,7 +36,7 @@ public class ChillingPast extends BaseCard implements SpawnModificationCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new ChillingPastPower(p, 1), 1));
+        addToBot(new ApplyPowerAction(p, p, new ChillingPastPower(p, -1), -1));
     }
 
     @Override

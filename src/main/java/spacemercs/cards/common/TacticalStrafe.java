@@ -1,6 +1,5 @@
 package spacemercs.cards.common;
 
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -35,6 +34,5 @@ public class TacticalStrafe extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
        addToBot(new GainBlockAction(p, block));
        addToBot(new DrawCardAction(magicNumber));
-       addToBot(new DiscardAction(p, p, 1, false));
     }
 }

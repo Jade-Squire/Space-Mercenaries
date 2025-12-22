@@ -1,9 +1,11 @@
 package spacemercs.cards.rare;
 
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
+import spacemercs.cards.modifiers.WillAltCostModifier;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.EmptyAndUnmovingPower;
 import spacemercs.util.CardStats;
@@ -22,6 +24,7 @@ public class EmptyAndUnmoving extends BaseCard {
     public EmptyAndUnmoving() {
         super(ID, info);
         setInnate(false, true);
+        CardModifierManager.addModifier(this, new WillAltCostModifier());
     }
 
     @Override

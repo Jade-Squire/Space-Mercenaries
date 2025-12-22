@@ -20,7 +20,7 @@ public class ColdStare extends BaseCard {
             CardType.SKILL,
             AbstractCard.CardRarity.COMMON,
             CardTarget.ALL_ENEMY,
-            1
+            0
     );
 
     // hardcoded in card description

@@ -30,7 +30,7 @@ public class RememberedVow extends BaseCard implements OnObtainCard, PermaScalin
             CardType.ATTACK,
             CardRarity.BASIC,
             CardTarget.ENEMY,
-            2
+            1
     );
 
     private static final int BASE_DAMAGE = 1;
@@ -50,7 +50,6 @@ public class RememberedVow extends BaseCard implements OnObtainCard, PermaScalin
         this.magicNumber = baseMagicNumber;
         this.baseBlock = getBlock();
         this.baseDamage = getDamage();
-        setExhaust(true);
         if(shouldPreview) {
             this.cardsToPreview = new BrokenOath(false);
         }

@@ -20,7 +20,7 @@ public class AmplifyPotential extends BaseCard {
             1
     );
 
-    private static final int AMP_STACKS = 2; // update card description if changed
+    private static final int AMP_STACKS = 4; // update card description if changed
     private static final int DRAW = 2;
     private static final int UPG_DRAW = 1;
 

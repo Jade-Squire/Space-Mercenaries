@@ -20,7 +20,7 @@ public class PulseGrenade extends BaseCard {
             2
     );
 
-    private static final int JOLT = 3;
+    private static final int JOLT = 5;
     private static final int UPG_JOLT = 2;
 
     public PulseGrenade() {

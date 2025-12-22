@@ -40,6 +40,7 @@ public class Alternate extends BaseCard {
                         ((AlternateAction)a).setDiscardedCard(AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0));
                     }
                 }
+                AbstractDungeon.handCardSelectScreen.selectedCards.clear();
                 this.isDone = true;
             }
         });

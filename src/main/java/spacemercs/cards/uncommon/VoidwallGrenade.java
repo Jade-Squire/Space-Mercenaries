@@ -20,7 +20,7 @@ public class VoidwallGrenade extends BaseCard {
             3
     );
 
-    private static final int SUPPRESS_STACKS = 1;
+    private static final int SUPPRESS_STACKS = 2;
     private static final int UPG_SUPPRESS_STACKS = 1;
 
     public VoidwallGrenade() {

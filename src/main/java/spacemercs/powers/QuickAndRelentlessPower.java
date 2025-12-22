@@ -1,6 +1,8 @@
 package spacemercs.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -23,9 +25,9 @@ public class QuickAndRelentlessPower extends BasePower implements CloneablePower
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
         if(amount2 > 0) {
-            this.description += DESCRIPTIONS[2] + amount2 + DESCRIPTIONS[3];
+            this.description += DESCRIPTIONS[1];
         }
     }
 
@@ -37,11 +39,11 @@ public class QuickAndRelentlessPower extends BasePower implements CloneablePower
     }
 
     @Override
-    public void OnJoltTriggered(AbstractCreature creature) {
+    public void OnJoltTriggered(AbstractCreature creature, int damage) {
         flashWithoutSound();
-        addToTop(new ApplyPowerAction(creature, owner, new Slow(owner, amount), amount));
+        addToTop(new ApplyPowerAction(creature, owner, new Slow(owner, damage), damage));
         if(amount2 > 0) {
-            addToTop(new ApplyPowerAction(owner, owner, new Amp(owner, amount2), amount2));
+            addToTop(new ApplyPowerAction(owner, owner, new Amp(owner, damage), damage));
         }
     }
 
@@ -50,5 +52,13 @@ public class QuickAndRelentlessPower extends BasePower implements CloneablePower
         if(isPlayer) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         }
+    }
+
+    @Override
+    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
+        int tmp = amount2;
+        amount2 = 0;
+        super.renderAmount(sb, x, y, c);
+        amount2 = tmp;
     }
 }

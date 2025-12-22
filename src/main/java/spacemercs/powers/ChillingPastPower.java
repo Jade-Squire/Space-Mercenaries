@@ -23,19 +23,19 @@ public class ChillingPastPower extends BasePower implements CloneablePowerInterf
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if(power.type == PowerType.DEBUFF && !power.ID.equals("Shackled") && target != this.owner && !target.hasPower("Artifact")) {
-            addToTop(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
-            addToTop(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount), amount));
+        if(power.type == PowerType.DEBUFF && !power.ID.equals("Shackled") && target != this.owner && !target.hasPower("Artifact") && power.amount > 0) {
+            addToTop(new ApplyPowerAction(owner, owner, new StrengthPower(owner, power.amount), power.amount));
+            addToTop(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, power.amount), power.amount));
         }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new ForgeMasterPower(owner, amount);
+        return new ChillingPastPower(owner, amount);
     }
 }

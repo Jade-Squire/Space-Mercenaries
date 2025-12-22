@@ -1,10 +1,12 @@
 package spacemercs.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import spacemercs.cards.actions.GainHungerAction;
 import spacemercs.interfaces.OnPreDiscard;
 
 import static spacemercs.SpaceMercsMod.makeID;
@@ -13,7 +15,6 @@ public class KnowledgeShockPower extends BasePower implements OnPreDiscard, Clon
     public static final String POWER_ID = makeID(KnowledgeShockPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
-    private static boolean ENDING_TURN = false;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
     //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
     //For a power to actually decrease/go away on its own they do it themselves.
@@ -33,29 +34,13 @@ public class KnowledgeShockPower extends BasePower implements OnPreDiscard, Clon
     }
 
     @Override
-    public void atStartOfTurn() {
-        super.atStartOfTurn();
-        ENDING_TURN = false;
-    }
-
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        super.atEndOfTurn(isPlayer);
-        if(isPlayer) {
-            ENDING_TURN = true;
+    public void onCardDraw(AbstractCard card) {
+        super.onCardDraw(card);
+        if(card.cardID.equals(VoidCard.ID)) {
+            flash();
+            addToTop(new ApplyPowerAction(owner, owner, new Amp(owner, amount), amount));
+            addToTop(new DrawCardAction(owner, amount));
         }
-    }
-
-    @Override
-    public boolean onDiscard(int count) {
-        if(ENDING_TURN) {
-            return false;
-        }
-        //AbstractDungeon.player.hand.moveToHand(c);
-        addToBot(new GainHungerAction(owner, owner, count * amount));
-        addToBot(new DrawCardAction(count * amount));
-        flash();
-        return true;
     }
 
     @Override

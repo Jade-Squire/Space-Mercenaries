@@ -23,7 +23,7 @@ public class BurningTreads extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 6;
     private static final int SCORCH_STACKS = 1;
     private static final int UPG_COST = 0;
 

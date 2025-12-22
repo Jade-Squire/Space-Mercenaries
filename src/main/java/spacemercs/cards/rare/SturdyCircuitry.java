@@ -1,9 +1,11 @@
 package spacemercs.cards.rare;
 
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
+import spacemercs.cards.modifiers.WillAltCostModifier;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.SturdyCircuitryPower;
 import spacemercs.util.CardStats;
@@ -25,6 +27,7 @@ public class SturdyCircuitry extends BaseCard {
     public SturdyCircuitry() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
+        CardModifierManager.addModifier(this, new WillAltCostModifier());
     }
 
     @Override

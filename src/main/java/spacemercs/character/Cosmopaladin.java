@@ -46,7 +46,7 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
 
     private int HUNGER_THIS_COMBAT = 0;
     private static boolean HAS_GOTTEN_HUNGER_REWARD = false;
-    private static final int HUNGER_FOR_REWARD = 7;
+    private static final int HUNGER_FOR_REWARD = 10;
 
     public static Subclass SUBCLASS = Subclass.SOLAR;
 

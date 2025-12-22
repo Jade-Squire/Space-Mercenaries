@@ -24,14 +24,15 @@ public class StarvingGrenade extends BaseCard {
     );
 
     private static final int SELF_DAMAGE = 3;
-    private static final int UPG_SELF_DAMAGE = -1;
     private static final int DAMAGE = 3;
+    private static final int UPG_DAMAGE = 2;
     private static final int HUNGER = 2;
+    private static final int UPG_HUNGER = 1;
 
     public StarvingGrenade() {
         super(ID, info);
-        setDamage(DAMAGE);
-        setMagic(SELF_DAMAGE, UPG_SELF_DAMAGE);
+        setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(HUNGER, UPG_HUNGER);
         cardsToPreview = new VoidCard();
         tags.add(SpaceMercsCustomTags.GRENADE);
     }
@@ -39,9 +40,9 @@ public class StarvingGrenade extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        addToBot(new GainHungerAction(p, p, HUNGER));
+        addToBot(new GainHungerAction(p, p, magicNumber));
         for(int i = 0; i < energyOnUse; i++) {
-            addToBot(new DamageAction(p, new DamageInfo(p, magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            addToBot(new DamageAction(p, new DamageInfo(p, SELF_DAMAGE, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
 }

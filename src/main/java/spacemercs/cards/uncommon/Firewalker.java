@@ -21,13 +21,13 @@ public class Firewalker extends BaseCard {
             2
     );
 
-    private static final int SCORCH_STACKS = 1;
-    private static final int UPG_KINDLE_STACKS = 2;
+    private static final int SCORCH_STACKS = 2;
+    private static final int UPG_SCORCH_STACKS = 2;
     private static final int ARTIFACT_STACKS = 1;
 
     public Firewalker() {
         super(ID, info);
-        setMagic(SCORCH_STACKS, UPG_KINDLE_STACKS);
+        setMagic(SCORCH_STACKS, UPG_SCORCH_STACKS);
         setEthereal(true);
     }
 

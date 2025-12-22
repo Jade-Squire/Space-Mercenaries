@@ -1,9 +1,15 @@
 package spacemercs.cards.common;
 
-import com.megacrit.cardcrawl.actions.GameActionManager;
+/// TEST THIS
+
+// dont include impede
+
+
+
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
 import spacemercs.character.Cosmopaladin;
@@ -32,7 +38,7 @@ public class Impede extends BaseCard {
     public void applyPowers() {
         super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0] + GameActionManager.totalDiscardedThisTurn + cardStrings.EXTENDED_DESCRIPTION[1];
+        this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0] + AbstractDungeon.actionManager.cardsPlayedThisTurn.size() + cardStrings.EXTENDED_DESCRIPTION[1];
         initializeDescription();
     }
 
@@ -44,8 +50,8 @@ public class Impede extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(GameActionManager.totalDiscardedThisTurn > 0) {
-            addToBot(new GainBlockAction(p, block * GameActionManager.totalDiscardedThisTurn));
+        if(!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty()) {
+            addToBot(new GainBlockAction(p, block * AbstractDungeon.actionManager.cardsPlayedThisTurn.size()));
         }
     }
 }

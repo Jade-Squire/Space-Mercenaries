@@ -8,8 +8,11 @@ import spacemercs.powers.Amp;
 import spacemercs.powers.BatteryPower;
 
 public class BatteryAction extends AbstractGameAction {
-    public BatteryAction(AbstractCreature target, AbstractCreature owner) {
+    private final boolean upgraded;
+
+    public BatteryAction(AbstractCreature target, AbstractCreature owner, boolean upgraded) {
         this.setValues(target, owner);
+        this.upgraded = upgraded;
     }
 
     @Override
@@ -17,7 +20,7 @@ public class BatteryAction extends AbstractGameAction {
         if(source.hasPower(Amp.POWER_ID)) {
             int amt = source.getPower(Amp.POWER_ID).amount;
             addToBot(new RemoveSpecificPowerAction(source, source, Amp.POWER_ID));
-            addToBot(new ApplyPowerAction(source, source, new BatteryPower(source, amt)));
+            addToBot(new ApplyPowerAction(source, source, new BatteryPower(source, amt * ((upgraded)? 2 : 1))));
         }
         this.isDone = true;
     }

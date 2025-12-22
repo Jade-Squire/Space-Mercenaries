@@ -11,8 +11,8 @@ import spacemercs.powers.WillPower;
 import spacemercs.util.CardStats;
 
 @SuppressWarnings("unused")
-public class CantDieHere extends BaseCard {
-    public static final String ID = makeID(CantDieHere.class.getSimpleName());
+public class CantDieAgain extends BaseCard {
+    public static final String ID = makeID(CantDieAgain.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -23,7 +23,7 @@ public class CantDieHere extends BaseCard {
 
     private static final int WILL_GAIN = 4;
 
-    public CantDieHere() {
+    public CantDieAgain() {
         super(ID, info);
         setMagic(WILL_GAIN);
         setExhaust(true);

@@ -1,5 +1,9 @@
 package spacemercs.cards.uncommon;
 
+/// TEST THIS!!!
+
+
+
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;
@@ -27,6 +31,6 @@ public class Battery extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new BatteryAction(p, p));
+        addToBot(new BatteryAction(p, p, upgraded));
     }
 }

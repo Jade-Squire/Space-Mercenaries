@@ -3,8 +3,13 @@ package spacemercs.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import spacemercs.cards.actions.GainHungerAction;
 
 import static spacemercs.SpaceMercsMod.makeID;
@@ -38,6 +43,19 @@ public class StarvationPower extends BasePower implements CloneablePowerInterfac
         addToBot(new GainHungerAction(this.owner, this.owner, amount2, true));
         amount2 += amount;
         updateDescription();
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        if(isPlayer) {
+            flash();
+            //hopefully this doesnt count will
+            int energy = EnergyPanel.getCurrentEnergy();
+            for(int i = 0; i < energy; i++) {
+                addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, 1, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            }
+        }
     }
 
     @Override

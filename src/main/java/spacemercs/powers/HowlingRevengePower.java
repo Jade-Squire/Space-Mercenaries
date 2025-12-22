@@ -35,7 +35,7 @@ public class HowlingRevengePower extends BasePower implements OnPlayerDeathPower
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
         if(upgradeAmt > 0) {
-            this.description += Integer.toString(50);
+            this.description += Integer.toString(75);
         } else {
             this.description += Integer.toString(25);
         }
@@ -58,7 +58,7 @@ public class HowlingRevengePower extends BasePower implements OnPlayerDeathPower
     @Override
     public boolean onPlayerDeath(AbstractPlayer abstractPlayer, DamageInfo damageInfo) {
         if(upgradeAmt > 0) {
-            addToTop(new HealAction(abstractPlayer, abstractPlayer, abstractPlayer.maxHealth/2));
+            addToTop(new HealAction(abstractPlayer, abstractPlayer, (3*abstractPlayer.maxHealth)/4));
             removeCard(true);
         } else {
             addToTop(new HealAction(abstractPlayer, abstractPlayer, abstractPlayer.maxHealth/4));

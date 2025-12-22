@@ -1,7 +1,6 @@
 package spacemercs.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -22,18 +21,19 @@ public class Prod extends BaseCard {
             0
     );
 
-    private static final int JOLT = 3;
-    private static final int UPG_JOLT = 1;
+    //hard coded in description
+    private static final int JOLT = 5;
+    private static final int DRAW = 1;
+    private static final int UPG_DRAW = 1;
 
     public Prod() {
         super(ID, info);
-        setMagic(JOLT, UPG_JOLT);
+        setMagic(DRAW, UPG_DRAW);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new Jolt(m, magicNumber)));
-        addToBot(new DrawCardAction(1));
-        addToBot(new DiscardAction(p, p, 1, false));
+        addToBot(new ApplyPowerAction(m, p, new Jolt(m, JOLT)));
+        addToBot(new DrawCardAction(magicNumber));
     }
 }
