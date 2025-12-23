@@ -1,8 +1,5 @@
 package spacemercs.cards.rare;
 
-/// TEST THIS!!!
-
-
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;

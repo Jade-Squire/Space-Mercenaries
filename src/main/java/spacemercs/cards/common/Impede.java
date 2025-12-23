@@ -1,11 +1,5 @@
 package spacemercs.cards.common;
 
-/// TEST THIS
-
-// dont include impede
-
-
-
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -50,8 +44,8 @@ public class Impede extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty()) {
-            addToBot(new GainBlockAction(p, block * AbstractDungeon.actionManager.cardsPlayedThisTurn.size()));
+        if(AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 1) {
+            addToBot(new GainBlockAction(p, block * (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() - 1)));
         }
     }
 }

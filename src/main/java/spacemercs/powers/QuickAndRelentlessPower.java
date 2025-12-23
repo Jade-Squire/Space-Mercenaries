@@ -41,7 +41,7 @@ public class QuickAndRelentlessPower extends BasePower implements CloneablePower
     @Override
     public void OnJoltTriggered(AbstractCreature creature, int damage) {
         flashWithoutSound();
-        addToTop(new ApplyPowerAction(creature, owner, new Slow(owner, damage), damage));
+        addToTop(new ApplyPowerAction(creature, owner, new Slow(creature, damage), damage));
         if(amount2 > 0) {
             addToTop(new ApplyPowerAction(owner, owner, new Amp(owner, damage), damage));
         }

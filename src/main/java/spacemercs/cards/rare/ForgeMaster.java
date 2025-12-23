@@ -8,10 +8,6 @@ import spacemercs.character.Cosmopaladin;
 import spacemercs.powers.ForgeMasterPower;
 import spacemercs.util.CardStats;
 
-
-/// TEST THIS!!!
-
-
 @SuppressWarnings("unused")
 public class ForgeMaster extends BaseCard {
     public static final String ID = makeID(ForgeMaster.class.getSimpleName());
@@ -26,10 +22,12 @@ public class ForgeMaster extends BaseCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int UPG_COST = 1;
+    private static final int SCORCH_STACKS = 2;
 
     public ForgeMaster() {
         super(ID, info);
         setCostUpgrade(UPG_COST);
+        setMagic(SCORCH_STACKS);
     }
 
     @Override

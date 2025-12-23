@@ -1,9 +1,5 @@
 package spacemercs.cards.rare;
 
-/// TEST THIS!!!
-
-
-
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

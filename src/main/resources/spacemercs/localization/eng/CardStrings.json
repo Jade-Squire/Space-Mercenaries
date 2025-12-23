@@ -112,7 +112,7 @@
 
   "${modID}:ForgeMaster": {
     "NAME": "Forge Master",
-    "DESCRIPTION": "${modID}:Ignitions you cause apply !M! {modID}:Scorch and deal 30 damage to other enemies instead of 15."
+    "DESCRIPTION": "${modID}:Ignitions you cause apply !M! ${modID}:Scorch and deal 30 damage to other enemies instead of 15."
   },
 
   "${modID}:SunfireFurnace": {
@@ -488,8 +488,8 @@
 
   "${modID}:QuickAndRelentless": {
     "NAME": "Quick and Relentless",
-    "DESCRIPTION": "Whenever an enemy is damaged by ${modID}:Jolt this turn, apply 1 ${modID}:Slow.",
-    "UPGRADE_DESCRIPTION": "Whenever an enemy is damaged by ${modID}:Jolt this turn, apply 1 ${modID}:Slow and gain 1 ${modID}:Amp."
+    "DESCRIPTION": "Whenever an enemy is damaged by ${modID}:Jolt this turn, apply that much ${modID}:Slow.",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy is damaged by ${modID}:Jolt this turn, apply that much ${modID}:Slow and gain that much ${modID}:Amp."
   },
 
   "${modID}:RimeOrReason": {

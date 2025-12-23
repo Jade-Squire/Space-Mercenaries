@@ -1,9 +1,5 @@
 package spacemercs.cards.uncommon;
 
-/// TEST THIS!!!
-
-
-
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spacemercs.cards.BaseCard;

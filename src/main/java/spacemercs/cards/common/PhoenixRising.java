@@ -12,10 +12,6 @@ import spacemercs.interfaces.PermaScalingCard;
 import spacemercs.powers.Cure;
 import spacemercs.util.CardStats;
 
-/// TEST THIS!!!
-
-
-
 @SuppressWarnings("unused")
 public class PhoenixRising extends BaseCard implements PermaScalingCard {
     public static final String ID = makeID(PhoenixRising.class.getSimpleName());
@@ -29,15 +25,12 @@ public class PhoenixRising extends BaseCard implements PermaScalingCard {
 
     private static final int BASE_CURE = 1;
     private static final int CURE_INCREASE = 1;
+    private static final int UPG_CURE_INCREASE = 1;
 
     public PhoenixRising() {
         super(ID, info);
         this.misc = BASE_CURE;
-        this.baseMagicNumber = CURE_INCREASE;
-        this.magicNumber = this.baseMagicNumber;
-        if(upgraded) {
-            this.magicNumber++;
-        }
+        setMagic(CURE_INCREASE, UPG_CURE_INCREASE);
         this.baseBlock = this.misc;
         setExhaust(true);
         tags.add(SpaceMercsCustomTags.PERMASCALING);
@@ -55,15 +48,8 @@ public class PhoenixRising extends BaseCard implements PermaScalingCard {
     }
 
     @Override
-    public void upgrade() {
-        super.upgrade();
-        this.magicNumber++;
-    }
-
-    @Override
     public void applyPowers() {
         this.baseBlock = this.misc;
-        super.applyPowers();
         this.initializeDescription();
     }
 
@@ -75,6 +61,5 @@ public class PhoenixRising extends BaseCard implements PermaScalingCard {
     public void increaseScaling() {
         this.misc += this.magicNumber;
         this.applyPowers();
-        this.baseMagicNumber = this.misc;
     }
 }

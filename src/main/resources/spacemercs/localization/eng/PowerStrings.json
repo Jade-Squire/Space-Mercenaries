@@ -238,7 +238,7 @@
       "Whenever a debuff is applied to an enemy, gain that much temporary #yStrength."
     ]
   },
-  "${modID}:ForgeMaster": {
+  "${modID}:ForgeMasterPower": {
     "NAME": "Forge Master",
     "DESCRIPTIONS": [
       "#yIgnitions you cause apply #b", " #yScorch and deal #b30 damage to other enemies instead of #b15."

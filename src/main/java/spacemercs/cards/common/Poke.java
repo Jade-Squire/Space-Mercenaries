@@ -1,8 +1,5 @@
 package spacemercs.cards.common;
 
-/// TEST THIS!!!
-
-
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
