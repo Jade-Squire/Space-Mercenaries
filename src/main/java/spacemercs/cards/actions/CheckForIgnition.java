@@ -41,11 +41,13 @@ public class CheckForIgnition extends AbstractGameAction {
                     boolean playedMusic = false;
 
                     for (AbstractCreature e : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                        if (playedMusic) {
-                            AbstractDungeon.effectList.add(new FlashAtkImgEffect(e.hb.cX, e.hb.cY, AttackEffect.FIRE, true));
-                        } else {
-                            playedMusic = true;
-                            AbstractDungeon.effectList.add(new FlashAtkImgEffect(e.hb.cX, e.hb.cY, AttackEffect.FIRE));
+                        if(!e.isDead && !e.isDeadOrEscaped()) {
+                            if (playedMusic) {
+                                AbstractDungeon.effectList.add(new FlashAtkImgEffect(e.hb.cX, e.hb.cY, AttackEffect.FIRE, true));
+                            } else {
+                                playedMusic = true;
+                                AbstractDungeon.effectList.add(new FlashAtkImgEffect(e.hb.cX, e.hb.cY, AttackEffect.FIRE));
+                            }
                         }
                     }
                     this.firstFrame = false;
@@ -76,7 +78,7 @@ public class CheckForIgnition extends AbstractGameAction {
                         this.addToTop(new WaitAction(0.1F));
                     }
                     if(target.hasPower(Scorch.POWER_ID)) {
-                        addToBot(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));
+                        addToTop(new RemoveSpecificPowerAction(target, target, target.getPower(Scorch.POWER_ID)));
                     }
                     for(AbstractPower p : AbstractDungeon.player.powers) {
                         if(p instanceof OnIgnition) {

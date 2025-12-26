@@ -47,8 +47,28 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
     private int HUNGER_THIS_COMBAT = 0;
     private static boolean HAS_GOTTEN_HUNGER_REWARD = false;
     private static final int HUNGER_FOR_REWARD = 10;
+    private static boolean HAS_TAKEN_STAR = false;
+    private static boolean HAS_TAKEN_INDECISIVE = false;
 
     public static Subclass SUBCLASS = Subclass.SOLAR;
+
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    public boolean hasTakenStar() {
+        return HAS_TAKEN_STAR;
+    }
+
+    public void tookStar() {
+        HAS_TAKEN_STAR = true;
+    }
+
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    public boolean hasTakenIndecisive() {
+        return HAS_TAKEN_INDECISIVE;
+    }
+
+    public void tookIndecisive() {
+        HAS_TAKEN_INDECISIVE = true;
+    }
 
     @Override
     public void receivePostInitialize() {
@@ -76,12 +96,38 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
                 SUBCLASS = sub;
             }
         });
+
+        BaseMod.addSaveField("HasTakenStar", new CustomSavable<Boolean>() {
+            @Override
+            public Boolean onSave() {
+                return HAS_TAKEN_STAR;
+            }
+
+            @Override
+            public void onLoad(Boolean bool) {
+                HAS_TAKEN_STAR = bool;
+            }
+        });
+
+        BaseMod.addSaveField("HasTakenIndecisive", new CustomSavable<Boolean>() {
+            @Override
+            public Boolean onSave() {
+                return HAS_TAKEN_INDECISIVE;
+            }
+
+            @Override
+            public void onLoad(Boolean bool) {
+                HAS_TAKEN_INDECISIVE = bool;
+            }
+        });
     }
 
     @Override
     public void receiveStartGame() {
         if(!CardCrawlGame.loadingSave) {
             HAS_GOTTEN_HUNGER_REWARD = false;
+            HAS_TAKEN_STAR = false;
+            HAS_TAKEN_INDECISIVE = false;
         }
     }
 

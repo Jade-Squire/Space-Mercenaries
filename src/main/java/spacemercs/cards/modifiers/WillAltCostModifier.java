@@ -2,12 +2,16 @@ package spacemercs.cards.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
 import basemod.interfaces.AlternateCardCostModifier;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import spacemercs.powers.WillPower;
 
 public class WillAltCostModifier extends AbstractCardModifier implements AlternateCardCostModifier {
+    private Color oldColor;
+
     public WillAltCostModifier() {}
 
     @Override
@@ -45,5 +49,21 @@ public class WillAltCostModifier extends AbstractCardModifier implements Alterna
             return 0;
         }
         return costToSpend;
+    }
+
+    @Override
+    public void onInitialApplication(AbstractCard card) {
+        super.onInitialApplication(card);
+        oldColor = card.glowColor;
+    }
+
+    @Override
+    public void onRender(AbstractCard card, SpriteBatch sb) {
+        if(AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
+            card.glowColor = Color.PURPLE;
+        } else {
+            card.glowColor = oldColor;
+        }
+        super.onRender(card, sb);
     }
 }

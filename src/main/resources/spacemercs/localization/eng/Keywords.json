@@ -51,7 +51,7 @@
     "NAMES": [
       "cure"
     ],
-    "DESCRIPTION": "Heal HP equal to your stacks of #yCure at the end of your turn. Taking damage causes you to lose half of your #yCure stacks unless you were at full health at the end of your turn."
+    "DESCRIPTION": "Heal HP equal to your stacks of #yCure at the end of your turn. NL NL Taking damage causes you to lose half of your #yCure stacks. If you were full health at the end of your turn, you can only lose stacks once."
   },
   {
     "PROPER_NAME": "Slow",
@@ -124,7 +124,7 @@
       "amp",
       "amped"
     ],
-    "DESCRIPTION": "Whenever you play a card, deal X damage to a random enemy and lose #b1 #yAmp. Whenever you take health damage, lose X more HP."
+    "DESCRIPTION": "Whenever you play a card, deal damage equal to #yAmp stacks to a random enemy and lose #b1 #yAmp. Whenever you take health damage, lose more HP equal to #yAmp stacks."
   },
   {
     "PROPER_NAME": "Will",

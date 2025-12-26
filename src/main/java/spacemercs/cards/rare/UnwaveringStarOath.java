@@ -1,5 +1,6 @@
 package spacemercs.cards.rare;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 @NoCompendium
+@NoPools
 public class UnwaveringStarOath extends BaseCard implements SpawnModificationCard {
     public static final String ID = makeID(UnwaveringStarOath.class.getSimpleName());
     private static final CardStats info = new CardStats(
@@ -50,6 +52,11 @@ public class UnwaveringStarOath extends BaseCard implements SpawnModificationCar
 
     @Override
     public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) { return false;}
+
+    @Override
+    public boolean canSpawnShop(ArrayList<AbstractCard> currentShopCards) {
+        return false;
+    }
 
     public void replaceSelf(AbstractCard newCard) {
         if(upgraded) {
