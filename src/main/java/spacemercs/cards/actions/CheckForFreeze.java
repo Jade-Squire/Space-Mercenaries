@@ -20,8 +20,8 @@ public class CheckForFreeze extends AbstractGameAction {
     public void update() {
         if(target.hasPower(Slow.POWER_ID)) {
             if(target.getPower(Slow.POWER_ID).amount >= STACKS_FOR_FREEZE) {
-                addToBot(new ApplyPowerAction(target, target, new Frozen((AbstractMonster) target, 1)));
-                addToBot(new RemoveSpecificPowerAction(target, target, Slow.POWER_ID));
+                addToTop(new ApplyPowerAction(target, target, new Frozen((AbstractMonster) target, 1)));
+                addToTop(new RemoveSpecificPowerAction(target, target, Slow.POWER_ID));
             }
         }
         this.isDone = true;

@@ -21,8 +21,8 @@ public class SunfireFurnace extends BaseCard {
             1
     );
 
-    private static final int CURE_STACKS = 5;
-    private static final int UPG_CURE_STACKS = 3;
+    private static final int CURE_STACKS = 2;
+    private static final int UPG_CURE_STACKS = 2;
 
     public SunfireFurnace() {
         super(ID, info);

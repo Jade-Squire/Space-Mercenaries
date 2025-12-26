@@ -39,7 +39,7 @@
 
   "${modID}:TacticalStrafe": {
     "NAME": "Tactical Strafe",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card, then discard 1 card.",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards."
   },
 
@@ -83,8 +83,8 @@
 
   "${modID}:Cauterize": {
     "NAME": "Cauterize",
-    "DESCRIPTION": "Apply 2*X ${modID}:Scorch.",
-    "UPGRADE_DESCRIPTION": "Apply 2*X ${modID}:Scorch. NL Gain 2*X ${modID}:Cure."
+    "DESCRIPTION": "Apply 3*X ${modID}:Scorch.",
+    "UPGRADE_DESCRIPTION": "Apply 3*X ${modID}:Scorch. NL Gain 3*X ${modID}:Cure."
   },
 
   "${modID}:BringTheHeat": {

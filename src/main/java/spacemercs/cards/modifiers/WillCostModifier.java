@@ -19,7 +19,7 @@ import java.awt.*;
 import static spacemercs.SpaceMercsMod.makeID;
 
 public class WillCostModifier extends AbstractCardModifier implements AlternateCardCostModifier{
-    public boolean shouldSpend = true;
+    public boolean shouldSpend = false;
     public static final String ID = makeID(WillCostModifier.class.getSimpleName());
     private final Hitbox checkHb = new Hitbox(100.f * Settings.scale, 100.f * Settings.scale);
 

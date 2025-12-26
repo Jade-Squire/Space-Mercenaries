@@ -14,7 +14,7 @@
   "${modID}:Cure": {
     "NAME": "Cure",
     "DESCRIPTIONS": [
-      "Heal #b", " HP at the end of your turn. Taking damage causes you to lose half of your #yCure stacks unless you were at full health at the end of your turn."
+      "Heal #b", " HP at the end of your turn. NL NL Taking damage causes you to lose half of your #yCure stacks. If you were full health at the end of your turn, you can only lose stacks once."
     ]
   },
   "${modID}:SmokeScreenPower": {

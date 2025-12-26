@@ -16,6 +16,7 @@ public class Cure extends BasePower implements CloneablePowerInterface {
     private static final boolean TURN_BASED = false;
     private boolean CAN_LOSE_STACKS = true;
     private boolean OVERRODE_CAN_LOSE = false;
+    private boolean WAS_AT_FULL_HP = true;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
     //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
     //For a power to actually decrease/go away on its own they do it themselves.
@@ -33,7 +34,8 @@ public class Cure extends BasePower implements CloneablePowerInterface {
     public void atEndOfTurn(boolean isPlayer) {
         if(isPlayer){
             if(!this.OVERRODE_CAN_LOSE) {
-                this.CAN_LOSE_STACKS = owner.currentHealth < owner.maxHealth;
+                this.CAN_LOSE_STACKS = true;
+                this.WAS_AT_FULL_HP = owner.currentHealth >= owner.maxHealth;
             }
             this.OVERRODE_CAN_LOSE = false;
         }
@@ -42,6 +44,9 @@ public class Cure extends BasePower implements CloneablePowerInterface {
     public void wasHPLost(DamageInfo info, int damageAmount) {
         if(this.CAN_LOSE_STACKS) {
             addToTop(new ReducePowerAction(owner, owner, this, (int)Math.ceil(amount / 2.0)));
+            if(WAS_AT_FULL_HP) {
+                this.CAN_LOSE_STACKS = false;
+            }
         }
     }
 

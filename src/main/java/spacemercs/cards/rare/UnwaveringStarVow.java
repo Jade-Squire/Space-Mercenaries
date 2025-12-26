@@ -1,6 +1,7 @@
 package spacemercs.cards.rare;
 
 import basemod.abstracts.CustomSavable;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 @NoCompendium
+@NoPools
 public class UnwaveringStarVow extends BaseCard implements SpawnModificationCard, CustomSavable<Integer>, PermaScalingCard {
     public static final String ID = makeID(UnwaveringStarVow.class.getSimpleName());
     private static final CardStats info = new CardStats(
@@ -52,6 +54,11 @@ public class UnwaveringStarVow extends BaseCard implements SpawnModificationCard
 
     @Override
     public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) { return false;}
+
+    @Override
+    public boolean canSpawnShop(ArrayList<AbstractCard> currentShopCards) {
+        return false;
+    }
 
     @Override
     public Integer onSave() {

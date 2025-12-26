@@ -1,5 +1,6 @@
 package spacemercs.cards.rare;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -17,6 +18,7 @@ import spacemercs.util.CardStats;
 import java.util.ArrayList;
 
 @NoCompendium
+@NoPools
 public class StandFirm extends BaseCard implements SpawnModificationCard {
     public static final String ID = makeID(StandFirm.class.getSimpleName());
     private static final CardStats info = new CardStats(
@@ -40,6 +42,11 @@ public class StandFirm extends BaseCard implements SpawnModificationCard {
 
     @Override
     public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) { return false;}
+
+    @Override
+    public boolean canSpawnShop(ArrayList<AbstractCard> currentShopCards) {
+        return false;
+    }
 
     public void replaceSelf(AbstractCard newCard) {
         if(upgraded) {

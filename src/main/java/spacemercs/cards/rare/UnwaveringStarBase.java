@@ -1,5 +1,6 @@
 package spacemercs.cards.rare;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -15,7 +16,7 @@ import spacemercs.util.CardStats;
 import java.util.ArrayList;
 
 @SuppressWarnings("unused")
-public class UnwaveringStarBase extends BaseCard implements SpawnModificationCard {
+public class UnwaveringStarBase extends BaseCard implements SpawnModificationCard, OnObtainCard {
     public static final String ID = makeID(UnwaveringStarBase.class.getSimpleName());
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
@@ -72,6 +73,30 @@ public class UnwaveringStarBase extends BaseCard implements SpawnModificationCar
             return new UnwaveringStarVow();
         } else {
             return new AnswerTheCall();
+        }
+    }
+
+    @Override
+    public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) {
+        if(AbstractDungeon.player instanceof Cosmopaladin) {
+            return !((Cosmopaladin)AbstractDungeon.player).hasTakenStar();
+        }
+        return true;
+    }
+
+    @Override
+    public boolean canSpawnShop(ArrayList<AbstractCard> currentShopCards) {
+        if(AbstractDungeon.player instanceof Cosmopaladin) {
+            return !((Cosmopaladin)AbstractDungeon.player).hasTakenStar();
+        }
+        return true;
+    }
+
+
+    @Override
+    public void onObtainCard() {
+        if(AbstractDungeon.player instanceof Cosmopaladin) {
+            ((Cosmopaladin)AbstractDungeon.player).tookStar();
         }
     }
 }

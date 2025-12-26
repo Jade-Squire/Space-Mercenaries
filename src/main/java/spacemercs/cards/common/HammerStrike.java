@@ -45,8 +45,8 @@ public class HammerStrike extends BaseCard {
         if(p.hasRelic(ChemicalX.ID)){
             effect += 2;
         }
-        addToBot(new DamageAction(m, new DamageInfo(p, effect * damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if(effect > 0) {
+            addToBot(new DamageAction(m, new DamageInfo(p, effect * damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             if (upgraded) {
                 addToBot(new ApplyPowerAction(p, p, new Cure(p, effect * 2)));
             } else {
