@@ -1,4 +1,4 @@
-package spacemercs.cards.common;
+package spacemercs.cards.basic;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -16,7 +16,7 @@ public class Prod extends BaseCard {
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.SKILL,
-            AbstractCard.CardRarity.COMMON,
+            AbstractCard.CardRarity.BASIC,
             CardTarget.ENEMY,
             0
     );

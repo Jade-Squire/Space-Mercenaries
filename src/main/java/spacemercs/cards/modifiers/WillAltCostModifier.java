@@ -59,10 +59,12 @@ public class WillAltCostModifier extends AbstractCardModifier implements Alterna
 
     @Override
     public void onRender(AbstractCard card, SpriteBatch sb) {
-        if(AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
-            card.glowColor = Color.PURPLE;
-        } else {
-            card.glowColor = oldColor;
+        if(AbstractDungeon.player != null) {
+            if (AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
+                card.glowColor = Color.PURPLE;
+            } else {
+                card.glowColor = oldColor;
+            }
         }
         super.onRender(card, sb);
     }

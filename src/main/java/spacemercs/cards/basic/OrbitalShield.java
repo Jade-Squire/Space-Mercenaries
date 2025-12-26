@@ -1,4 +1,4 @@
-package spacemercs.cards.common;
+package spacemercs.cards.basic;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +14,7 @@ public class OrbitalShield extends BaseCard {
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.ATTACK,
-            AbstractCard.CardRarity.COMMON,
+            AbstractCard.CardRarity.BASIC,
             CardTarget.ALL_ENEMY,
             3
     );

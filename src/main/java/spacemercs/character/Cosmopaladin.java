@@ -23,7 +23,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import spacemercs.cards.basic.*;
-import spacemercs.cards.common.*;
 import spacemercs.relics.BrokenBlade;
 import spacemercs.rewards.HungerReward;
 

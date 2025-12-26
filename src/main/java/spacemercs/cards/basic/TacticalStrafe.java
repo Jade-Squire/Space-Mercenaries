@@ -1,4 +1,4 @@
-package spacemercs.cards.common;
+package spacemercs.cards.basic;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -15,7 +15,7 @@ public class TacticalStrafe extends BaseCard {
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             AbstractCard.CardType.SKILL,
-            AbstractCard.CardRarity.COMMON,
+            AbstractCard.CardRarity.BASIC,
             AbstractCard.CardTarget.SELF,
             0
     );

@@ -1,4 +1,4 @@
-package spacemercs.cards.common;
+package spacemercs.cards.basic;
 
 import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -22,7 +22,7 @@ public class ThrowingHammer extends BaseCard {
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             AbstractCard.CardType.ATTACK,
-            AbstractCard.CardRarity.COMMON,
+            AbstractCard.CardRarity.BASIC,
             AbstractCard.CardTarget.ENEMY,
             1
     );

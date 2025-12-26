@@ -1,4 +1,4 @@
-package spacemercs.cards.common;
+package spacemercs.cards.basic;
 
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,7 +15,7 @@ public class Boost extends BaseCard {
     private static final CardStats info = new CardStats(
             Cosmopaladin.Meta.CARD_COLOR,
             CardType.SKILL,
-            AbstractCard.CardRarity.COMMON,
+            AbstractCard.CardRarity.BASIC,
             CardTarget.SELF,
             0
     );
