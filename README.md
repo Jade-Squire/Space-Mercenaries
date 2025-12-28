@@ -19,7 +19,7 @@
 
 ---
 
-This mod is based on Bungie's Destiny 2 with our own twist. It uses keywords such as Scorch, Jolt, and Suppress, while also adding our own like Hunger and Will. It is currently a work in progress so there is likely bugs and only 1 of 3 planned characters, the Cosmopaladin. When you choose your character, you are able to select your subclass. For the Cosmopaladin, your choices are Solar, Arc, Void, and Stasis. This option changes your starting deck and may influence some other things in the future.
+This mod is based on Bungie's Destiny 2 with our own twist. It uses Destiny keywords such as Scorch, Jolt, and Suppress, while also adding our own like Hunger and Will. It is currently a work in progress so there is likely bugs and only 1 of 3 planned characters, the Cosmopaladin. When you choose your character, you are able to select your subclass. For the Cosmopaladin, your choices are Solar, Arc, Void, and Stasis. This option changes your starting deck and may influence some other things in the future.
 
 
 
