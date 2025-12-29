@@ -225,47 +225,6 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
         BaseMod.subscribe(this);
     }
 
-    public static ArrayList<String> getStartingDeckStatic() {
-        ArrayList<String> retVal = new ArrayList<>();
-        //List of IDs of cards for your starting deck.
-        //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(RememberedVow.ID);
-        retVal.add(BrokenOath.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-
-        switch(SUBCLASS){
-            case SOLAR:
-                retVal.add(Jetpack.ID);
-                retVal.add(ThrowingHammer.ID);
-                retVal.add(Cauterize.ID);
-                break;
-            case ARC:
-                retVal.add(TacticalStrafe.ID);
-                retVal.add(Boost.ID);
-                retVal.add(Poke.ID);
-                retVal.add(Prod.ID);
-                break;
-            case VOID:
-                retVal.add(OrbitalShield.ID);
-                retVal.add(SmokeScreen.ID);
-                retVal.add(PurgingMaw.ID);
-                break;
-            case STASIS:
-                retVal.add(Icefall.ID);
-                retVal.add(HunkerDown.ID);
-                break;
-            default:
-                break;
-        }
-
-        return retVal;
-    }
-
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
