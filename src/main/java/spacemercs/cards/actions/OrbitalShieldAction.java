@@ -19,7 +19,7 @@ public class OrbitalShieldAction extends AbstractGameAction {
     public void update() {
         this.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
         if (this.target != null) {
-            addToBot(new DamageCallbackAction(this.target, new DamageInfo(this.source, damage, DamageInfo.DamageType.NORMAL), AttackEffect.SLASH_VERTICAL, unblocked -> {
+            addToTop(new DamageCallbackAction(this.target, new DamageInfo(this.source, damage, DamageInfo.DamageType.NORMAL), AttackEffect.SLASH_VERTICAL, unblocked -> {
                 if(unblocked > 0)
                 {
                     addToTop(new GainBlockAction(this.source, unblocked));
