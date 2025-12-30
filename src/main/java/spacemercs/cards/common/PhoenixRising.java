@@ -23,6 +23,8 @@ public class PhoenixRising extends BaseCard implements PermaScalingCard {
             0
     );
 
+    public int currentCure;
+
     private static final int BASE_CURE = 1;
     private static final int CURE_INCREASE = 1;
     private static final int UPG_CURE_INCREASE = 1;
@@ -31,7 +33,7 @@ public class PhoenixRising extends BaseCard implements PermaScalingCard {
         super(ID, info);
         this.misc = BASE_CURE;
         setMagic(CURE_INCREASE, UPG_CURE_INCREASE);
-        this.baseBlock = this.misc;
+        this.currentCure = this.misc;
         setExhaust(true);
         tags.add(SpaceMercsCustomTags.PERMASCALING);
     }
@@ -49,12 +51,19 @@ public class PhoenixRising extends BaseCard implements PermaScalingCard {
 
     @Override
     public void applyPowers() {
-        this.baseBlock = this.misc;
+        this.currentCure = this.misc;
         this.initializeDescription();
     }
 
     public AbstractCard makeCopy() {
         return new PhoenixRising();
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard retVal = super.makeStatEquivalentCopy();
+        retVal.applyPowers();
+        return retVal;
     }
 
     @Override

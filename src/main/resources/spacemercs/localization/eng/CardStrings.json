@@ -122,7 +122,7 @@
 
   "${modID}:PhoenixRising": {
     "NAME": "Phoenix Rising",
-    "DESCRIPTION": "Gain !B! ${modID}:Cure. NL Permanently increase this card's ${modID}:Cure by !M!. NL Exhaust."
+    "DESCRIPTION": "Gain !CURE! ${modID}:Cure. NL Permanently increase this card's ${modID}:Cure by !M!. NL Exhaust."
   },
 
   "${modID}:BurningTreads": {
@@ -460,8 +460,8 @@
 
   "${modID}:CantDieAgain": {
     "NAME": "Can't Die Again",
-    "DESCRIPTION": "Gain !M! Will. NL Gain Block equal to half your missing health. NL Can only be played under 50% health. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Will. NL Gain Block equal to your missing health. NL Can only be played under 50% health. NL Exhaust."
+    "DESCRIPTION": "Gain !M! Will. NL Gain Block equal to half your missing health. NL Costs 0 if under 50% HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Will. NL Gain Block equal to your missing health. NL Costs 0 if under 50% HP. NL Exhaust."
   },
 
   "${modID}:HoarfrostStomp": {

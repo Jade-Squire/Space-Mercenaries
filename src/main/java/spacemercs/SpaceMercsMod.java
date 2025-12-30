@@ -34,6 +34,7 @@ import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
+import spacemercs.variables.PhoenixRisingVariable;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -312,6 +313,7 @@ public class SpaceMercsMod implements
                 cosmopaladinCards.add(card);
             }
         });
+        BaseMod.addDynamicVariable(new PhoenixRisingVariable());
     }
 
     @Override

@@ -36,11 +36,18 @@ public class CantDieAgain extends BaseCard {
     }
 
     @Override
-    public boolean cardPlayable(AbstractMonster m) {
-        if(!((float) AbstractDungeon.player.currentHealth / AbstractDungeon.player.maxHealth < 0.5F)){
-            cantUseMessage = "I'm not below 50% health.";
-            return false;
+    public void update() {
+        if(AbstractDungeon.player != null) {
+            if (((float) AbstractDungeon.player.currentHealth / AbstractDungeon.player.maxHealth) < 0.5f) {
+                cost = 0;
+                costForTurn = 0;
+                isCostModified = true;
+            } else {
+                cost = baseCost;
+                costForTurn = baseCost;
+                isCostModified = false;
+            }
         }
-        return super.cardPlayable(m);
+        super.update();
     }
 }
