@@ -526,5 +526,15 @@
     "NAME": "New Path",
     "DESCRIPTION": "Remove this and 3 other cards from your deck. NL Choose a common, uncommon, and rare card to add to your deck. NL End the turn.",
     "UPGRADE_DESCRIPTION": "Remove this and 3 other cards from your deck. NL Choose a common, uncommon, and rare card to add to your deck. NL ${modID}:Freeze ALL enemies. NL End the turn."
+  },
+
+  "${modID}:Payday": {
+    "NAME": "Payday",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, gain !M! gold. NL Costs 15 gold to play."
+  },
+
+  "${modID}:MarkovChain": {
+    "NAME": "Markov Chain",
+    "DESCRIPTION": "50/50 chance to gain !B! Block or [E]."
   }
 }

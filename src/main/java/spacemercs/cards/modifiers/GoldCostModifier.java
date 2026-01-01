@@ -4,15 +4,18 @@ import basemod.abstracts.AbstractCardModifier;
 import basemod.interfaces.AlternateCardCostModifier;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import spacemercs.powers.WillPower;
 
-public class WillAltCostModifier extends AbstractCardModifier implements AlternateCardCostModifier {
+import java.awt.*;
+
+public class GoldCostModifier extends AbstractCardModifier implements AlternateCardCostModifier {
+    private final int COST;
     private Color oldColor;
 
-    public WillAltCostModifier() {}
+    public GoldCostModifier(int cost) {
+        this.COST = cost;
+    }
 
     @Override
     public boolean isInherent(AbstractCard card) {
@@ -21,15 +24,12 @@ public class WillAltCostModifier extends AbstractCardModifier implements Alterna
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new WillAltCostModifier();
+        return new GoldCostModifier(COST);
     }
 
     @Override
     public int getAlternateResource(AbstractCard card) {
-        if(AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
-            return AbstractDungeon.player.getPower(WillPower.POWER_ID).amount * card.costForTurn;
-        }
-        return -1;
+        return AbstractDungeon.player.gold / COST;
     }
 
     @Override
@@ -42,12 +42,11 @@ public class WillAltCostModifier extends AbstractCardModifier implements Alterna
         return false;
     }
 
-
     // does nothing since cost is -2
     @Override
     public int spendAlternateCost(AbstractCard card, int costToSpend) {
-        if(AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
-            addToBot(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, WillPower.POWER_ID, 1));
+        if(AbstractDungeon.player.gold / COST >= costToSpend) {
+            AbstractDungeon.player.loseGold(COST);
             return 0;
         }
         return costToSpend;
@@ -62,8 +61,8 @@ public class WillAltCostModifier extends AbstractCardModifier implements Alterna
     @Override
     public void onRender(AbstractCard card, SpriteBatch sb) {
         if(AbstractDungeon.player != null) {
-            if (AbstractDungeon.player.hasPower(WillPower.POWER_ID)) {
-                card.glowColor = Color.PURPLE;
+            if (AbstractDungeon.player.gold >= COST) {
+                card.glowColor = Color.GOLD;
             } else {
                 card.glowColor = oldColor;
             }
