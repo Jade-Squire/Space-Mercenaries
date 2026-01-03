@@ -10,6 +10,11 @@
     ]
   },
 
+  "${modID}:HeatSinkBlockMod": {
+    "NAME": "Heat Sink Block",
+    "DESCRIPTION": "You don't lose this block at the end of turns. This block gets used last."
+  },
+
   "${modID}:Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
@@ -240,11 +245,6 @@
     "NAME": "Dark Gift",
     "DESCRIPTION": "Gain a random common relic. NL Lose 3 Max HP. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain a random relic. NL Lose 3 Max HP. NL Exhaust."
-  },
-
-  "${modID}:SatiationBlockMod": {
-    "NAME": "Satiation Block",
-    "DESCRIPTION": "You don't lose this block at the start of your turn."
   },
 
   "${modID}:Satiation": {
@@ -536,5 +536,21 @@
   "${modID}:MarkovChain": {
     "NAME": "Markov Chain",
     "DESCRIPTION": "50/50 chance to gain !B! Block or [E]."
+  },
+
+  "${modID}:SplitElectron": {
+    "NAME": "Split Electron",
+    "DESCRIPTION": "Remove ALL ${modID}:Jolt from an enemy and gain that much Block."
+  },
+
+  "${modID}:Disorient": {
+    "NAME": "Disorient",
+    "DESCRIPTION": "Deal !D! damage and apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! Weak. NL Gain !M! Artifact."
+  },
+
+  "${modID}:HeatSink": {
+    "NAME": "Heat Sink",
+    "DESCRIPTION": "Convert double your ${modID}:Cure into Block. You don't lose this Block as turns end."
   }
 }

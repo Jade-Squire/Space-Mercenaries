@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 
 import static spacemercs.SpaceMercsMod.makeID;
 
-public class SatiationBlockMod extends AbstractBlockModifier {
-    public static final String ID = makeID(SatiationBlockMod.class.getSimpleName());
+public class HeatSinkBlockMod extends AbstractBlockModifier {
+    public static final String ID = makeID(HeatSinkBlockMod.class.getSimpleName());
     public final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public SatiationBlockMod() {
+    public HeatSinkBlockMod() {
         super();
     }
 
@@ -31,11 +31,16 @@ public class SatiationBlockMod extends AbstractBlockModifier {
 
     @Override
     public AbstractBlockModifier makeCopy() {
-        return new SatiationBlockMod();
+        return new HeatSinkBlockMod();
     }
 
     @Override
     public boolean isInherent() {
         return true;
+    }
+
+    @Override
+    public Priority priority() {
+        return Priority.BOTTOM;
     }
 }
