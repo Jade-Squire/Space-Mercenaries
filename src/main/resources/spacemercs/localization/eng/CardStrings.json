@@ -552,5 +552,16 @@
   "${modID}:HeatSink": {
     "NAME": "Heat Sink",
     "DESCRIPTION": "Convert double your ${modID}:Cure into Block. You don't lose this Block as turns end."
+  },
+
+  "${modID}:Broadside": {
+    "NAME": "Broadside",
+    "DESCRIPTION": "Remove ALL your Block and deal !D! damage to a random combatant (including yourself) for each block removed.",
+    "UPGRADE_DESCRIPTION": "Remove half your Block and deal !D! damage to a random combatant (including yourself) for twice the block removed."
+  },
+
+  "${modID}:RemoteShield": {
+    "NAME": "Remote Shield",
+    "DESCRIPTION": "Retain. Gain !B! Block. When you Retain this card, reduce it's cost by !M! this combat."
   }
 }
