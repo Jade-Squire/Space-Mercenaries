@@ -139,5 +139,12 @@
       "willable"
     ],
     "DESCRIPTION": "Can spend #b1 #yWill to play this card instead of [E] ."
+  },
+  {
+    "PROPER_NAME": "Malleable",
+    "NAMES": [
+      "malleable"
+    ],
+    "DESCRIPTION": "Upon receiving attack damage, gain #yBlock equal to stacks and increase stacks by 1. Resets at the start of your turn."
   }
 ]

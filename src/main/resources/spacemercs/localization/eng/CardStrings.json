@@ -563,5 +563,11 @@
   "${modID}:RemoteShield": {
     "NAME": "Remote Shield",
     "DESCRIPTION": "Retain. Gain !B! Block. When you Retain this card, reduce it's cost by !M! this combat."
+  },
+
+  "${modID}:Bulwark": {
+    "NAME": "Bulwark",
+    "DESCRIPTION": "Gain !M! Malleable.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain !M! ${modID}:Malleable."
   }
 }
