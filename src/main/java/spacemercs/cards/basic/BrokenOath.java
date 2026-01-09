@@ -15,6 +15,7 @@ import spacemercs.cards.BaseCard;
 import spacemercs.cards.rare.*;
 import spacemercs.character.Cosmopaladin;
 import spacemercs.util.CardStats;
+import spacemercs.util.TextureLoader;
 
 import java.util.ArrayList;
 
@@ -74,6 +75,7 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
                     if(c.misc >= 0) {
                         c.misc *= -1;
                         c.updateCost(-1);
+                        ((RememberedVow)c).swapImage(true);
                     }
                 } else if (c.cardID.equals(UnwaveringStarBase.ID) || c.cardID.equals(UnwaveringStarVow.ID) || c.cardID.equals(Indecisive.ID) || c.cardID.equals(ChillingPast.ID)) {
                     cardsToSwap.add(c);
@@ -112,6 +114,7 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
                 if(c.misc >= 0) {
                     c.misc *= -1;
                     c.updateCost(-1);
+                    ((RememberedVow)c).swapImage(true);
                 }
             } else if (c.cardID.equals(UnwaveringStarBase.ID) || c.cardID.equals(UnwaveringStarVow.ID) || c.cardID.equals(Indecisive.ID) || c.cardID.equals(ChillingPast.ID)) {
                 cardsToSwap.add(c);
@@ -140,6 +143,7 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
     public void onLoadedMisc() {
         if(this.misc <= 0) {
             updateCost(-1);
+            swapImage(true);
         }
     }
 
@@ -154,10 +158,17 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
                     c.misc *= -1;
                     c.updateCost(1);
                     c.isCostModified = false;
+                    ((RememberedVow)c).swapImage(false);
                 }
             } else if (c.cardID.equals(UnwaveringStarOath.ID) || c.cardID.equals(AnswerTheCall.ID) || c.cardID.equals(NewPath.ID) || c.cardID.equals(StandFirm.ID)) {
                 cardsToSwap.add(c);
             }
+        }
+        if(!foundVow) {
+            this.misc *= -1;
+            this.updateCost(-1);
+            this.isCostModified = true;
+            this.swapImage(true);
         }
         if(!cardsToSwap.isEmpty()) {
             for(AbstractCard c : cardsToSwap) {
@@ -175,6 +186,14 @@ public class BrokenOath extends BaseCard  implements OnObtainCard {
                     }
                 }
             }
+        }
+    }
+
+    public void swapImage(boolean removed) {
+        if(removed) {
+            this.loadCardImage(TextureLoader.getCardTextureString("default_2", CardType.ATTACK));
+        } else {
+            this.loadCardImage(TextureLoader.getCardTextureString("default", CardType.ATTACK));
         }
     }
 }
