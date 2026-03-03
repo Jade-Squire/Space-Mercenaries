@@ -4,7 +4,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.abstracts.CustomSavable;
-import basemod.animations.SpriterAnimation;
+import basemod.animations.AbstractAnimation;
 import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.StartGameSubscriber;
 import com.badlogic.gdx.graphics.Color;
@@ -208,9 +208,14 @@ public class Cosmopaladin extends CustomPlayer implements PostInitializeSubscrib
     public Cosmopaladin() {
         super(getNames()[0], Meta.COSMOPALADIN,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), //Energy Orb
-                new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
+                new AbstractAnimation() { //Change the Animation line to this
+                    @Override
+                    public Type type() {
+                        return Type.NONE; //A NONE animation results in the image given in initializeClass being used
+                    }
+                });
 
-        initializeClass(null,
+        initializeClass(characterPath("image2.png"), //The image to use. The rest of the method is unchanged.
                 SHOULDER_2,
                 SHOULDER_1,
                 CORPSE,
